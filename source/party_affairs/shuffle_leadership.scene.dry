@@ -143,11 +143,6 @@ view-if: n_advisors < 3
 
 - #labor_advisor
 
-@neorev
-view-if: neorevisionism > 0 and n_advisors < 3
-
-- #neorev_advisor
-
 @nonfactional
 view-if: n_advisors < 3
 
