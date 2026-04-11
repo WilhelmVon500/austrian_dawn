@@ -53,7 +53,7 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 Inflation: [+ inflation_2 +]%
 
-[? if black_thursday_seen = 1 : Unemployment: [+ unemployed_2 +]% ?]
+Unemployment: [+ unemployed_2 +]%
 
 Economic growth: [+ economic_growth_2 +]%
 
@@ -137,18 +137,24 @@ Q.socialism_disp = Math.round(Q.socialism);
 
 <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ oclk_votes +]%
 
+<span style="color: #FA5A42;">**AP**</span>: [+ ap_votes +]%
+
+<span style="color: #0E428E;">**DNLP**</span>: [+ dnlp_votes +]%
+
+<span style="color: #ED2939;">**VF**</span>: [+ vf_votes +]%
+
 <span style="color: #909090;">**Others**</span>: [+ other_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ workers_oclk_display +]%, <span style="color: #909090;">**Others**</span>: [+ workers_other_display +]%
+Workers: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ workers_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ workers_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ workers_dnlp_display +]%, <span style="color: #ED2939;">**VF**</span>: [+ workers_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ workers_other_display +]%
 
-New Middle Class: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ new_middle_oclk_display +]%, <span style="color: #909090;">**Others**</span>: [+ new_middle_other_display +]%
+New Middle Class: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ new_middle_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ new_middle_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ new_middle_dnlp_display +]%, <span style="color: #ED2939;">**VF**</span>: [+ new_middle_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ new_middle_other_display +]%
 
-Old Middle Class: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ old_middle_oclk_display +]%,  <span style="color: #909090;">**Others**</span>: [+ old_middle_other_display +]%
+Old Middle Class: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ old_middle_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ old_middle_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ old_middle_dnlp_display +]%, <span style="color: #ED2939;">**VF**</span>: [+ old_middle_vf_display +]%,  <span style="color: #909090;">**Others**</span>: [+ old_middle_other_display +]%
 
-Rural: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ rural_oclk_display +]%, <span style="color: #909090;">**Others**</span>: [+ rural_other_display +]%
+Rural: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ rural_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ rural_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ rural_dnlp_display +]%, <span style="color: #ED2939;">**VF**</span>: [+ rural_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ rural_other_display +]%
 
-Unemployed: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ unemployed_oclk_display +]%, <span style="color: #909090;">**Others**</span>: [+ unemployed_other_display +]%
+Unemployed: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ unemployed_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ unemployed_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ unemployed_dnlp_display +]%, <span style="color: #ED2939;">**VF**</span>: [+ unemployed_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ unemployed_other_display +]%
 
-Catholics: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ catholics_oclk_display +]%, <span style="color: #909090;">**Others**</span>: [+ catholics_other_display +]%
+Catholics: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ catholics_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ catholics_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ catholics_dnlp_display +]%, <span style="color: #ED2939;">**VF**</span>: [+ catholics_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ catholics_other_display +]%
