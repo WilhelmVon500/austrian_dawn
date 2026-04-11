@@ -1,0 +1,50 @@
+title: Party Organizations
+new-page: true
+is-card: true
+tags: party_affairs
+view-if: party_organizations_timer <= 0
+on-arrival: month_actions += 1; party_organizations_timer = 6;
+card-image: img/party_organizations.jpg
+max-visits: 6
+
+= Party Organizations
+
+In addition to being a political party, the <span style="color: #F5D900;">**[+ oclk_name +]**</span> is associated with some social organizations, mainly middle class ones.
+
+- @newspapers: Fund more newspapers and journalists.
+- @culture: Fund educational and cultural programs.
+- @youth: Support the youth organizations.
+- @nothing: Do not increase funding for any program.
+- @easy_discard
+
+  
+@newspapers
+choose-if: resources > 0
+unavailable-subtitle: Not enough resources.
+subtitle: -1 resources
+on-arrival: resources -= 1; media_timer = 0;
+go-to: media
+
+  
+@culture
+choose-if: resources > 0
+unavailable-subtitle: Not enough resources.
+subtitle: -1 resources
+on-arrival: resources -= 1; cultural_organizations += 1; moderate_right_dissent -= 6; classical_liberal_dissent -= 6; social_liberal_dissent -= 6; christian_left_dissent -= 6;
+
+It is not enough for the <span style="color: #F5D900;">**[+ oclk_name +]**</span> to solely be a political party. Our cultural and educational organizations are crucial to attract people of culture and arts to our party.
+
+
+@youth
+choose-if: resources > 0
+unavailable-subtitle: Not enough resources.
+subtitle: -1 resources
+on-arrival: resources -= 1; youth_organizations += 1; classical_liberal_strength += 5;
+
+We have supported Jugend Vereinigung der <span style="color: #F5D900;">**[+ oclk_name +]**</span> and Deutsch-Demokratische Hochschüler Vereinigung, our affiliated youth organizations.
+
+@nothing
+
+We do not fund any party organizations.
+
+- @return: Continue...
