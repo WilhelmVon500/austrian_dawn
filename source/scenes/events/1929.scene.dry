@@ -1,10 +1,5 @@
 title: 1942
 subtitle: A new year
-on-arrival: {!
-// see post_event.scene.dry for changes.
-Q.economic_growth -= 4;
-
-!}
 tags: event
 view-if: year = 1942 and month = 1
 priority: 11
