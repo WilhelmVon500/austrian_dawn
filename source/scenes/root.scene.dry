@@ -304,27 +304,23 @@ Q.coalition_affairs_timer = 0;
 // event timers
 
 
-Q.wels_advisor = 1; // Otto Wels
-Q.muller_advisor = 1; // Hermann Müller
-Q.hilferding_advisor = 1; // Rudolf Hilferding
+Q.kelsen_advisor = 1; // Hans Kelsen
+Q.adamovich_advisor = 1; // Ludwig Adamovich
+Q.mises_advisor = 1; // Ludwig Mises
 
-// left advisors
+// moderate right advisors
 Q.sender_advisor = 0; // Toni Sender
 
-// centrist alternate advisors
+// classical liberal advisors
 Q.pfulf_advisor = 0; // Antonie Pfülf
 
-// Reformist advisors
+// social liberal advisors
 Q.severing_advisor = 0; // Carl Severing
 
-// Labor advisors
-Q.leipart_advisor = 0; // Theodor Leipart
-
-// Revisionist advisors
-Q.mierendorff_advisor = 0; // Carlo Mierendorf
+// christian left advisors
+Q.dobretsberger_advisor = 0; // Josef Dobretsberger
 
 // Nonfactional advisors
-Q.stampfer_advisor = 0; // Friedrich Stampfer
 !}
 set-bg: img/map_2.jpg
 new-page: true
