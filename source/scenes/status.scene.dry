@@ -97,7 +97,7 @@ Economic growth: [+ economic_growth_2 +]%
 = Cabinet
 
 <div style="display: flex;gap: 5px;margin-bottom: 5px;margin-left: -3px;">[? if chancellor == "Schuschnigg": <img src="img/portraits/SchuschniggKurt.jpg" style="width: 50%; height: 200px;"> ?]
-[? if vice_chancellor == "": <img src="img/portraits/.jpg" style="width: 50%; height: 200px;"> ?]</div>
+[? if vice_chancellor == "Baar-Baarenfels": <img src="img/portraits/BaarBaarenfelsEduard.jpg" style="width: 50%; height: 200px;"> ?]</div>
 
 Chancellor: [+ chancellor +] ([?if chancellor_party == "I":<span style="color: #808080;">**I**</span>?][?if chancellor_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
