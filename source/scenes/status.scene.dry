@@ -41,7 +41,7 @@ Bundestag composition:
 
 {!<span class="tooltip-text" title="German National Liberal Party" style="color: #0E428E;">!}**DNLP**{!</span>!}: [+ dnlp_seats +] ([+ dnlp_b +]%)
 
-{!<span class="tooltip-text" title="Fatherland Front">!}**VF**{!</span style="color: #ED2939;">!}: [+ vf_seats +] ([+ vf_b +]%)
+{!<span class="tooltip-text" title="Fatherland Front" style="color: #ED2939;">!}**VF**{!</span>!}: [+ vf_seats +] ([+ vf_b +]%)
 
 <span style="color: #909090;">**Others**</span>: [+ other_seats +] ([+ other_b +]%)
 
@@ -69,7 +69,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="German National Liberal Party" style="color: #0E428E;">!}**DNLP**{!</span>!}: [+ dnlp_relation : relationships +]
 
-{!<span class="tooltip-text" title="Fatherland Front">!}**VF**{!</span style="color: #ED2939;">!}: [+ vf_relation : relationships +]
+{!<span class="tooltip-text" title="Fatherland Front" style="color: #ED2939;">!}**VF**{!</span style="color: #ED2939;">!}: [+ vf_relation : relationships +]
 
 = Internal Factions of the <span style="color: #F5D900;">**[+ oclk_name +]**</span>
 
