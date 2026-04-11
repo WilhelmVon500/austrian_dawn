@@ -92,6 +92,34 @@ Economic growth: [+ economic_growth_2 +]%
 [? if christian_left_oclk: {!<span class="tooltip-text" title="WIP.">!}**Christian Left**{!</span>!} strength: [+ christian_left_strength : strength +], dissent: [+ christian_left_dissent : dissent +] ?]
 
 
+@cabinet
+
+= Cabinet
+
+<div style="display: flex;gap: 5px;margin-bottom: 5px;margin-left: -3px;">[? if chancellor == "Schuschnigg": <img src="img/portraits/SchuschniggKurt.jpg" style="width: 50%; height: 200px;"> ?]
+[? if vice_chancellor == "": <img src="img/portraits/.jpg" style="width: 50%; height: 200px;"> ?]</div>
+
+Chancellor: [+ chancellor +] ([?if chancellor_party == "I":<span style="color: #808080;">**I**</span>?][?if chancellor_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+
+Vice-Chancellor: [+ vice_chancellor +] ([?if vice_chancellor_party == "I":<span style="color: #808080;">**I**</span>?][?if vice_chancellor_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+
+Foreign: [+ foreign_minister +] ([?if foreign_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if foreign_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+
+Interior: [+ interior_minister +] ([?if interior_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if interior_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+
+Justice: [+ justice_minister +] ([?if justice_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if justice_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+
+Finance: [+ finance_minister +] ([?if finance_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if finance_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+
+Trade and Communications: [+ economic_minister +] ([?if economic_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if economic_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+
+Social Administration: [+ social_minister +] ([?if social_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if social_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+
+Agriculture: [+ agriculture_minister +] ([?if agriculture_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if agriculture_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+
+Defense: [+ defense_minister +] ([?if defense_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if defense_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+
+
 @paramilitaries
 on-arrival: {!
 if (Q.rb_strength) {
