@@ -33,6 +33,8 @@ President: [+ president +] ([?if president_party == "VF": <span style="color: #E
 
 Chancellor: [+ chancellor +] ([?if chancellor_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
+[? if oclk_in_government = 1 : Budget: [+ budget +] ?]
+
 = Bundestag
 
 {!<span class="tooltip-text" title="Austrian Christian-Liberal Coalition" style="color: #F5D900;">!}**[+ oclk_name +]**{!</span>!}: **[+ oclk_seats +]** **([+ oclk_b +]%)**
@@ -45,7 +47,7 @@ Chancellor: [+ chancellor +] ([?if chancellor_party == "VF": <span style="color:
 
 <span style="color: #909090;">**Others**</span>: [+ other_seats +] ([+ other_b +]%)
 
-[? if oclk_in_government = 1 : Budget: [+ budget +] ?]
+Bundestag President: [+ president +] ([?if bundestag_president_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
 Next election: [+ next_election_month : month +] [+ next_election_year +]
 
