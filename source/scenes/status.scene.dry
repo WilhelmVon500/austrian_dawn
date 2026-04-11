@@ -69,13 +69,13 @@ Economic growth: [+ economic_growth_2 +]%
 
 = Internal Factions of the <span style="color: #F5D900;">**[+ oclk_name +]**</span>
 
-{!<span class="tooltip-text" title="WIP.">!}**Moderate Right**{!</span>!} strength: [+ moderate_right_strength : strength +], dissent: [+ moderate_right_dissent : dissent +]
+[? if moderate_right_oclk: {!<span class="tooltip-text" title="WIP.">!}**Moderate Right**{!</span>!} strength: [+ moderate_right_strength : strength +], dissent: [+ moderate_right_dissent : dissent +] ?]
 
-{!<span class="tooltip-text" title="WIP.">!}**Classical Liberal**{!</span>!} strength: [+ classical_liberal_strength : strength +], dissent: [+ classical_liberal_dissent : dissent +]
+[? if classical_liberal_oclk: {!<span class="tooltip-text" title="WIP.">!}**Classical Liberal**{!</span>!} strength: [+ classical_liberal_strength : strength +], dissent: [+ classical_liberal_dissent : dissent +] ?]
 
-{!<span class="tooltip-text" title="WIP.">!}**Social Liberal**{!</span>!} strength: [+ social_liberal_strength : strength +], dissent: [+ social_liberal_dissent : dissent +]
+[? if social_liberal_oclk: {!<span class="tooltip-text" title="WIP.">!}**Social Liberal**{!</span>!} strength: [+ social_liberal_strength : strength +], dissent: [+ social_liberal_dissent : dissent +] ?]
 
-{!<span class="tooltip-text" title="WIP.">!}**Christian Left**{!</span>!} strength: [+ christian_left_strength : strength +], dissent: [+ christian_left_dissent : dissent +]
+[? if christian_left_oclk: {!<span class="tooltip-text" title="WIP.">!}**Christian Left**{!</span>!} strength: [+ christian_left_strength : strength +], dissent: [+ christian_left_dissent : dissent +] ?]
 
 
 @paramilitaries
