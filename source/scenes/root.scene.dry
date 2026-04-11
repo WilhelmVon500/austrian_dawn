@@ -216,6 +216,7 @@ Q.economic_records = [];
 Q.president = "Miklas";
 Q.president_party = 'VF';
 Q.chancellor = "Schuschnigg";
+Q.chancellor_party = "VF";
 
 Q.vf_in_government = 1;
 Q.ap_in_government = 0;
