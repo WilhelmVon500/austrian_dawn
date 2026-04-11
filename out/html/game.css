@@ -185,8 +185,9 @@ blockquote + blockquote.attribution {
   margin: 0 auto;
 }
 .tools {
+  margin-left: -4em;
   padding: 0.6em;
-  width: 14rem;
+  width: 18rem;
   color: var(--text-color);
   background-color: var(--content-bg-color);
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
@@ -537,37 +538,19 @@ table {
 }
 
 /* Styles for parties */
-.seat.kpd {
-    fill: #8B0000;
-}
-.seat.spd {
-    fill: #E3000F;
+.seat.oclk {
+    fill: #F5D900;
     stroke: var(--border-color);
     stroke-width: 1.5px;
 }
-.seat.ddp {
-    fill: #DCCA4A;
+.seat.ap {
+    fill: #FA5A42;
 }
-.seat.z {
-    fill: #000;
+.seat.dnlp {
+    fill: #0E428E;
 }
-.seat.bvp {
-    fill: #69A2BE;
-}
-.seat.dvp {
-    fill: #D5AC27;
-}
-.seat.other {
-    fill: #909090;
-}
-.seat.dnvp {
-    fill: #3F7BC1;
-}
-.seat.nsdap {
-    fill: #954B00;
-}
-.seat.sapd {
-    fill: #C40000;
+.seat.vf {
+    fill: #ED2939;
 }
 
 .tooltip-text {
