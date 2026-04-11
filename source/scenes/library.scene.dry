@@ -205,7 +205,7 @@ Loyalty: [+ prussian_police_loyalty : loyalty +]
 
 @factions
 
-**Internal factions of the [+ oclk_name +]**
+**Internal factions of the <span style="color: #F5D900;">[+ oclk_name +]</span>**
 
 Overall dissent: [+ dissent_percent : dissent +]
 
