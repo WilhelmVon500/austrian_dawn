@@ -37,7 +37,7 @@ Chancellor: [+ chancellor +] ([?if chancellor_party == "VF": <span style="color:
 
 = Bundestag
 
-{!<span class="tooltip-text" title="Austrian Christian-Liberal Coalition" style="color: #F5D900;">!}**[+ oclk_name +]**{!</span>!}: **[+ oclk_seats +]** **([+ oclk_b +]%)**
+{!<span class="tooltip-text" title="Austrian Christian-Liberal Coalition" style="color: #F5D900;">!}**[+ oclk_name +]**{!</span>!}: [+ oclk_seats +] ([+ oclk_b +]%)
 
 {!<span class="tooltip-text" title="Workers' Party" style="color: #FA5A42;">!}**AP**{!</span>!}: [+ ap_seats +] ([+ ap_b +]%)
 
