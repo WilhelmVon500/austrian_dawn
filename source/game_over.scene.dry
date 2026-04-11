@@ -1,0 +1,44 @@
+title: Game Over.
+new-page: true
+go-to: eg_menu
+on-arrival: {!
+Q.game_over = 1;
+// Achievements:
+// WIP
+!}
+
+= End
+
+
+@eg_menu
+
+- #endings
+- @end_game: End game.
+
+
+@achievements
+title: Achievements
+view-if: achievement_game_completed == 1
+tags: endings
+go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
+
+= Completed Achievements in this Playthrough
+
+
+[? if game_achievement_eiserne_front : **Eiserne Front** - form the Iron Front. ?]
+
+
+
+= Completed Achievements Overall
+
+
+[? if achievement_eiserne_front : **Eiserne Front** - form the Iron Front. ?]
+
+
+= Incomplete Achievements
+
+[? if not achievement_eiserne_front : **Eiserne Front** - form the Iron Front. ?]
+
+
+@end_game
+game-over: true
