@@ -21,7 +21,7 @@ if (Q.economic_growth) {
 Resources available: [+ resources +]
 
 <span style="color: #F5D900;">**[+ oclk_name +]**</span> position: [? if oclk_toleration : toleration - ?][? if oclk_in_government : in government - ?][? if not oclk_toleration and not oclk_in_government: opposition - ?]
-[? if in_right_coalition: Right Coalition ?][? if in_oclk_majority: <span style="color: #F5D900;">**[+ oclk_name +]**</span> Majority ?][? if in_vf_majority: VF Majority ?]
+[? if in_right_coalition: Right Coalition ?][? if in_oclk_majority: <span style="color: #F5D900;">**[+ oclk_name +]**</span> Majority ?][? if in_vf_majority: <span style="color: #ED2939;">**VF**</span> Majority ?]
 
 [? if oclk_in_government and not in_oclk_majority: Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
