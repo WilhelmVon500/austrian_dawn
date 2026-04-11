@@ -1,0 +1,12 @@
+title: Otto Braun
+is-pinned-card: true
+tags: advisor, reformist
+card-image: img/portraits/BraunOtto.jpg
+view-if: braun_advisor = 1
+new-page: true 
+
+= Otto Braun
+
+WIP
+
+- @root: Return to main
