@@ -1,0 +1,11 @@
+title: Media
+new-page: true
+is-card: true
+tags: party_affairs
+view-if: media_timer <= 0
+on-arrival: month_actions += 1; media_timer += 6;
+card-image: img/poster_2.jpg
+
+= Media
+
+The <span style="color: #F5D900;">**[+ oclk_name +]**</span> has some supportive liberal media in biggest cities. We could use the media for various purposes...
