@@ -289,7 +289,7 @@ Q.timers = ['advisor_action', 'fundraising', 'ideology',
             'media', 'enemies', 'party_organizations', 'rally',
             'shuffle_leadership', 'streetfighting', 'party_disunity',
             // govt
-            'agricultural_policy',
+            'coalition_affairs',
             // events
             ];
 Q.advisor_action_timer = 0;
@@ -316,7 +316,6 @@ Q.next_election_year = 1942;
 Q.next_election_month = 11;
 Q.next_election_time = 23;
 // government affairs timers
-Q.agricultural_policy_timer = 0;
 Q.coalition_affairs_timer = 0;
 // event timers
 
