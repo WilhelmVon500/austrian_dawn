@@ -35,11 +35,15 @@ Chancellor: [+ chancellor +] ([+ chancellor_party +])
 
 Bundestag composition:
 
-{!<span class="tooltip-text" title="Austrian Christian-Liberal Coalition" style="color: #F5D900;">**[+ oclk_name +]**</span>!}: [+ oclk_b +]%
+{!<span class="tooltip-text" title="Austrian Christian-Liberal Coalition" style="color: #F5D900;">!}**[+ oclk_name +]**{!</span>!}: **[+ oclk_seats +]** **([+ oclk_b +]%)**
 
-{!<span class="tooltip-text" title="Center Party + Bavarian People's Party">Z + BVP</span>!}: [+ z_r +]%
+{!<span class="tooltip-text" title="Workers' Party" style="color: #FA5A42;">!}**AP**{!</span>!}: [+ ap_seats +] ([+ ap_b +]%)
 
-Others: [+ other_r +]%
+{!<span class="tooltip-text" title="German National Liberal Party" style="color: #0E428E;">!}**DNLP**{!</span>!}: [+ dnlp_seats +] ([+ dnlp_b +]%)
+
+{!<span class="tooltip-text" title="Fatherland Front">!}**VF**{!</span style="color: #ED2939;">!}: [+ vf_seats +] ([+ vf_b +]%)
+
+<span style="color: #909090;">**Others**</span>: [+ other_seats +] ([+ other_b +]%)
 
 [? if oclk_in_government = 1 : Budget: [+ budget +] ?]
 
@@ -133,18 +137,18 @@ Q.socialism_disp = Math.round(Q.socialism);
 
 <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ oclk_votes +]%
 
-Others: [+ other_votes +]%
+<span style="color: #909090;">**Others**</span>: [+ other_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ workers_oclk_display +]%, Others: [+ workers_other_display +]%
+Workers: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ workers_oclk_display +]%, <span style="color: #909090;">**Others**</span>: [+ workers_other_display +]%
 
-New Middle Class: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ new_middle_oclk_display +]%, Others: [+ new_middle_other_display +]%
+New Middle Class: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ new_middle_oclk_display +]%, <span style="color: #909090;">**Others**</span>: [+ new_middle_other_display +]%
 
-Old Middle Class: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ old_middle_oclk_display +]%,  Others: [+ old_middle_other_display +]%
+Old Middle Class: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ old_middle_oclk_display +]%,  <span style="color: #909090;">**Others**</span>: [+ old_middle_other_display +]%
 
-Rural: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ rural_oclk_display +]%, Others: [+ rural_other_display +]%
+Rural: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ rural_oclk_display +]%, <span style="color: #909090;">**Others**</span>: [+ rural_other_display +]%
 
-Unemployed: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ unemployed_oclk_display +]%, Others: [+ unemployed_other_display +]%
+Unemployed: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ unemployed_oclk_display +]%, <span style="color: #909090;">**Others**</span>: [+ unemployed_other_display +]%
 
-Catholics: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ catholics_oclk_display +]%, Others: [+ catholics_other_display +]%
+Catholics: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ catholics_oclk_display +]%, <span style="color: #909090;">**Others**</span>: [+ catholics_other_display +]%
