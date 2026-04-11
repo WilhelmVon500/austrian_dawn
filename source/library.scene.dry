@@ -1,0 +1,378 @@
+title: library
+new-page: true
+is-special: true
+go-to: menu
+
+= The Library
+
+Herein contains relevant information about the government and politics of Austria.
+
+@menu
+
+- @government: Germany's system of government
+- @weimar_timeline: Timeline of the Weimar Republic before 1928
+- @curr_gov: Current government details
+- @demographics: Demographics
+- @parties: Parties
+- @public_opinion: Public opinion (and projected election results)
+- @paramilitaries: Paramilitary groups
+- @factions: Internal factions
+- @figures: Figures and charts
+- @backSpecialScene: Exit library.
+
+@government
+go-to: menu
+
+WIP
+
+@weimar_timeline
+go-to: menu
+
+= Timeline of the ÖCLK and the Republic (until 1941)
+
+**1918**: WIP
+
+@curr_gov
+go-to: cabinet if spd_in_government; menu if not spd_in_government
+
+= Current Government
+
+President: [+ president +]
+
+Chancellor: [+ chancellor +] ([+ chancellor_party +])
+
+Bundestag composition:
+
+{!<span class="tooltip-text" title="Social Democratic Party of Germany">SPD</span>!}: [+ spd_r +]%
+
+{!<span class="tooltip-text" title="Center Party + Bavarian People's Party">Z + BVP</span>!}: [+ z_r +]%
+
+{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_r +]%
+
+
+{!<span class="tooltip-text" title="German People's Party">DVP</span>!}: [+ dvp_r +]%
+
+{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [+ dnvp_r +]%
+
+{!<span class="tooltip-text" title="German National-Socialist Worker's Party)">DNSAP</span>!}: [+ dnsap_r +]%
+
+Others: [+ other_r +]%
+
+SPD position: [? if spd_toleration : toleration ?][? if spd_in_government : in government - ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
+[? if in_weimar_coalition and spd_in_government: Weimar Coalition ?][? if in_grand_coalition and spd_in_government: Grand Coalition ?][? if in_popular_front and spd_in_government: Popular Front ?][? if in_left_front and spd_in_government: Left Front ?][? if in_spd_majority and spd_in_government: SPD majority ?][? if in_minority_government and spd_in_government: minority government ?][? if in_emergency_government and spd_in_government: emergency government ?]
+
+[? if spd_in_government and not in_spd_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
+
+@cabinet
+go-to: menu
+
+Current cabinet:
+
+Labor: [+ labor_minister_party +]
+
+Interior: [+ interior_minister_party +]
+
+Finance: [+ finance_minister_party +]
+
+Economic: [+ economic_minister_party +]
+
+Justice: [+ justice_minister_party +]
+
+Foreign: [+ foreign_minister_party +]
+
+Reichswehr: [+ reichswehr_minister_party +]
+
+Agriculture: [+ agriculture_minister_party +]
+
+
+@demographics
+go-to: menu
+
+**Demographic Groups**
+
+**Working Class**: The urban working class - blue-collar workers in factories, workshops, mines, and the like. Most are socialist, supporting the AP. They make up WIP% of the population.
+
+**Old Mittelstand**: The old middle class consists of independent artisans, shopkeepers, and small-time businesspeople. They tend to be German-nationalist. WIP% of the population.
+
+**New Mittelstand**: The new middle class consists of white-collar workers and government employees. This is the base of liberalism. WIP% of the population.
+
+**Rural**: Small and large farmers and independent rural workers. WIP% of the population.
+
+**Catholics** are the largest religious minority, at about 30% of the population. They disproportionately support the VF.
+
+**Jews** account for between 0.5% to 1% of the population, and tend to support moderate parties, mostly us, although substantial numbers support the SPD or KPD.
+
+
+@public_opinion
+on-arrival: {!
+Q.pro_republic_disp = Math.round(Q.pro_republic);
+Q.nationalism_disp = Math.round(Q.nationalism);
+Q.socialism_disp = Math.round(Q.socialism);
+!}
+view-if: (not historical_mode) or game_over
+go-to: election_algorithm
+set-jump: election_projections
+
+**Public Opinion**
+
+#Support for Socialism: [+ socialism +]%
+
+#Support for Nationalism: [+ nationalism +]%
+
+Support for the Republic: [+ pro_republic_disp +]%
+
+
+@election_projections
+view-if: (not historical_mode) or game_over
+go-to: menu
+
+**Projected election results** (if the election were to be held now):
+
+SPD: [+ spd_votes +]%
+
+[? if sapd_formed: SAPD: [+ sapd_votes +]% ?]
+
+Z + BVP: [+ z_votes +]%
+
+KPD: [+ kpd_votes +]%
+
+DVP: [+ dvp_votes +]%
+
+DNVP: [+ dnvp_votes +]%
+
+DNSAP: [+ dnsap_votes +]%
+
+Others: [+ other_votes +]%
+
+**Detailed results for each demographic**
+
+Workers: SPD: [+ workers_spd_display +]%, Z: [+ workers_z_display +]%, KPD: [+ workers_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ workers_ddp_display +]%, DVP: [+ workers_dvp_display +]%; DNVP: [+ workers_dnvp_display +]%, DNSAP: [+ workers_dnsap_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
+
+New Middle Class: SPD: [+ new_middle_spd_display +]%, Z: [+ new_middle_z_display +]%, KPD: [+ new_middle_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ new_middle_ddp_display +]%, DVP: [+ new_middle_dvp_display +]%; DNVP: [+ new_middle_dnvp_display +]%, DNSAP: [+ new_middle_dnsap_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
+
+Old Middle Class: SPD: [+ old_middle_spd_display +]%, Z: [+ old_middle_z_display +]%, KPD: [+ old_middle_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ old_middle_ddp_display +]%, DVP: [+ old_middle_dvp_display +]%; DNVP: [+ old_middle_dnvp_display +]%, DNSAP: [+ old_middle_dnsap_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
+
+Rural: SPD: [+ rural_spd_display +]%, Z: [+ rural_z_display +]%, KPD: [+ rural_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ rural_ddp_display +]%, DVP: [+ rural_dvp_display +]%; DNVP: [+ rural_dnvp_display +]%, DNSAP: [+ rural_dnsap_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
+
+Unemployed: SPD: [+ unemployed_spd_display +]%, Z: [+ unemployed_z_display +]%, KPD: [+ unemployed_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ unemployed_ddp_display +]%, DVP: [+ unemployed_dvp_display +]%; DNVP: [+ unemployed_dnvp_display +]%, DNSAP: [+ unemployed_dnsap_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
+
+Catholics: SPD: [+ catholics_spd_display +]%, Z: [+ catholics_z_display +]%, KPD: [+ catholics_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ catholics_ddp_display +]%, DVP: [+ catholics_dvp_display +]%; DNVP: [+ catholics_dnvp_display +]%, DNSAP: [+ catholics_dnsap_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
+
+@parties
+go-to: menu
+
+WIP
+
+@paramilitaries
+on-arrival: {!
+Q.rb_strength = Math.round(Q.rb_strength);
+Q.sh_strength = Math.round(Q.sh_strength);
+Q.sa_strength = Math.round(Q.sa_strength); 
+!}
+go-to: menu
+
+**Paramilitary groups:**
+
+**Reichsbanner Schwarz-Rot-Gold**: The Reichsbanner is an organization affiliated with all of the democratic parties - the SPD, Z, and DDP, but primarily with the SPD. Historically, this has been an unarmed organization.
+
+Strength: [+ rb_strength +] thousand
+
+Militarization: [+ rb_militancy : militancy +]
+
+**Rotfrontkämpferbund (RFB)**: The "Red Front Fighter's League" is associated with the KPD.
+
+Strength: [+ rfb_strength +] thousand
+
+Militarization: [+ rfb_militancy : militancy +]
+
+**Der Stahlhelm**: A right-wing nationalist organization of primarily Great War veterans, descended from the *Freikorps* that emerged after the war. Associated with the DNVP.
+
+Strength: [+ sh_strength +] thousand
+
+Militarization: [+ sh_militancy : militancy +]
+
+**Sturmabteilung (SA)**: This is the DNSAP paramilitary group.
+
+Strength: [+ sa_strength +] thousand
+
+Militarization: [+ sa_militancy : militancy +]
+
+**Official military/paramilitary groups:**
+
+**Reichswehr**: [+ reichswehr_strength +] thousand troops. This is Germany's military.
+
+Loyalty: [+ reichswehr_loyalty : loyalty +]
+
+**Prussian police**: [+ prussian_police_strength +] thousand members.
+
+Loyalty: [+ prussian_police_loyalty : loyalty +]
+
+
+
+@factions
+go-to: neorevisionists if neorevisionism > 0; menu if neorevisionism <= 0
+
+**Internal factions of the SPD**
+
+Overall dissent: [+ dissent_percent : dissent +]
+
+**Left**
+
+Many leftists are former members of the USPD (the left-wing, anti-war Independent Social Democratic Party), or are young radicals. Many are interested in closer cooperation with the KPD, and some support extraparliamentary action.
+
+Strength: [+ left_strength : strength +]
+
+Dissent: [+ left_dissent : dissent +]
+
+**Centrists**
+
+Centrists in the SPD are followers of the doctrine of orthodox Marxism as expounded by Karl Kautsky and later Rudolf Hilferding. They seek a middle course between reform and revolution, while defending the democratic state.
+
+Strength: [+ center_strength : strength +]
+
+Dissent: [+ center_dissent : dissent +]
+
+**Labor**
+
+Many SPD members are also part of the ADGB, the federation of free trade unions. Their goal is economic reform and benefits for organized workers.
+
+Strength: [+ labor_strength : strength +]
+
+Dissent: [+ labor_dissent : dissent +]
+
+**Reformists**
+
+Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy against the far right and left. [? if spd_prussia : They are dominant in the state government of Prussia. ?]
+
+Strength: [+ reformist_strength : strength +]
+
+Dissent: [+ reformist_dissent : dissent +]
+
+@neorevisionists
+go-to: menu
+
+**Neorevisionists**
+
+Neorevisionists focus on defending the republic and expanding democracy, while also expanding the party's base beyond the working class to create a people's party. They support new propaganda methods and extraparliamentary action in defense of the republic.
+
+Strength: [+ neorevisionist_strength : strength +]
+
+Dissent: [+ neorevisionist_dissent : dissent +]
+
+
+@figures
+title: Figures and Charts
+go-to: menu
+on-display: {!
+data = []
+if (Q.ap_b) {
+    data.push({
+        "id": "ap",
+        "legend": "AP",
+        "name": "AP",
+        "seats": Math.round(Q.ap_b*2),
+    });
+}
+if (Q.oclk_b) {
+    data.push({
+        "id": "oclk",
+        "legend": "ÖCLK",
+        "name": "ÖCLK",
+        "seats": Math.round(Q.oclk_b*2),
+    });
+}
+if (Q.dnlp_b) {
+    data.push({
+        "id": "dnlp",
+        "legend": "DNLP",
+        "name": "DNLP",
+        "seats": Math.round(Q.dnlp_b*2),
+    });
+}
+if (d3 && window) {
+    // get screen width
+    var width = 500;
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50;
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    }
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+
+    var lines = d3.linegraph(false, false,
+            Q.parties,
+            {'spd': '#E3000F', 'kpd': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'dvp': '#D5AC27', 'dnvp': '#3f7bc1', 'nsdap': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
+            {'spd': 'SPD', 'kpd': 'KPD', 'ddp': Q.ddp_name, 'z': 'Z + BVP', 'dvp': 'DVP', 'dnvp': 'DNVP', 'nsdap': 'NSDAP', 'other': 'Others', 'sapd': 'SAPD'});
+    lines.width(width).height(400);
+    //var svg = lines(Q.election_records);
+    if (Q.election_records.length > 0) {
+        d3.select("#election_history").datum(Q.election_records).call(lines);
+    }
+    //document.getElementById('election_history').innerHTML = svg.outerHTML;
+
+    // party support records should not have so many ticks
+    if (!Q.historical_mode || Q.game_over) {
+        var lines_2 = d3.linegraph(true, true,
+            Q.parties,
+            {'spd': '#E3000F', 'kpd': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'dvp': '#D5AC27', 'dnvp': '#3f7bc1', 'nsdap': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
+            {'spd': 'SPD', 'kpd': 'KPD', 'ddp': Q.ddp_name, 'z': 'Z + BVP', 'dvp': 'DVP', 'dnvp': 'DNVP', 'nsdap': 'NSDAP', 'other': 'Others', 'sapd': 'SAPD'});
+        lines_2.width(width).height(400);
+        d3.select("#party_support_history").datum(Q.party_support_records).call(lines_2);
+    }
+
+    // economic stats
+    var minInflation = d3.min(Q.economic_records, d => d.inflation);
+    var maxUnemployment = d3.max(Q.economic_records, d => d.unemployment);
+    var lines_3 = d3.linegraph(true, true, ['inflation', 'unemployment'],
+            {'inflation': '#0000FF', 'unemployment': '#FF0000'},
+            {'inflation': 'Inflation', 'unemployment': 'Unemployment'},
+            maxUnemployment + 5, minInflation - 5, 21);
+    lines_3.width(width).height(300);
+    d3.select("#economic_history").datum(Q.economic_records).call(lines_3);
+}
+!}
+
+= Bundestag composition
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+{!<table>!}
+{!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div></td><td>!} **SPD:** {!</td><td>!} **[+ spd_r +]%** {!</td></tr>!}
+
+[? if sapd_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div></td> <td> !}SAPD: {!</td><td>!} [+ sapd_r +]% {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div></td> <td>!}KPD: {!</td><td>!} [+ kpd_r +]% {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#000'> </div></td><td>!} Z: {!</td><td>!} [+ z_minus_bvp_r +]% {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#69A2BE'> </div></td><td>!} BVP: {!</td><td>!} 3% {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#D5AC27'> </div></td><td>!} DVP: {!</td><td>!} [+ dvp_r +]% {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div></td><td>!} DNVP: {!</td><td>!} [+ dnvp_r +]% {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div></td><td>!} Other parties: {!</td><td>!} [+ other_r +] % {!</td></tr>!}
+{!</table>!}
+
+= Election history
+
+[? if year = 1928 and month < 5 : No new elections yet. ?]
+
+{!<svg id="election_history" style="width: 500px; height: 400px;"> </svg>!}
+
+= Party support history
+
+[? if historical_mode: Not available in historical mode. ?]
+
+{!<svg id="party_support_history" style="width: 500px; height: 400px;"> </svg>!}
+
+= Economic history
+
+{!<svg id="economic_history" style="width: 500px; height: 300px;"> </svg>!}
+# TODO: maybe add textual histories too? some accessibility stuff as well...
