@@ -21,7 +21,7 @@ Removing advisors will increase dissent from their faction of the party, while s
 
 @rm_main
 title: Remove advisors.
-tags: center_advisor, left_advisor, reformist_advisor, labor_advisor, nonfactional_advisor 
+tags: moderate_right_advisor, classical_liberal_advisor, social_liberal_advisor, christian_left_advisor, nonfactional_advisor 
 frequency: 1
 
 - #remove_advisor
@@ -33,56 +33,56 @@ go-to: root
 tags: remove_advisor
 
 
-# centrist
+# moderate right
 
 
-@remove_hilferding
-title: Remove Hilferding
-view-if: hilferding_advisor = 1
-on-arrival: hilferding_advisor = 0; center_dissent += 5; n_advisors -= 1
+@remove_adamovich
+title: Remove Adamovich
+view-if: adamovich_advisor
+on-arrival: adamovich_advisor = 0; moderate_right_dissent += 5; n_advisors -= 1
 tags: remove_advisor
 go-to: rm_main
 
-Hilferding has been removed as an advisor. The Centrist faction disapproves.
+Adamovich has been removed as an advisor. The Moderate Right faction disapproves.
 
 
-# reformists
+# classical liberal
 
 
-@remove_severing
-title: Remove Severing
-view-if: severing_advisor = 1
+@remove_mises
+title: Remove Mises
+view-if: mises_advisor
 tags: remove_advisor
-on-arrival: severing_advisor = 0; reformist_dissent += 5; n_advisors -= 1
+on-arrival: mises_advisor = 0; classical_liberal_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Severing has been removed as an advisor. The Reformist faction disapproves.
+Mises has been removed as an advisor. The Classical Liberal faction disapproves.
 
 
-# labor
+# social liberal
 
 
-@remove_leipart
-title: Remove Leipart
-view-if: leipart_advisor = 1
+@remove_kelsen
+title: Remove Kelsen
+view-if: kelsen_advisor
 tags: remove_advisor
-on-arrival: leipart_advisor = 0; labor_dissent += 5; n_advisors -= 1
+on-arrival: kelsen_advisor = 0; social_liberal_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Leipart has been removed as an advisor. The Labor faction disapproves.
+Kelsen has been removed as an advisor. The Social Liberal faction disapproves.
 
 
-# left
+# christian left
 
 
-@remove_levi
-title: Remove Levi
-view-if: levi_advisor = 1
+@remove_dobretsberger
+title: Remove Dobretsberger
+view-if: dobretsberger_advisor
 tags: remove_advisor
-on-arrival: levi_advisor = 0; left_dissent += 5; n_advisors -= 1
+on-arrival: dobretsberger_advisor = 0; christian_left_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Levi has been removed as an advisor. The Leftist faction disapproves.
+Dobretsberger has been removed as an advisor. The Christian Left faction disapproves.
 
 
 ## nonfactional
@@ -111,37 +111,37 @@ go-to: advisor_menu
 
 @advisor_menu
 title: Add other advisors.
-tags: center_advisor, left_advisor, reformist_advisor, labor_advisor, nonfactional_advisor
+tags: moderate_right_advisor, classical_liberal_advisor, social_liberal_advisor, christian_left_advisor, nonfactional_advisor
 frequency: 1
 
 
-- @centrist: Add Centrists
-- @left: Add Leftists
-- @reformist: Add Reformists
-- @labor: Add Labor
+- @moderate_right: Add Moderate Rightists
+- @classical_liberal: Add Classical Liberals
+- @social_liberal: Add Social Liberals
+- @christian_left: Add Christian Leftists
 - @nonfactional: Add non-factional advisors
 - @rm_main: Remove advisors instead.
 - @remove_none: Stop changing advisors.
 
-@centrist
+@moderate_right
 view-if: n_advisors < 3
 
-- #center_advisor
+- #moderate_right_advisor
 
-@reformist
+@classical_liberal
 view-if: n_advisors < 3
 
-- #reformist_advisor
+- #classical_liberal_advisor
 
-@left
+@social_liberal
 view-if: n_advisors < 3
 
-- #left_advisor
+- #social_liberal_advisor
 
-@labor
+@christian_left
 view-if: n_advisors < 3
 
-- #labor_advisor
+- #christian_left_advisor
 
 @nonfactional
 view-if: n_advisors < 3
@@ -149,68 +149,68 @@ view-if: n_advisors < 3
 - #nonfactional_advisor
 
 
-# centrist
+# moderate right
 
 
-@add_hilferding
-title: Rudolf Hilferding
+@add_adamovich
+title: Ludwig Adamovich
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
-face-image: img/portraits/HilferdingRudolf.jpg
-tags: center_advisor
-view-if: hilferding_advisor = 0 and n_advisors < 3 and centrists_resign = 0
-on-arrival: hilferding_advisor = 1; n_advisors += 1
+face-image: img/portraits/AdamovichLudwig.jpg
+tags: moderate_right_advisor
+view-if: not adamovich_advisor and n_advisors < 3 and moderate_right_oclk
+on-arrival: adamovich_advisor = 1; n_advisors += 1; moderate_right_strength += 5
 go-to: advisor_menu
 
-Rudolf Hilferding is now an advisor.
+Ludwig Adamovich is now an advisor.
 
 
-# reformist
+# classical liberal
 
 
-@add_severing
-title: Carl Severing
-subtitle: Carl Severing is a one-time Prussian interior minister and police reformer. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Police Affairs ?]
-is-card: true
-card-image: img/portraits/SeveringCarl.jpg
-tags: reformist_advisor
-view-if: severing_advisor = 0 and n_advisors < 3
-on-arrival: severing_advisor = 1; n_advisors += 1; reformist_strength += 5
-go-to: advisor_menu
-
-Carl Severing is now an advisor.
-
-
-# left
-
-
-@add_levi
-title: Paul Levi
+@add_mises
+title: Ludwig Mises
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
-face-image: img/portraits/LeviPaul.jpg
-view-if: levi_advisor = 0 and levi_dead = 0 and n_advisors < 3 and left_split = 0
-on-arrival: levi_advisor = 1; n_advisors += 1; left_strength += 5
+face-image: img/portraits/MisesLudwig.jpg
+tags: classical_liberal_advisor
+view-if: not mises_advisor and n_advisors < 3 and classical_liberal_oclk
+on-arrival: mises_advisor = 1; n_advisors += 1; classical_liberal_strength += 5
 go-to: advisor_menu
-tags: left_advisor
 
-Paul Levi is now an advisor.
-
-
-# labor
+Ludwig Mises is now an advisor.
 
 
-@add_aufhauser
-title: Siegfried Aufhäuser
+# social liberal
+
+
+@add_kelsen
+title: Hans Kelsen
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
-face-image: img/portraits/AufhäuserSiegfried.jpg
-tags: labor_advisor
-view-if: aufhauser_advisor = 0 and n_advisors < 3
-on-arrival: aufhauser_advisor = 1; n_advisors += 1; labor_strength += 5
+face-image: img/portraits/KelsenHans.jpg
+tags: social_liberal_advisor
+view-if: not kelsen_advisor and n_advisors < 3 and social_liberal_oclk
+on-arrival: kelsen_advisor = 1; n_advisors += 1; social_liberal_strength += 5
 go-to: advisor_menu
 
-Siegfried Aufhäuser is now an advisor.
+Hans Kelsen is now an advisor.
+
+
+# christian left
+
+
+@add_dobretsberger
+title: Josef Dobretsberger
+subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
+is-card: true
+face-image: img/portraits/DobretsbergerJosef.jpg
+tags: christian_left_advisor
+view-if: not dobretsberger_advisor and n_advisors < 3 and christian_left_oclk
+on-arrival: dobretsberger_advisor = 1; n_advisors += 1; christian_left_strength += 5
+go-to: advisor_menu
+
+Josef Dobretsberger is now an advisor.
 
 
 # Nonfactional advisors
