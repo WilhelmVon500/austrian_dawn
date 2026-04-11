@@ -33,7 +33,7 @@ President: [+ president +]
 
 Chancellor: [+ chancellor +] ([+ chancellor_party +])
 
-Bundestag composition:
+= Bundestag
 
 {!<span class="tooltip-text" title="Austrian Christian-Liberal Coalition" style="color: #F5D900;">!}**[+ oclk_name +]**{!</span>!}: **[+ oclk_seats +]** **([+ oclk_b +]%)**
 
