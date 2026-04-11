@@ -29,9 +29,9 @@ Internal dissent: [+ dissent_percent : dissent +]
 
 = Government
 
-President: [+ president +]
+President: [+ president +] ([?if president_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
-Chancellor: [+ chancellor +] ([+ chancellor_party +])
+Chancellor: [+ chancellor +] ([?if chancellor_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
 = Bundestag
 
