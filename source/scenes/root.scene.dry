@@ -232,22 +232,24 @@ Q.in_minority_government = 0;
 Q.coalition_dissent = 0;
 
 // ministries - which parties control the ministries?
-Q.foreign_minister = 'Streseman';
-Q.foreign_minister_party = 'DVP';
-Q.interior_minister = 'von Keudell';
-Q.interior_minister_party = 'DNVP';
-Q.justice_minister = 'Hergt';
-Q.justice_minister_party = 'DNVP';
-Q.labor_minister = 'Brauns';
-Q.labor_minister_party = 'Z';
-Q.reichswehr_minister = 'Groener';
-Q.reichswehr_minister_party = 'I';
-Q.economic_minister = 'Curtius';
-Q.economic_minister_party = 'DVP';
-Q.finance_minister = 'Köhler';
-Q.finance_minister_party = 'Z';
-Q.agriculture_minister = 'Schiele';
-Q.agriculture_minister_party = 'DNVP';
+Q.vice_chancellor = 'Baar-Baarenfels';
+Q.vice_chancellor_party = 'VF';
+Q.foreign_minister = 'Schmidt';
+Q.foreign_minister_party = 'VF';
+Q.interior_minister = 'Baar-Baarenfels';
+Q.interior_minister_party = 'VF';
+Q.justice_minister = 'Schuschnigg';
+Q.justice_minister_party = 'VF';
+Q.finance_minister = 'Draxler';
+Q.finance_minister_party = 'VF';
+Q.economic_minister = 'Raab';
+Q.economic_minister_party = 'VF';
+Q.social_minister = 'Neustädter-Stürmer';
+Q.social_minister_party = 'VF';
+Q.agriculture_minister = 'Mandorfer';
+Q.agriculture_minister_party = 'VF';
+Q.defense_minister = 'Zehner';
+Q.defense_minister_party = 'I';
 
 // Events: what has occurred?
 
