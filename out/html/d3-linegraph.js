@@ -19,7 +19,7 @@ d3.linegraph = function(noTicks, noDots, parties, partyColors, partyNames, dataM
         parties = ['oclk', 'ap', 'dnlp', 'vf', 'other'];
     }
     if (!partyColors) {
-        partyColors = {'oclk': '#F5D900', 'ap': '#FA5A42', 'dnlp': '#0E428E', 'vf': '#ED2939', 'other': '#a0a0a0'};,
+        partyColors = {'oclk': '#F5D900', 'ap': '#FA5A42', 'dnlp': '#0E428E', 'vf': '#ED2939', 'other': '#909090'};,
     }
     if (!partyNames) {
         partyNames = {'oclk': Q.oclk_name, 'ap': 'AP', 'dnlp': 'DNLP', 'vf': 'VF', 'other': 'Others'};
