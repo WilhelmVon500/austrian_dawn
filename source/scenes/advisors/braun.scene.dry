@@ -1,11 +1,11 @@
-title: Otto Braun
+title: Ludwig Mises
 is-pinned-card: true
-tags: advisor, reformist
-card-image: img/portraits/BraunOtto.jpg
-view-if: braun_advisor = 1
+tags: advisor, classical_liberal
+card-image: img/portraits/MisesLudwig.jpg
+view-if: mises_advisor
 new-page: true 
 
-= Otto Braun
+= Ludwig Mises
 
 WIP
 
