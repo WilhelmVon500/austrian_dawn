@@ -3,13 +3,13 @@ new-page: true
 is-card: true
 tags: govt_affairs
 on-arrival: month_actions += 1; coalition_affairs_timer = 5
-view-if: spd_in_government = 1 and coalition_dissent >= 1 and coalition_affairs_timer = 0 and (in_grand_coalition or in_weimar_coalition or in_popular_front)
-card-image: img/muller_cabinet.jpg
+view-if: oclk_in_government and coalition_dissent >= 1 and coalition_affairs_timer = 0
+card-image: img/schuschnigg_cabinet.jpg
 #subtitle: There is dissent within our coalition.
 
 = Coalition Affairs
 
-Our coalition is in trouble. The right-leaning members of the Center [? if in_grand_coalition: and DVP ?] are constantly criticizing us for our policies, and are threatening to call a vote of no confidence to collapse this government[? if spd_prussia :, or to do the same for our government in the state of Prussia ?].
+Our coalition is in trouble. Some members of the coalition parties are constantly criticizing us for our policies, and are threatening to call a vote of no confidence to collapse this government.
 
 How do we reduce tensions with the coalition?
 
