@@ -21,7 +21,7 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1;
-go-to: vf_op if vf_in_government and not oclk_in_government; vf_coalition if vf_in_government and oclk_in_government;
+go-to: vf_op if vf_in_government and not oclk_in_government; vf_coalition if vf_in_government and oclk_in_government
 
 @vf_op
 on-arrival: vf_relation += 5*(1 - dissent)
