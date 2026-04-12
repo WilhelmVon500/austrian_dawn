@@ -252,7 +252,7 @@ title: Figures and Charts
 go-to: menu
 on-display: {!
 data = []
-if (Q.ap_b) {
+if (Q.ap_seats) {
     data.push({
         "id": "ap",
         "legend": "AP",
@@ -260,7 +260,7 @@ if (Q.ap_b) {
         "seats": Math.round(Q.ap_seats),
     });
 }
-if (Q.oclk_b) {
+if (Q.oclk_seats) {
     data.push({
         "id": "oclk",
         "legend": "ÖCLK",
@@ -268,7 +268,7 @@ if (Q.oclk_b) {
         "seats": Math.round(Q.oclk_seats),
     });
 }
-if (Q.dnlp_b) {
+if (Q.dnlp_seats) {
     data.push({
         "id": "dnlp",
         "legend": "DNLP",
@@ -276,7 +276,7 @@ if (Q.dnlp_b) {
         "seats": Math.round(Q.dnlp_seats),
     });
 }
-if (Q.ovp_b) {
+if (Q.ovp_seats) {
     data.push({
         "id": "ovp",
         "legend": "ÖVP",
@@ -284,7 +284,7 @@ if (Q.ovp_b) {
         "seats": Math.round(Q.ovp_seats),
     });
 }
-if (Q.vf_b) {
+if (Q.vf_seats) {
     data.push({
         "id": "vf",
         "legend": "VF",
