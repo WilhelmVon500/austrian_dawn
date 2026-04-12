@@ -37,6 +37,7 @@ We are currently coalition partners with them, so improving relations is easier.
 
 @ovp
 subtitle: -1 resources
+view-if: ovp_exist
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; ovp_relation += 5*(1 - dissent)
