@@ -539,7 +539,7 @@ table {
 
 /* Styles for parties */
 .seat.oclk {
-    fill: #F5D900;
+    fill: #EEEE22;
     stroke: var(--border-color);
     stroke-width: 1.5px;
 }
