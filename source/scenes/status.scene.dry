@@ -47,7 +47,7 @@ Chancellor: [+ chancellor +] ([?if chancellor_party == "VF": <span style="color:
 
 <span style="color: #909090;">**Others**</span>: [+ other_seats +] ([+ other_b +]%)
 
-Bundestag President: [+ president +] ([?if bundestag_president_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+Bundestag President: [+ bundestag_president +] ([?if bundestag_president_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
 Next election: [+ next_election_month : month +] [+ next_election_year +]
 
