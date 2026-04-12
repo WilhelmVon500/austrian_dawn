@@ -43,6 +43,8 @@ Chancellor: [+ chancellor +] ([?if chancellor_party == "VF": <span style="color:
 
 {!<span class="tooltip-text" title="German National Liberal Party" style="color: #0E428E;">!}**DNLP**{!</span>!}: [+ dnlp_seats +] ([+ dnlp_b +]%)
 
+[? if ovp_exist: {!<span class="tooltip-text" title="Austrian People's Party" style="color: #000000;">!}**ÖVP**{!</span>!}: [+ ovp_seats +] ([+ ovp_b +]%) ?]
+
 {!<span class="tooltip-text" title="Fatherland Front" style="color: #ED2939;">!}**VF**{!</span>!}: [+ vf_seats +] ([+ vf_b +]%)
 
 <span style="color: #909090;">**Others**</span>: [+ other_seats +] ([+ other_b +]%)
@@ -71,6 +73,8 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="German National Liberal Party" style="color: #0E428E;">!}**DNLP**{!</span>!}: [+ dnlp_relation : relationships +]
 
+[? if ovp_exist: {!<span class="tooltip-text" title="Austrian People's Party" style="color: #000000;">!}**ÖVP**{!</span>!}: [+ ovp_relation : relationships +] ?]
+
 {!<span class="tooltip-text" title="Fatherland Front" style="color: #ED2939;">!}**VF**{!</span style="color: #ED2939;">!}: [+ vf_relation : relationships +]
 
 = Party Leadership
@@ -80,6 +84,8 @@ Economic growth: [+ economic_growth_2 +]%
 {!<span class="tooltip-text" title="Workers' Party" style="color: #FA5A42;">!}**AP**{!</span>!}: Corporatist Social Democracy ([+ap_leader+])
 
 {!<span class="tooltip-text" title="German National Liberal Party" style="color: #0E428E;">!}**DNLP**{!</span>!}: Moderate German Nationalism ([+dnlp_leader+])
+
+[? if ovp_exist: {!<span class="tooltip-text" title="Austrian People's Party" style="color: #000000;">!}**ÖVP**{!</span>!}: Progressive Conservatism ([+ovp_leader+]) ?]
 
 {!<span class="tooltip-text" title="Fatherland Front" style="color: #ED2939;">!}**VF**{!</span style="color: #ED2939;">!}: Authoritarian Corporatism ([+vf_leader+])
 
@@ -181,20 +187,22 @@ Q.socialism_disp = Math.round(Q.socialism);
 
 <span style="color: #0E428E;">**DNLP**</span>: [+ dnlp_votes +]%
 
+[? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ ovp_votes +]% ?]
+
 <span style="color: #ED2939;">**VF**</span>: [+ vf_votes +]%
 
 <span style="color: #909090;">**Others**</span>: [+ other_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ workers_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ workers_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ workers_dnlp_display +]%, <span style="color: #ED2939;">**VF**</span>: [+ workers_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ workers_other_display +]%
+Workers: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ workers_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ workers_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ workers_dnlp_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ workers_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ workers_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ workers_other_display +]%
 
-New Middle Class: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ new_middle_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ new_middle_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ new_middle_dnlp_display +]%, <span style="color: #ED2939;">**VF**</span>: [+ new_middle_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ new_middle_other_display +]%
+New Middle Class: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ new_middle_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ new_middle_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ new_middle_dnlp_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ new_middle_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ new_middle_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ new_middle_other_display +]%
 
-Old Middle Class: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ old_middle_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ old_middle_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ old_middle_dnlp_display +]%, <span style="color: #ED2939;">**VF**</span>: [+ old_middle_vf_display +]%,  <span style="color: #909090;">**Others**</span>: [+ old_middle_other_display +]%
+Old Middle Class: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ old_middle_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ old_middle_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ old_middle_dnlp_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ old_middle_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ old_middle_vf_display +]%,  <span style="color: #909090;">**Others**</span>: [+ old_middle_other_display +]%
 
-Rural: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ rural_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ rural_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ rural_dnlp_display +]%, <span style="color: #ED2939;">**VF**</span>: [+ rural_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ rural_other_display +]%
+Rural: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ rural_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ rural_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ rural_dnlp_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ rural_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ rural_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ rural_other_display +]%
 
-Unemployed: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ unemployed_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ unemployed_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ unemployed_dnlp_display +]%, <span style="color: #ED2939;">**VF**</span>: [+ unemployed_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ unemployed_other_display +]%
+Unemployed: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ unemployed_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ unemployed_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ unemployed_dnlp_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ unemployed_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ unemployed_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ unemployed_other_display +]%
 
-Catholics: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ catholics_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ catholics_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ catholics_dnlp_display +]%, <span style="color: #ED2939;">**VF**</span>: [+ catholics_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ catholics_other_display +]%
+Catholics: <span style="color: #F5D900;">**[+ oclk_name +]**</span>: [+ catholics_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ catholics_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ catholics_dnlp_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ catholics_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ catholics_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ catholics_other_display +]%
