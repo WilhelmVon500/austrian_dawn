@@ -33,7 +33,7 @@ go-to: menu
 **1918**: WIP
 
 @curr_gov
-go-to: cabinet if spd_in_government; menu if not spd_in_government
+go-to: cabinet
 
 = Current Government
 
@@ -93,7 +93,7 @@ go-to: menu
 
 **Demographic Groups**
 
-**Working Class**: The urban working class - blue-collar workers in factories, workshops, mines, and the like. Most are socialist, supporting the AP. They make up WIP% of the population.
+**Working Class**: The urban working class - blue-collar workers in factories, workshops, mines, and the like. Many support the <span style="color: #FA5A42;">**AP**</span>. They make up WIP% of the population.
 
 **Old Mittelstand**: The old middle class consists of independent artisans, shopkeepers, and small-time businesspeople. They tend to be German-nationalist. WIP% of the population.
 
@@ -101,9 +101,9 @@ go-to: menu
 
 **Rural**: Small and large farmers and independent rural workers. WIP% of the population.
 
-**Catholics** are the largest religious minority, at about 30% of the population. They disproportionately support the VF.
+**Catholics** are the largest religious minority, at about WIP% of the population. They disproportionately support the <span style="color: #ED2939;">**VF**</span>.
 
-**Jews** account for between 0.5% to 1% of the population, and tend to support moderate parties, mostly us, although substantial numbers support the SPD or KPD.
+**Jews** account for between WIP% to WIP% of the population, and tend to support moderate or socialist parties.
 
 
 @public_opinion
