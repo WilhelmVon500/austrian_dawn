@@ -147,41 +147,41 @@ Q.ovp_exist = 0;
 
 // Support for party by social group
 // they don't have to sum to 100 since the electoral calculations will be normalized.
-Q.workers_spd = 60;
-Q.workers_kpd = 20;
-Q.workers_z = 5;
-Q.workers_ddp = 0;
+Q.workers_oclk = 5;
+Q.workers_ap = 50;
+Q.workers_dnlp = 5;
+Q.workers_vf = 30;
 Q.workers_other = 10;
 
-Q.old_middle_spd = 5;
-Q.old_middle_kpd = 0;
-Q.old_middle_z = 5;
-Q.old_middle_ddp= 10;
+Q.old_middle_oclk = 30;
+Q.old_middle_ap = 0;
+Q.old_middle_dnlp = 20;
+Q.old_middle_vf = 40;
 Q.old_middle_other = 10;
 
-Q.new_middle_spd = 5;
-Q.new_middle_kpd = 1;
-Q.new_middle_z = 10;
-Q.new_middle_ddp= 25;
+Q.new_middle_oclk = 25;
+Q.new_middle_ap = 5;
+Q.new_middle_dnlp = 15;
+Q.new_middle_vf = 40;
 Q.new_middle_other = 15;
 
-Q.rural_spd = 10;
-Q.rural_kpd = 0;
-Q.rural_z = 5;
-Q.rural_ddp= 5;
+Q.rural_oclk = 10;
+Q.rural_ap = 0;
+Q.rural_dnlp = 5;
+Q.rural_vf = 75;
 Q.rural_other = 10;
 
-Q.unemployed_spd = 25;
-Q.unemployed_kpd = 55;
-Q.unemployed_z = 1;
-Q.unemployed_ddp = 0;
-Q.unemployed_other = 9;
+Q.unemployed_oclk = 0;
+Q.unemployed_ap = 30;
+Q.unemployed_dnlp = 0;
+Q.unemployed_vf = 40;
+Q.unemployed_other = 30;
 
-Q.catholics_spd = 15;
-Q.catholics_kpd = 2;
-Q.catholics_z = 50;
-Q.catholics_ddp = 0;
-Q.catholics_other = 12;
+Q.catholics_oclk = 10;
+Q.catholics_ap = 5;
+Q.catholics_dnlp = 0;
+Q.catholics_vf = 85;
+Q.catholics_other = 0;
 
 
 // Current Bundestag composition
@@ -203,7 +203,7 @@ Q.ovp_b = 0;
 //
 Q.oclk_name = "ÖCLK";
 
-// array of objects of the form {date: Date(), spd: 10, kpd: 12, ...} for each election
+// array of objects of the form {date: Date(), vf: 10, oclk: 12, ...} for each election
 Q.election_records = [];
 // party support records for every month
 Q.party_support_records = [];
