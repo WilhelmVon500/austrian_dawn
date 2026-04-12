@@ -36,10 +36,20 @@ tags: remove_advisor
 # moderate right
 
 
+@remove_reither
+title: Remove Reither
+view-if: reither_advisor
+on-arrival: reither_advisor = 0; moderate_right_dissent += 5; n_advisors -= 1
+tags: remove_advisor
+go-to: rm_main
+
+Reither has been removed as an advisor. The Moderate Right faction disapproves.
+
+
 @remove_adamovich
 title: Remove Adamovich
 view-if: adamovich_advisor
-on-arrival: adamovich_advisor = 0; moderate_right_dissent += 5; n_advisors -= 1
+on-arrival: adamovich_advisor = 0; moderate_right_dissent += 3; n_advisors -= 1
 tags: remove_advisor
 go-to: rm_main
 
@@ -162,6 +172,19 @@ view-if: n_advisors < 3
 # moderate right
 
 
+@add_reither
+title: Josef Reither
+subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
+is-card: true
+face-image: img/portraits/ReitherJosef.jpg
+tags: moderate_right_advisor
+view-if: not reither_advisor and n_advisors < 3 and moderate_right_oclk
+on-arrival: reither_advisor = 1; n_advisors += 1; moderate_right_strength += 5
+go-to: advisor_menu
+
+Josef Reither is now an advisor.
+
+
 @add_adamovich
 title: Ludwig Adamovich
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
@@ -169,7 +192,7 @@ is-card: true
 face-image: img/portraits/AdamovichLudwig.jpg
 tags: moderate_right_advisor
 view-if: not adamovich_advisor and n_advisors < 3 and moderate_right_oclk
-on-arrival: adamovich_advisor = 1; n_advisors += 1; moderate_right_strength += 5
+on-arrival: adamovich_advisor = 1; n_advisors += 1; moderate_right_strength += 3
 go-to: advisor_menu
 
 Ludwig Adamovich is now an advisor.
