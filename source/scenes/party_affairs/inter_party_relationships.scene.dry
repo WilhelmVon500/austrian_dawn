@@ -10,8 +10,10 @@ card-image: img/poster_0.jpg
 
 The <span style="color: #EEEE22;">**[+ oclk_name +]**</span> cannot govern by itself yet. We can reach out and build additional connections with other parties, or perhaps we can stand alone.
 
-- @vf: Strengthen our bonds with the <span style="color: #ED2939;">**VF**</span>.
 - @ovp: Strengthen our bonds with the <span style="color: #000000;">**ÖVP**</span>.
+- @dnlp: Strengthen our bonds with the <span style="color: #0E428E;">**DNLP**</span>.
+- @ap: Strengthen our bonds with the <span style="color: #FA5A42;">**AP**</span>.
+- @vf: Strengthen our bonds with the <span style="color: #ED2939;">**VF**</span>.
 - @oclk_alone: The <span style="color: #EEEE22;">**[+ oclk_name +]**</span> can stand alone for now.
 - @easy_discard
 
@@ -43,6 +45,24 @@ unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; ovp_relation += 5*(1 - dissent)
 
 The <span style="color: #000000;">**ÖVP**</span> is another party of the moderate right, so improving relations comes naturally.
+
+
+@dnlp
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; dnlp_relation += 5*(1 - dissent)
+
+The <span style="color: #0E428E;">**DNLP**</span> is a party with national liberal elements, so we even have some shared ideas.
+
+
+@ap
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; ap_relation += 5*(1 - dissent)
+
+The <span style="color: #FA5A42;">**AP**</span> is the party of moderate left, which is much like us committed to reformism.
 
 
 @oclk_alone
