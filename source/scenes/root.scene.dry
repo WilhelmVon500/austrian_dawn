@@ -234,9 +234,9 @@ Q.in_minority_government = 0;
 Q.coalition_dissent = 0;
 
 // ministries - which parties control the ministries?
-Q.vice_chancellor = 'Baar-Baarenfels';
+Q.vice_chancellor = 'Skubl';
 Q.vice_chancellor_party = 'VF';
-Q.foreign_minister = 'Schmidt';
+Q.foreign_minister = 'Berger-Waldenegg';
 Q.foreign_minister_party = 'VF';
 Q.interior_minister = 'Baar-Baarenfels';
 Q.interior_minister_party = 'VF';
