@@ -49,11 +49,21 @@ Adamovich has been removed as an advisor. The Moderate Right faction disapproves
 # classical liberal
 
 
+@remove_hayek
+title: Remove Hayek
+view-if: hayek_advisor
+tags: remove_advisor
+on-arrival: hayek_advisor = 0; classical_liberal_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Hayek has been removed as an advisor. The Classical Liberal faction disapproves.
+
+
 @remove_mises
 title: Remove Mises
 view-if: mises_advisor
 tags: remove_advisor
-on-arrival: mises_advisor = 0; classical_liberal_dissent += 5; n_advisors -= 1
+on-arrival: mises_advisor = 0; classical_liberal_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
 Mises has been removed as an advisor. The Classical Liberal faction disapproves.
@@ -168,6 +178,19 @@ Ludwig Adamovich is now an advisor.
 # classical liberal
 
 
+@add_hayek
+title: Friedrich Hayek
+subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
+is-card: true
+face-image: img/portraits/HayekFriedrich.jpg
+tags: classical_liberal_advisor
+view-if: not hayek_advisor and n_advisors < 3 and classical_liberal_oclk
+on-arrival: hayek_advisor = 1; n_advisors += 1; classical_liberal_strength += 5
+go-to: advisor_menu
+
+Friedrich Hayek is now an advisor.
+
+
 @add_mises
 title: Ludwig Mises
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
@@ -175,7 +198,7 @@ is-card: true
 face-image: img/portraits/MisesLudwig.jpg
 tags: classical_liberal_advisor
 view-if: not mises_advisor and n_advisors < 3 and classical_liberal_oclk
-on-arrival: mises_advisor = 1; n_advisors += 1; classical_liberal_strength += 5
+on-arrival: mises_advisor = 1; n_advisors += 1; classical_liberal_strength += 3
 go-to: advisor_menu
 
 Ludwig Mises is now an advisor.
