@@ -58,7 +58,7 @@ Chancellor: [+ chancellor +] ([?if chancellor_party == "VF": <span style="color:
 
 <span style="color: #909090;">**Others**</span>: [+ other_seats +] ([+ other_b +]%)
 
-Bundestag President: [+ president +] ([?if bundestag_president_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+Bundestag President: [+ bundestag_president +] ([?if bundestag_president_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
 @cabinet
 go-to: menu
