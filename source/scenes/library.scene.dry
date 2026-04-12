@@ -10,7 +10,7 @@ Herein contains relevant information about the government and politics of Austri
 @menu
 
 - @government: Germany's system of government
-- @weimar_timeline: Timeline of the Weimar Republic before 1928
+- @austria_timeline: Timeline of Austria before 1941
 - @curr_gov: Current government details
 - @demographics: Demographics
 - @parties: Parties
@@ -25,7 +25,7 @@ go-to: menu
 
 WIP
 
-@weimar_timeline
+@austria_timeline
 go-to: menu
 
 = Timeline of the ÖCLK and the Republic (until 1941)
@@ -37,31 +37,28 @@ go-to: cabinet if spd_in_government; menu if not spd_in_government
 
 = Current Government
 
-President: [+ president +]
+<span style="color: #F5D900;">**[+ oclk_name +]**</span> position: [? if oclk_toleration : toleration - ?][? if oclk_in_government : in government - ?][? if not oclk_toleration and not oclk_in_government: opposition - ?]
+[? if in_right_coalition: Right Coalition ?][? if in_oclk_majority: <span style="color: #F5D900;">**[+ oclk_name +]**</span> Majority ?][? if in_vf_majority: <span style="color: #ED2939;">**VF**</span> Majority ?]
 
-Chancellor: [+ chancellor +] ([+ chancellor_party +])
+[? if oclk_in_government and not in_oclk_majority: Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
-Bundestag composition:
+President: [+ president +] ([?if president_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
-{!<span class="tooltip-text" title="Social Democratic Party of Germany">SPD</span>!}: [+ spd_r +]%
+Chancellor: [+ chancellor +] ([?if chancellor_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
-{!<span class="tooltip-text" title="Center Party + Bavarian People's Party">Z + BVP</span>!}: [+ z_r +]%
+= Bundestag
 
-{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_r +]%
+{!<span class="tooltip-text" title="Austrian Christian-Liberal Coalition" style="color: #F5D900;">!}**[+ oclk_name +]**{!</span>!}: [+ oclk_seats +] ([+ oclk_b +]%)
 
+{!<span class="tooltip-text" title="Workers' Party" style="color: #FA5A42;">!}**AP**{!</span>!}: [+ ap_seats +] ([+ ap_b +]%)
 
-{!<span class="tooltip-text" title="German People's Party">DVP</span>!}: [+ dvp_r +]%
+{!<span class="tooltip-text" title="German National Liberal Party" style="color: #0E428E;">!}**DNLP**{!</span>!}: [+ dnlp_seats +] ([+ dnlp_b +]%)
 
-{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [+ dnvp_r +]%
+{!<span class="tooltip-text" title="Fatherland Front" style="color: #ED2939;">!}**VF**{!</span>!}: [+ vf_seats +] ([+ vf_b +]%)
 
-{!<span class="tooltip-text" title="German National-Socialist Worker's Party)">DNSAP</span>!}: [+ dnsap_r +]%
+<span style="color: #909090;">**Others**</span>: [+ other_seats +] ([+ other_b +]%)
 
-Others: [+ other_r +]%
-
-SPD position: [? if spd_toleration : toleration ?][? if spd_in_government : in government - ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
-[? if in_weimar_coalition and spd_in_government: Weimar Coalition ?][? if in_grand_coalition and spd_in_government: Grand Coalition ?][? if in_popular_front and spd_in_government: Popular Front ?][? if in_left_front and spd_in_government: Left Front ?][? if in_spd_majority and spd_in_government: SPD majority ?][? if in_minority_government and spd_in_government: minority government ?][? if in_emergency_government and spd_in_government: emergency government ?]
-
-[? if spd_in_government and not in_spd_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
+Bundestag President: [+ president +] ([?if bundestag_president_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
 @cabinet
 go-to: menu
