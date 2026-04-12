@@ -306,15 +306,15 @@ Q.coalition_affairs_timer = 0;
 // event timers
 
 
-Q.kelsen_advisor = 1; // Hans Kelsen
 Q.adamovich_advisor = 1; // Ludwig Adamovich
 Q.mises_advisor = 1; // Ludwig Mises
+Q.kelsen_advisor = 1; // Hans Kelsen
 
 // moderate right advisors
-Q.sender_advisor = 0; // Toni Sender
+Q.reither_advisor = 0; // Josef Reither
 
 // classical liberal advisors
-Q.pfulf_advisor = 0; // Antonie Pfülf
+Q.hayek_advisor = 0; // Friedrich Hayek
 
 // social liberal advisors
 Q.severing_advisor = 0; // Carl Severing
