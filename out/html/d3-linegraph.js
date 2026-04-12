@@ -19,10 +19,10 @@ d3.linegraph = function(noTicks, noDots, parties, partyColors, partyNames, dataM
         parties = ['oclk', 'ap', 'dnlp', 'vf', 'other'];
     }
     if (!partyColors) {
-        partyColors = {'oclk': '#F5D900', 'ap': '#FA5A42', 'dnlp': '#0E428E', 'vf': '#ED2939', 'other': '#909090'};,
+        partyColors = {'oclk': '#F5D900', 'ap': '#FA5A42', 'dnlp': '#0E428E', 'ovp': '#000000', 'vf': '#ED2939', 'other': '#909090'};,
     }
     if (!partyNames) {
-        partyNames = {'oclk': Q.oclk_name, 'ap': 'AP', 'dnlp': 'DNLP', 'vf': 'VF', 'other': 'Others'};
+        partyNames = {'oclk': Q.oclk_name, 'ap': 'AP', 'dnlp': 'DNLP', 'ovp': 'ÖVP', 'vf': 'VF', 'other': 'Others'};
     }
     if (!additionalMonths) {
         additionalMonths = 10;
