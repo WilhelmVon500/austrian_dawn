@@ -257,7 +257,7 @@ if (Q.ap_b) {
         "id": "ap",
         "legend": "AP",
         "name": "AP",
-        "seats": Math.round(Q.ap_b*2),
+        "seats": Math.round(Q.ap_seats),
     });
 }
 if (Q.oclk_b) {
@@ -265,7 +265,7 @@ if (Q.oclk_b) {
         "id": "oclk",
         "legend": "ÖCLK",
         "name": "ÖCLK",
-        "seats": Math.round(Q.oclk_b*2),
+        "seats": Math.round(Q.oclk_seats),
     });
 }
 if (Q.dnlp_b) {
@@ -273,7 +273,7 @@ if (Q.dnlp_b) {
         "id": "dnlp",
         "legend": "DNLP",
         "name": "DNLP",
-        "seats": Math.round(Q.dnlp_b*2),
+        "seats": Math.round(Q.dnlp_seats),
     });
 }
 if (Q.ovp_b) {
@@ -281,7 +281,7 @@ if (Q.ovp_b) {
         "id": "ovp",
         "legend": "ÖVP",
         "name": "ÖVP",
-        "seats": Math.round(Q.ovp_b*2),
+        "seats": Math.round(Q.ovp_seats),
     });
 }
 if (Q.vf_b) {
@@ -289,7 +289,7 @@ if (Q.vf_b) {
         "id": "vf",
         "legend": "VF",
         "name": "VF",
-        "seats": Math.round(Q.vf_b*2),
+        "seats": Math.round(Q.vf_seats),
     });
 }
 if (d3 && window) {
