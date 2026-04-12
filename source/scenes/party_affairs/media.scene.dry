@@ -9,3 +9,12 @@ card-image: img/poster_2.jpg
 = Media
 
 The <span style="color: #F5D900;">**[+ oclk_name +]**</span> has some supportive liberal media in biggest cities. We could use the media for various purposes...
+
+@campaign
+
+@campaign
+title: The purpose of our media is to elect more of our politicians.
+subtitle: Our newspapers will focus on the electoral campaign.
+on-arrival: campaign_media += 1; new_middle_oclk += 2*(1 - dissent); old_middle_oclk += 2*(1 - dissent)
+
+Our campaign media is mostly reaching the middle classes who are already saturated with our propaganda, but it must be doing *something*, or at least that is what we hope.
