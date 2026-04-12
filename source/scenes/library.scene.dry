@@ -352,7 +352,7 @@ if (d3 && window) {
 
 {!<tr><td><div class="box" style='background-color:#0E428E'> </div></td><td>!} DNLP: {!</td><td>!} [+ dnlp_seats +] ([+ dnlp_b +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#000000'> </div></td> <td>!} ÖVP: {!</td><td>!} [+ ovp_seats +] ([+ ovp_b +]%) {!</td></tr>!}
+[? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div></td> <td>!} ÖVP: {!</td><td>!} [+ ovp_seats +] ([+ ovp_b +]%) {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#ED2939'> </div></td> <td>!} VF: {!</td><td>!} [+ vf_seats +] ([+ vf_b +]%) {!</td></tr>!}
 
