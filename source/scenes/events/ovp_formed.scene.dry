@@ -1,0 +1,41 @@
+on-arrival: {!
+// set up the infrastructure
+Q.ovp_formed = 1;
+Q.parties.push('ovp');
+
+Q.ovp_leader = "Raab";
+Q.ovp_relation = 50;
+
+Q.workers_ovp = 3;
+Q.workers_vf -= 3;
+
+Q.new_middle_ovp = 7;
+Q.new_middle_vf -= 5;
+Q.new_middle_oclk -= 2;
+
+Q.old_middle_ovp = 8;
+Q.old_middle_vf -= 6;
+Q.old_middle_oclk -= 2;
+
+Q.rural_kvp = 5;
+Q.rural_vf -= 3;
+Q.rural_oclk -= 2;
+
+Q.unemployed_ovp = 0;
+
+Q.catholics_ovp = 5;
+Q.catholics_vf -= 5;
+
+// update all records
+Q.ovp_seats = 10;
+Q.vf_seats = Math.round(Q.vf_seats - 10);
+             
+Q.ovp_b = 5;
+Q.vf_b = Q.vf_b - Q.ovp_b;
+
+for (var record of Q.election_records) {
+    record['ovp'] = 0;
+}
+for (var record of Q.party_support_records) {
+    record['ovp'] = 0;
+}
