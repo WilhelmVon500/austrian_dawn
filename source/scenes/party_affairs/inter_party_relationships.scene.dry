@@ -11,6 +11,7 @@ card-image: img/poster_0.jpg
 The <span style="color: #EEEE22;">**[+ oclk_name +]**</span> cannot govern by itself yet. We can reach out and build additional connections with other parties, or perhaps we can stand alone.
 
 - @vf: Strengthen our bonds with the <span style="color: #ED2939;">**VF**</span>.
+- @ovp: Strengthen our bonds with the <span style="color: #000000;">**ÖVP**</span>.
 - @oclk_alone: The <span style="color: #EEEE22;">**[+ oclk_name +]**</span> can stand alone for now.
 - @easy_discard
 
@@ -31,7 +32,16 @@ We are currently in opposition to the <span style="color: #ED2939;">**VF**</span
 @vf_coalition
 on-arrival: vf_relation += 8*(1 - dissent)
 
-We are currently coalition partners with them, so improving relations comes naturally.
+We are currently coalition partners with them, so improving relations is easier.
+
+
+@ovp
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; ovp_relation += 5*(1 - dissent)
+
+The <span style="color: #000000;">**ÖVP**</span> is another party of the moderate right, so improving relations comes naturally.
 
 
 @oclk_alone
