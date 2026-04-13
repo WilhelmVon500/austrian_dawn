@@ -1,0 +1,206 @@
+title: Bundestag Elections
+new-page: true
+tags: event
+priority: -1
+view-if: (year = next_election_year and month >= next_election_month) or (year > next_election_year)
+on-departure: month_actions += 1; in_election = 0; next_election_year = next_election_year + 4; n_elections += 1; next_election_time = time + 48;
+set-jump: post_election
+
+= Elections, [+ month : month +] [+ year +]
+
+The Bundestag elections are to be held now.
+
+@post_election
+var new_party_sum = 0;
+for (var party of Q.parties) {
+    Q['old_' + party + '_b'] = Q[party + '_b'];
+    Q['old_' + party + '_seats'] = Q[party + '_seats'];
+    if (Q.electoral_threshold > 0) {
+        if (Q[party + '_votes'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
+            Q[party + '_b'] = 0;
+        } else {
+            Q[party + '_b'] = parseFloat((Q[party+'_votes']).toFixed(1));
+        }
+        new_party_sum += Q[party + '_b'];
+    } else {
+        Q[party + '_b'] = parseFloat((Q[party+'_votes']).toFixed(1));
+        if (party == 'other') Q[party + '_b'] = Q[party + '_votes'] * 0.3;
+        new_party_sum += Q[party + '_b'];
+        console.log(new_party_sum)
+    }
+
+    Q['change_' + party + '_votes'] = Q[party + '_votes'] - Q['old_' + party + '_votes'];
+    var sign2 = Q['change_' + party + '_votes'] > 0 
+                    ? '<img src="img/arrowup.png"> ' 
+                    : Q['change_' + party + '_votes'] < 0 
+                      ? '<img src="img/arrowdown.png"> ' 
+                      : '<img src="img/steady.png"> ';
+    Q['votes_change_' + party] = sign2 + Math.abs(parseFloat(Q['change_' + party + '_votes'])).toFixed(1);
+
+    Q['old_' + party + '_votes'] = parseFloat((Q[party + '_votes']).toFixed(1));
+}
+
+for (var party of Q.parties) {
+    if (Q[party + '_b'] > 0) {
+        Q[party + '_b'] = Math.round(Q[party + '_b']*1000/new_party_sum)/10;
+    }
+    Q[party + '_b'] = parseFloat((Q[party+'_b']).toFixed(1));
+}
+
+let allocatedSeats = 0;
+let remainders = [];
+
+for (var party of Q.parties) {
+    let rawSeats = Q[party + '_b'] * Math.round(200) / 100;
+    let seats = Math.floor(rawSeats);
+    Q[party + '_seats'] = seats;
+    allocatedSeats += seats;
+    remainders.push({
+        party: party,
+        remainder: rawSeats - seats
+    });
+}
+
+let remainingSeats = Math.round(200) - allocatedSeats;
+remainders.sort((a, b) => b.remainder - a.remainder);
+for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
+    let partyObj = remainders[i];
+    if (!partyObj || !partyObj.party) continue;
+
+    let party = partyObj.party;
+    Q[party + '_seats'] += 1;
+}
+
+for (var party of Q.parties) {
+    Q['change_' + party + '_b'] = Q[party + '_b'] - Q['old_' + party + '_b'];
+    var sign = Q['change_' + party + '_b'] > 0 
+            ? '<img src="img/arrowup.png"> ' 
+            : Q['change_' + party + '_b'] < 0 
+                    ? '<img src="img/arrowdown.png"> ' 
+                    : '<img src="img/steady.png"> ';
+    Q['str_change_' + party] = sign + Math.abs(parseFloat(Q['change_' + party + '_b'])).toFixed(1);
+
+    Q['change_' + party + '_seats'] = Q[party + '_seats'] - Q['old_' + party + '_seats'];
+    var sign = Q['change_' + party + '_seats'] > 0 
+            ? '<img src="img/arrowup.png"> ' 
+            : Q['change_' + party + '_seats'] < 0 
+                    ? '<img src="img/arrowdown.png"> ' 
+                    : '<img src="img/steady.png"> ';
+    Q['str_seats_change_' + party] = sign + Math.abs(Q['change_' + party + '_seats']);
+}
+
+Q.largest_party = 'VF';
+if (Q.oclk_b >= Q.vf_b && Q.oclk_b >= Q.ap_b) {
+    Q.largest_party = oclk_name;
+}
+if (Q.ap_b >= Q.vf_b && Q.ap >= Q.oclk_b) {
+    Q.largest_party = 'AP';
+}
+
+
+
+Q.coalition_dissent = 0;
+
+Q.oclk_in_government = 0;
+Q.vf_in_government = 0;
+Q.ap_in_government = 0;
+Q.dnlp_in_government = 0;
+
+Q.in_oclk_majority = 0;
+Q.in_right_coalition = 0;
+Q.in_vf_majority = 0;
+
+Q.in_emergency_government = 0;
+Q.in_minority_government = 0;
+
+
+
+Q.chancellor = 'Vacant';
+Q.chancellor_party = 'I';
+Q.vice_chancellor = 'Vacant';
+Q.vice_chancellor_party = 'I';
+Q.foreign_minister = 'Vacant';
+Q.foreign_minister_party = 'I';
+Q.interior_minister = 'Vacant';
+Q.interior_minister_party = 'I';
+Q.justice_minister = 'Vacant';
+Q.justice_minister_party = 'I';
+Q.finance_minister = 'Vacant';
+Q.finance_minister_party = 'I';
+Q.economic_minister = 'Vacant';
+Q.economic_minister_party = 'I';
+Q.social_minister = 'Vacant';
+Q.social_minister_party = 'I';
+Q.agriculture_minister = 'Vacant';
+Q.agriculture_minister_party = 'I';
+Q.defense_minister = 'Vacant';
+Q.defense_minister_party = 'I';
+
+
+
+var election_result = {'date': new Date(Q.year, Q.month - 1)};
+for (var party of Q.parties) {
+    election_result[party] = Q[party + '_r'];
+}
+Q.election_records.push(election_result);
+!}
+on-display: {!
+data = []
+if (Q.ap_seats) {
+    data.push({
+        "id": "ap",
+        "legend": "AP",
+        "name": "AP",
+        "seats": Math.round(Q.ap_seats),
+    });
+}
+if (Q.oclk_seats) {
+    data.push({
+        "id": "oclk",
+        "legend": "ÖCLK",
+        "name": "ÖCLK",
+        "seats": Math.round(Q.oclk_seats),
+    });
+}
+if (Q.dnlp_seats) {
+    data.push({
+        "id": "dnlp",
+        "legend": "DNLP",
+        "name": "DNLP",
+        "seats": Math.round(Q.dnlp_seats),
+    });
+}
+if (Q.ovp_seats) {
+    data.push({
+        "id": "ovp",
+        "legend": "ÖVP",
+        "name": "ÖVP",
+        "seats": Math.round(Q.ovp_seats),
+    });
+}
+if (Q.vf_seats) {
+    data.push({
+        "id": "vf",
+        "legend": "VF",
+        "name": "VF",
+        "seats": Math.round(Q.vf_seats),
+    });
+}
+             
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
