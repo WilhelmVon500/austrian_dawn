@@ -11,6 +11,7 @@ set-jump: post_election
 The Bundestag elections are to be held now.
 
 @post_election
+on-arrival: {!
 var new_party_sum = 0;
 for (var party of Q.parties) {
     Q['old_' + party + '_b'] = Q[party + '_b'];
