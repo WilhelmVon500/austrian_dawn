@@ -231,3 +231,12 @@ go-to: coalition_menu
 There are some potential coalition arrangements.
 
 @coalition_menu
+
+- @vf_majority
+
+@vf_majority
+title: The <span style="color: #ED2939;">**VF**</span> has a majority.
+subtitle: Another government of the <span style="color: #ED2939;">**VF**</span>.
+view-if: vf_seats >= 101
+
+WIP
