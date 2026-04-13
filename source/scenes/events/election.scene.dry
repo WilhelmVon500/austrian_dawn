@@ -222,7 +222,7 @@ go-to: speaker_election
 
 {!<tr><td><div class="box" style='background-color:#FA5A42'> </div> !} AP: {!</td><td>!} [+ ap_votes +] {!</td><td>!} [+ votes_change_ap +] {!</td><td>!} [+ ap_seats +] ([+ ap_b +]%) {!</td><td>!} [+ str_seats_change_ap +] ([+ str_change_ap +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_votes +] {!</td><td>!} [+ votes_change_dnlp +] {!</td><td>!} {!</td><td>!} [+ dnlp_seats +] ([+ dnlp_b +]%) {!</td><td>!} [+ str_seats_change_dnlp +] ([+ str_change_dnlp +]%) {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_votes +] {!</td><td>!} [+ votes_change_dnlp +] {!</td><td>!} [+ dnlp_seats +] ([+ dnlp_b +]%) {!</td><td>!} [+ str_seats_change_dnlp +] ([+ str_change_dnlp +]%) {!</td></tr>!}
 
 [? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} ÖVP: {!</td><td>!} [+ ovp_votes +] {!</td><td>!} [+ votes_change_ovp +] {!</td><td>!} [+ ovp_seats +] ([+ ovp_b +]%) {!</td><td>!} [+ str_seats_change_ovp +] ([+ str_change_ovp +]%) {!</td></tr>!} ?]
 
