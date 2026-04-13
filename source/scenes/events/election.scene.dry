@@ -215,17 +215,17 @@ go-to: speaker_election
 
 {!<table>!}
 {!<tr><td>Party</td><td>Vote share</td><td>% Change</td></tr>!}
-{!<tr><td><div class="box" style='background-color:#EEEE22; outline: 2px; outline-style: solid;'> </div></td><td>!} **[+oclk_name+]:** {!</td><td>!} **[+ oclk_votes +]** {!</td><td>!} **[+ oclk_seats +] ([+ oclk_b +]%)** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#EEEE22; outline: 2px; outline-style: solid;'> </div> !} **[+oclk_name+]:** {!</td><td>!} **[+ oclk_votes +]** {!</td><td>!} **[+ oclk_seats +] ([+ oclk_b +]%)** {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#FA5A42'> </div></td> <td>!} AP: {!</td><td>!} [+ ap_votes +] {!</td><td>!} [+ ap_seats +] ([+ ap_b +]%) {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FA5A42'> </div> !} AP: {!</td><td>!} [+ ap_votes +] {!</td><td>!} [+ ap_seats +] ([+ ap_b +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#0E428E'> </div></td><td>!} DNLP: {!</td><td>!} [+ dnlp_votes +] {!</td><td>!} [+ dnlp_seats +] ([+ dnlp_b +]%) {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_votes +] {!</td><td>!} [+ dnlp_seats +] ([+ dnlp_b +]%) {!</td></tr>!}
 
-[? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div></td> <td>!} ÖVP: {!</td><td>!} [+ ovp_votes +] {!</td><td>!} [+ ovp_seats +] ([+ ovp_b +]%) {!</td></tr>!} ?]
+[? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} ÖVP: {!</td><td>!} [+ ovp_votes +] {!</td><td>!} [+ ovp_seats +] ([+ ovp_b +]%) {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#ED2939'> </div></td> <td>!} VF: {!</td><td>!} [+ vf_votes +] {!</td><td>!} [+ vf_seats +] ([+ vf_b +]%) {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#ED2939'> </div> !} VF: {!</td><td>!} [+ vf_votes +] {!</td><td>!} [+ vf_seats +] ([+ vf_b +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#909090'> </div></td><td>!} Other: {!</td><td>!} [+ other_votes +] {!</td><td>!} [+ other_seats +] ([+ other_b +]%) {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#909090'> </div> !} Other: {!</td><td>!} [+ other_votes +] {!</td><td>!} [+ other_seats +] ([+ other_b +]%) {!</td></tr>!}
 {!</table>!}
 
 **Potential coalitions:**
