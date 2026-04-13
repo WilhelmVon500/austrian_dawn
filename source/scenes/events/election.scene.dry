@@ -10,6 +10,8 @@ set-jump: post_election
 
 The Bundestag elections are to be held now.
 
+- @election_algorithm: May we do our best...
+
 @post_election
 on-arrival: {!
 var new_party_sum = 0;
