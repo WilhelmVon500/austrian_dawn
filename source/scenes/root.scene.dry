@@ -159,10 +159,10 @@ Q.old_middle_dnlp = 20;
 Q.old_middle_vf = 40;
 Q.old_middle_other = 10;
 
-Q.new_middle_oclk = 25;
+Q.new_middle_oclk = 30;
 Q.new_middle_ap = 5;
 Q.new_middle_dnlp = 15;
-Q.new_middle_vf = 40;
+Q.new_middle_vf = 35;
 Q.new_middle_other = 15;
 
 Q.rural_oclk = 10;
