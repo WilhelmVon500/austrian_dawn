@@ -225,3 +225,9 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#909090'> </div></td><td>!} Other: {!</td><td>!} [+ other_votes +] {!</td><td>!} [+ other_seats +] ([+ other_b +]%) {!</td></tr>!}
 {!</table>!}
+
+**Potential coalitions:**
+
+There are some potential coalition arrangements.
+
+@coalition_menu
