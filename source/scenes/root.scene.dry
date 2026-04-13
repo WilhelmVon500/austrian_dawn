@@ -317,7 +317,7 @@ Q.reither_advisor = 0; // Josef Reither
 Q.hayek_advisor = 0; // Friedrich Hayek
 
 // social liberal advisors
-Q.severing_advisor = 0; // Carl Severing
+Q.stolper_advisor = 0; // Gustav Stolper
 
 // christian left advisors
 Q.dobretsberger_advisor = 0; // Josef Dobretsberger
