@@ -11,6 +11,10 @@ card-image: img/poster_2.jpg
 The <span style="color: #EEEE22;">**[+ oclk_name +]**</span> has some supportive liberal media in biggest cities. We could use the media for various purposes...
 
 - @campaign
+- @write_editorials
+- @return: We should not do anything with media at the moment.
+- @easy_discard
+- @cancel_advisor_action
 
 @campaign
 title: The purpose of our media is to elect more of our politicians.
@@ -18,3 +22,9 @@ subtitle: Our newspapers will focus on the electoral campaign.
 on-arrival: campaign_media += 1; new_middle_oclk += 2*(1 - dissent); old_middle_oclk += 2*(1 - dissent)
 
 Our campaign media is mostly reaching the middle classes who are already saturated with our propaganda, but it must be doing *something*, or at least that is what we hope.
+
+@write_editorials
+title: Have leading party figures write editorials in non-partisan newspapers.
+on-arrival: moderate_right_dissent -= 6; classical_liberal_dissent -= 6; social_liberal_dissent -= 6; christian_left_dissent -= 6;
+
+This is not particularly effective in drawing voters, but the ability of the factions to debate over print may reduce internal dissent.
