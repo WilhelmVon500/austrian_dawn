@@ -1,0 +1,68 @@
+title: Campaigning
+new-page: true
+on-arrival: month_actions += 1
+is-card: true
+card-image: img/poster_4.jpg
+frequency: 100
+tags: party_affairs
+
+= Campaigning
+
+Whether or not we are in an electoral campaign, the party is always trying to broaden its voter base. Who should we focus our campaign efforts on?
+
+- @workers: The urban working class.
+- @new_middle: The "new middle class" of government employees and white-collar workers.
+- @old_middle: The "old middle class" of small independent businessmen and artisans.
+- @rural: Rural workers and small farmers.
+- @unemployed: The unemployed.
+- @catholics: Catholics.
+- @root: We either don't want to or cannot campaign right now.
+- @easy_discard
+
+@workers
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; workers_oclk += 2*(1-dissent);
+
+We have increased our campaigning among the workers.
+
+@new_middle
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; new_middle_oclk += 5*(1-dissent);
+
+We have increased our campaigning among the new middle class.
+
+@old_middle
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; old_middle_oclk += 6*(1-dissent);
+
+We have increased our campaigning among the old middle class.
+
+@rural
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; rural_oclk += 3*(1-dissent);
+
+We have increased our campaigning among farmers.
+
+@unemployed
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; unemployed_oclk += 1*(1-dissent);
+
+We have increased our campaigning among the unemployed.
+  
+@catholics
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival:  resources -= 1; catholics_oclk += 2*(1-dissent);
+
+We have increased our campaigning among Catholics.
