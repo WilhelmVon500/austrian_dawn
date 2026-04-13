@@ -139,6 +139,9 @@ Q.agriculture_minister_party = 'I';
 Q.defense_minister = 'Vacant';
 Q.defense_minister_party = 'I';
 
+Q.bundestag_president = 'Vacant';
+Q.bundestag_president_party = 'I';
+
 
 
 var election_result = {'date': new Date(Q.year, Q.month - 1)};
