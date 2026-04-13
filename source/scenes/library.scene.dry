@@ -44,7 +44,7 @@ go-to: cabinet
 
 President: [+ president +] ([?if president_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
-Chancellor: [+ chancellor +] ([?if chancellor_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+Chancellor: [+ chancellor +] ([?if chancellor_party == "I":<span style="color: #808080;">**I**</span>?][?if chancellor_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
 = Bundestag
 
@@ -60,7 +60,7 @@ Chancellor: [+ chancellor +] ([?if chancellor_party == "VF": <span style="color:
 
 <span style="color: #909090;">**Others**</span>: [+ other_seats +] ([+ other_b +]%)
 
-Bundestag President: [+ bundestag_president +] ([?if bundestag_president_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+Bundestag President: [+ bundestag_president +] ([?if bundestag_president_party == "I": <span style="color: #808080;">**I**</span>?][?if bundestag_president_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
 @cabinet
 go-to: menu
