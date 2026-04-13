@@ -205,7 +205,7 @@ if (window && d3) {
     d3.select("#reichstag").datum(data).call(parliament);
 }
 !}
-go-to: coalition_menu
+go-to: speaker_election
 
 = Election results
 
@@ -230,13 +230,14 @@ go-to: coalition_menu
 
 There are some potential coalition arrangements.
 
-@coalition_menu
+@speaker_election
 
-- @vf_majority
+We have to elect the President of Bundestag first.
 
-@vf_majority
-title: The <span style="color: #ED2939;">**VF**</span> has a majority.
-subtitle: Another government of the <span style="color: #ED2939;">**VF**</span>.
-view-if: vf_seats >= 101
+- @hoyos_sprinzenstein
 
-WIP
+@hoyos_sprinzenstein
+title: Rudolf Hoyos-Sprinzenstein.
+subtitle: Longtime <span style="color: #ED2939;">**VF**</span> President of Bundestag.
+
+Rudolf Hoyos-Sprinzenstein is elected to be the President of Bundestag.
