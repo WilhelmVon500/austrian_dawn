@@ -6,7 +6,7 @@ view-if: international_relations_timer <= 0
 on-arrival: month_actions += 1; international_relations_timer += 12;
 card-image: img/international.jpg
 
-We can forge contacts with our centre-right parties in Europe and across the world.
+We can forge contacts with our fraternal centre-right parties in Europe and across the world.
 
 - @fr_uk: Build relationships with the French <span style="color: #FFBF00;">**AD**</span> and British <span style="color: #FFD700;">**Liberal Party**</span>.
 - @america: Contact the <span style="color: #E81B23;">**Republican Party**</span> of America.
