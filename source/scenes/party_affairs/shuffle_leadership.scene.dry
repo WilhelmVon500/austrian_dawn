@@ -96,10 +96,20 @@ Kelsen has been removed as an advisor. The Social Liberal faction disapproves.
 title: Remove Stolper
 view-if: stolper_advisor
 tags: remove_advisor
-on-arrival: stolper_advisor = 0; social_liberal_dissent += 5; n_advisors -= 1
+on-arrival: stolper_advisor = 0; social_liberal_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
 Stolper has been removed as an advisor. The Social Liberal faction disapproves.
+
+
+@remove_klang
+title: Remove Klang
+view-if: klang_advisor
+tags: remove_advisor
+on-arrival: klang_advisor = 0; social_liberal_dissent += 3; n_advisors -= 1
+go-to: rm_main
+
+Klang has been removed as an advisor. The Social Liberal faction disapproves.
 
 
 # christian left
@@ -260,10 +270,23 @@ is-card: true
 face-image: img/portraits/StolperGustav.jpg
 tags: social_liberal_advisor
 view-if: not stolper_advisor and n_advisors < 3 and social_liberal_oclk
-on-arrival: stolper_advisor = 1; n_advisors += 1; social_liberal_strength += 5
+on-arrival: stolper_advisor = 1; n_advisors += 1; social_liberal_strength += 3
 go-to: advisor_menu
 
 Gustav Stolper is now an advisor.
+
+
+@add_klang
+title: Heinrich Klang
+subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
+is-card: true
+face-image: img/portraits/KlangHeinrich.jpg
+tags: social_liberal_advisor
+view-if: not klang_advisor and n_advisors < 3 and social_liberal_oclk
+on-arrival: klang_advisor = 1; n_advisors += 1; social_liberal_strength += 3
+go-to: advisor_menu
+
+Heinrich Klang is now an advisor.
 
 
 # christian left
