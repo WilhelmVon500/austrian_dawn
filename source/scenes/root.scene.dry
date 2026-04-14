@@ -185,16 +185,16 @@ Q.catholics_other = 0;
 
 
 //
-Q.old_oclk_votes = 9.5;
+Q.old_oclk_votes = 4.5;
 Q.old_ap_votes = 13;
 Q.old_dnlp_votes = 3.5;
-Q.old_vf_votes = 70;
+Q.old_vf_votes = 75;
 Q.old_other_votes = 4;
 // Current Bundestag composition
-Q.oclk_seats = 21;
+Q.oclk_seats = 11;
 Q.ap_seats = 28;
 Q.dnlp_seats = 9;
-Q.vf_seats = 142;
+Q.vf_seats = 152;
 Q.other_seats = 0;
 //
 Q.oclk_b = 10.5;
