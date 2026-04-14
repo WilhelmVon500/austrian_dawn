@@ -1,0 +1,9 @@
+title: 1941 Congress of the <span style="color: #ED2939;">**VF**</span>.
+subtitle: The <span style="color: #ED2939;">**VF**</span> holds its annual congress.
+tags: event
+view-if: year = 1941 and month = 5
+priority: 1
+max-visits: 1
+face-image: img/vf_congress.jpg
+
+WIP

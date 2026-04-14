@@ -1,8 +1,0 @@
-title: 1942
-subtitle: A new year
-tags: event
-view-if: year = 1942 and month = 1
-priority: 1
-max-visits: 1
-
-WIP
