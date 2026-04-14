@@ -128,14 +128,14 @@ Dobretsberger has been removed as an advisor. The Christian Left faction disappr
 ## nonfactional
 
 
-@remove_baade
-title: Remove Baade
-view-if: baade_advisor = 1
+@remove_taucher
+title: Remove Taucher
+view-if: taucher_advisor
 tags: remove_advisor
-on-arrival: baade_advisor = 0; n_advisors -= 1
+on-arrival: taucher_advisor = 0; n_advisors -= 1
 go-to: rm_main
 
-Baade has been removed as an advisor.
+Taucher has been removed as an advisor.
 
 
 
@@ -308,14 +308,14 @@ Josef Dobretsberger is now an advisor.
 # Nonfactional advisors
 
 
-@add_baade
-title: Fritz Baade
+@add_taucher
+title: Wilhelm Taucher
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
-face-image: img/portraits/BaadeFritz.jpg
-view-if: baade_advisor = 0 and n_advisors < 3
-on-arrival: baade_advisor = 1; n_advisors += 1
+face-image: img/portraits/TaucherWilhelm.jpg
+view-if: not taucher_advisor and n_advisors < 3
+on-arrival: taucher_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: nonfactional_advisor
 
-Fritz Baade is now an advisor.
+Wilhelm Taucher is now an advisor.
