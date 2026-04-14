@@ -70,6 +70,8 @@ Q.ap_leader = "Schärf";
 Q.dnlp_leader = "Straffner";
 Q.vf_leader = "Schuschnigg";
 
+Q.vf_ideology = "Moderate";
+
 Q.vienna_oclk = 0;
 Q.lower_austria_oclk = 0;
 Q.upper_austria_oclk = 0;
