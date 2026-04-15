@@ -282,6 +282,9 @@ Q.vienna_leader = "Schmitz";
 Q.vienna_leader_party = "VF";
 Q.next_election_year_vienna = 1941;
 Q.next_election_month_vienna = 8;
+
+Q.in_vf_majority_vienna = 1;
+Q.in_oclk_majority_vienna = 0;
 //
 Q.oclk_seats_vienna = 4;
 Q.ap_seats_vienna = 22;
