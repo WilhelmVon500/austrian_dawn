@@ -243,8 +243,7 @@ WIP
 
 
 @mayor
-
-WIP
+title: The coalition has to choose the Mayor.
 
 - @schmitz
 
@@ -252,7 +251,7 @@ WIP
 
 @schmitz
 title: Richard Schmitz
-subtitle: The longtime Mayor and a prominent member of the <span style="color: #ED2939;">**VF**</span>.
+subtitle: The [? if vienna_leader != "Schmitz": former ?] longtime Mayor of Vienna and a prominent member of the <span style="color: #ED2939;">**VF**</span>.
 face-image: img/portraits/SchmitzRichard.jpg
 view-if: vienna_vf
 
