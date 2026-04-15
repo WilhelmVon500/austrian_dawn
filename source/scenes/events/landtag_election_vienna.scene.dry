@@ -211,6 +211,7 @@ There are some potential coalition arrangements.
 
 @coalition_menu
 
+- @oclk_majority
 - @vf_majority
 - @no_majority
 
@@ -239,15 +240,42 @@ WIP
 - @mayor
 
 
+@oclk_majority
+title: We can form a majority government!
+subtitle: <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ([+ vf_wl +]%)
+view-if: oclk_seats > 100
+on-arrival: {!
+Q.vienna_oclk = 1;
+Q.vienna_vf = 0;
+
+Q.in_vf_majority_vienna = 0;
+Q.in_oclk_majority_vienna = 1;
+!}
+
+WIP
+
+- @mayor
+
+
 
 
 
 @mayor
 title: The coalition has to choose the Mayor.
 
+- @winter
 - @schmitz
 
 
+
+@winter
+title: Ernst Karl Winter
+subtitle: WIP
+view-if: vienna_oclk
+face-image: img/portraits/WinterErnst.jpg
+on-arrival: vienna_leader = "Winter"; vienna_leader_party = oclk_name;
+
+WIP
 
 @schmitz
 title: Richard Schmitz
