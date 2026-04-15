@@ -16,45 +16,46 @@ The Bundestag elections are to be held now.
 on-arrival: {!
 var new_party_sum = 0;
 for (var party of Q.parties) {
-    Q['old_' + party + '_b'] = Q[party + '_b'];
+    Q['old_' + party + '_votes'] = Q[party + '_election_votes'];
     Q['old_' + party + '_seats'] = Q[party + '_seats'];
-    if (Q.electoral_threshold > 0) {
-        if (Q[party + '_votes'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
-            Q[party + '_b'] = 0;
-        } else {
-            Q[party + '_b'] = parseFloat((Q[party+'_votes']).toFixed(1));
-        }
-        new_party_sum += Q[party + '_b'];
+    Q['old_' + party + '_b'] = Q[party + '_b'];
+
+    Q[party + '_b'] = 0;
+    Q[party + '_seats'] = 0;
+    if (Q[party + '_banned']) {
+        Q[party + '_election_votes'] = 0;
     } else {
-        Q[party + '_b'] = parseFloat((Q[party+'_votes']).toFixed(1));
-        if (party == 'other') Q[party + '_b'] = Q[party + '_votes'] * 0.3;
-        new_party_sum += Q[party + '_b'];
-        console.log(new_party_sum)
+        Q[party + '_election_votes'] = parseFloat((Q[party+'_votes']).toFixed(1));
+        if (party == 'other') Q[party + '_election_votes'] = parseFloat((Q[party + '_votes'] * 0.3).toFixed(1));
     }
+    new_party_sum += Q[party + '_election_votes'];
+}
 
-    Q['change_' + party + '_votes'] = Q[party + '_votes'] - Q['old_' + party + '_votes'];
-    var sign2 = Q['change_' + party + '_votes'] > 0 
-                    ? '<img src="img/arrowup.png"> ' 
-                    : Q['change_' + party + '_votes'] < 0 
-                      ? '<img src="img/arrowdown.png"> ' 
-                      : '<img src="img/steady.png"> ';
-    Q['votes_change_' + party] = sign2 + Math.abs(parseFloat(Q['change_' + party + '_votes'])).toFixed(1);
-
-    Q['old_' + party + '_votes'] = parseFloat((Q[party + '_votes']).toFixed(1));
+// calculate new party sum
+if (new_party_sum > 0) {
+    for (var party of Q.parties) {
+        if (Q[party + '_election_votes'] > 0 && !(Q[party + '_election_votes'] < Q.electoral_threshold) && !(Q.electoral_threshold > 1 && party == 'other')) {
+            Q[party + '_election_votes'] = parseFloat((Q[party + '_election_votes']*100/new_party_sum).toFixed(1));
+            Q[party + '_b'] = parseFloat((Q[party + '_election_votes']).toFixed(1));
+        } else {
+            Q[party + '_election_votes'] = parseFloat((Q[party + '_election_votes']*100/new_party_sum).toFixed(1));
+            Q[party + '_b'] = 0;
+        }
+        Q[party + '_b'] = parseFloat((Q[party+'_b']).toFixed(1));
+    }
 }
 
 for (var party of Q.parties) {
-    if (Q[party + '_b'] > 0) {
-        Q[party + '_b'] = Math.round(Q[party + '_b']*1000/new_party_sum)/10;
-    }
-    Q[party + '_b'] = parseFloat((Q[party+'_b']).toFixed(1));
+        if (Q[party + '_b'] > 0) {
+            Q[party + '_seats'] = Math.round(Q[party + '_b'] * 0.2);
+        }
 }
 
 let allocatedSeats = 0;
 let remainders = [];
 
 for (var party of Q.parties) {
-    let rawSeats = Q[party + '_b'] * Math.round(200) / 100;
+    let rawSeats = Q[party + '_b'] * 0.2;
     let seats = Math.floor(rawSeats);
     Q[party + '_seats'] = seats;
     allocatedSeats += seats;
@@ -64,7 +65,7 @@ for (var party of Q.parties) {
     });
 }
 
-let remainingSeats = Math.round(200) - allocatedSeats;
+let remainingSeats = (200) - allocatedSeats;
 remainders.sort((a, b) => b.remainder - a.remainder);
 for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
     let partyObj = remainders[i];
@@ -74,7 +75,18 @@ for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
     Q[party + '_seats'] += 1;
 }
 
+
 for (var party of Q.parties) {
+    Q[party + '_b'] = parseFloat((Q[party + '_seats']/200).toFixed(1));
+
+    Q['change_' + party + '_votes'] = Q[party + '_election_votes'] - Q['old_' + party + '_votes'];
+    var sign2 = Q['change_' + party + '_votes'] > 0 
+            ? '<img src="img/arrowup.png"> ' 
+            : Q['change_' + party + '_votes'] < 0 
+                    ? '<img src="img/arrowdown.png"> ' 
+                    : '<img src="img/steady.png"> ';
+    Q['votes_change_' + party] = sign2 + Math.abs(parseFloat(Q['change_' + party + '_votes'])).toFixed(1);
+
     Q['change_' + party + '_b'] = Q[party + '_b'] - Q['old_' + party + '_b'];
     var sign = Q['change_' + party + '_b'] > 0 
             ? '<img src="img/arrowup.png"> ' 
@@ -218,17 +230,17 @@ go-to: speaker_election
 
 {!<table>!}
 {!<tr><td>Party</td><td>Vote Share</td><td>% Change</td><td>Bundestag Seats</td><td>Seats Change</td></tr>!}
-{!<tr><td><div class="box" style='background-color:#EEEE22; outline: 2px; outline-style: solid;'> </div> !} **[+oclk_name+]:** {!</td><td>!} **[+ oclk_votes +]%** {!</td><td>!} **[+ votes_change_oclk +]** {!</td><td>!} **[+ oclk_seats +] ([+ oclk_b +]%)** {!</td><td>!} **[+ str_seats_change_oclk +] ([+ str_change_oclk +]%)** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#EEEE22; outline: 2px; outline-style: solid;'> </div> !} **[+oclk_name+]:** {!</td><td>!} **[+ oclk_election_votes +]%** {!</td><td>!} **[+ votes_change_oclk +]** {!</td><td>!} **[+ oclk_seats +] ([+ oclk_b +]%)** {!</td><td>!} **[+ str_seats_change_oclk +] ([+ str_change_oclk +]%)** {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#FA5A42'> </div> !} AP: {!</td><td>!} [+ ap_votes +]% {!</td><td>!} [+ votes_change_ap +] {!</td><td>!} [+ ap_seats +] ([+ ap_b +]%) {!</td><td>!} [+ str_seats_change_ap +] ([+ str_change_ap +]%) {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FA5A42'> </div> !} AP: {!</td><td>!} [+ ap_election_votes +]% {!</td><td>!} [+ votes_change_ap +] {!</td><td>!} [+ ap_seats +] ([+ ap_b +]%) {!</td><td>!} [+ str_seats_change_ap +] ([+ str_change_ap +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_votes +]% {!</td><td>!} [+ votes_change_dnlp +] {!</td><td>!} [+ dnlp_seats +] ([+ dnlp_b +]%) {!</td><td>!} [+ str_seats_change_dnlp +] ([+ str_change_dnlp +]%) {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes +]% {!</td><td>!} [+ votes_change_dnlp +] {!</td><td>!} [+ dnlp_seats +] ([+ dnlp_b +]%) {!</td><td>!} [+ str_seats_change_dnlp +] ([+ str_change_dnlp +]%) {!</td></tr>!}
 
-[? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} ÖVP: {!</td><td>!} [+ ovp_votes +]% {!</td><td>!} [+ votes_change_ovp +] {!</td><td>!} [+ ovp_seats +] ([+ ovp_b +]%) {!</td><td>!} [+ str_seats_change_ovp +] ([+ str_change_ovp +]%) {!</td></tr>!} ?]
+[? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} ÖVP: {!</td><td>!} [+ ovp_election_votes +]% {!</td><td>!} [+ votes_change_ovp +] {!</td><td>!} [+ ovp_seats +] ([+ ovp_b +]%) {!</td><td>!} [+ str_seats_change_ovp +] ([+ str_change_ovp +]%) {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#ED2939'> </div> !} VF: {!</td><td>!} [+ vf_votes +]% {!</td><td>!} [+ votes_change_vf +] {!</td><td>!} [+ vf_seats +] ([+ vf_b +]%) {!</td><td>!} [+ str_seats_change_vf +] ([+ str_change_vf +]%) {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#ED2939'> </div> !} VF: {!</td><td>!} [+ vf_election_votes +]% {!</td><td>!} [+ votes_change_vf +] {!</td><td>!} [+ vf_seats +] ([+ vf_b +]%) {!</td><td>!} [+ str_seats_change_vf +] ([+ str_change_vf +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#909090'> </div> !} Other: {!</td><td>!} [+ other_votes +]% {!</td><td>!} [+ votes_change_other +] {!</td><td>!} [+ other_seats +] ([+ other_b +]%) {!</td><td>!} [+ str_seats_change_other +] ([+ str_change_other +]%) {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#909090'> </div> !} Other: {!</td><td>!} [+ other_election_votes +]% {!</td><td>!} [+ votes_change_other +] {!</td><td>!} [+ other_seats +] ([+ other_b +]%) {!</td><td>!} [+ str_seats_change_other +] ([+ str_change_other +]%) {!</td></tr>!}
 {!</table>!}
 
 **Potential coalitions:**
