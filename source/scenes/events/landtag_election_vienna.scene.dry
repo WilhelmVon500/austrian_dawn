@@ -190,17 +190,17 @@ go-to: coalition_menu
 
 {!<table>!}
 {!<tr><td>Party</td><td>Vote Share</td><td>Landtag Seats</td></tr>!}
-{!<tr><td><div class="box" style='background-color:#EEEE22; outline: 2px; outline-style: solid;'> </div> !} **[+oclk_name+]:** {!</td><td>!} **[+ oclk_election_votes +]%** {!</td><td>!} **[+ oclk_seats +] ([+ oclk_b +]%)** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#EEEE22; outline: 2px; outline-style: solid;'> </div> !} **[+oclk_name+]:** {!</td><td>!} **[+ oclk_election_votes_vienna +]%** {!</td><td>!} **[+ oclk_seats_vienna +] ([+ oclk_wl +]%)** {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#FA5A42'> </div> !} AP: {!</td><td>!} [+ ap_election_votes +]% {!</td><td>!} [+ ap_seats +] ([+ ap_b +]%) {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FA5A42'> </div> !} AP: {!</td><td>!} [+ ap_election_votes_vienna +]% {!</td><td>!} [+ ap_seats_vienna +] ([+ ap_wl +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes +]% {!</td><td>!} [+ dnlp_seats +] ([+ dnlp_b +]%) {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes_vienna +]% {!</td><td>!} [+ dnlp_seats_vienna +] ([+ dnlp_wl +]%) {!</td></tr>!}
 
-[? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} ÖVP: {!</td><td>!} [+ ovp_election_votes +]% {!</td><td>!} [+ ovp_seats +] ([+ ovp_b +]%) {!</td></tr>!} ?]
+[? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} ÖVP: {!</td><td>!} [+ ovp_election_votes_vienna +]% {!</td><td>!} [+ ovp_seats_vienna +] ([+ ovp_wl +]%) {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#ED2939'> </div> !} VF: {!</td><td>!} [+ vf_election_votes +]% {!</td><td>!} [+ vf_seats +] ([+ vf_b +]%) {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#ED2939'> </div> !} VF: {!</td><td>!} [+ vf_election_votes_vienna +]% {!</td><td>!} [+ vf_seats_vienna +] ([+ vf_wl +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#909090'> </div> !} Other: {!</td><td>!} [+ other_election_votes +]% {!</td><td>!} [+ other_seats +] ([+ other_b +]%) {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#909090'> </div> !} Other: {!</td><td>!} [+ other_election_votes_vienna +]% {!</td><td>!} [+ other_seats_vienna +] ([+ other_wl +]%) {!</td></tr>!}
 {!</table>!}
 
 **Potential coalitions:**
