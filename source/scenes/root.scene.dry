@@ -72,16 +72,6 @@ Q.vf_leader = "Schuschnigg";
 
 Q.vf_ideology = "Moderate";
 
-Q.vienna_oclk = 0;
-Q.lower_austria_oclk = 0;
-Q.upper_austria_oclk = 0;
-Q.styria_oclk = 0;
-Q.carinthia_oclk = 0;
-Q.burgenland_oclk = 0;
-Q.salzburg_oclk = 0;
-Q.tyrol_oclk = 0;
-Q.vorarlberg_oclk = 0;
-
 // The array of forces - paramilitary groups
 // Number of members in 1941 (in thousands)
 // Reichsbanner, stahlhelm, SA, rotfrontkämpferbund
@@ -271,6 +261,66 @@ Q.education_science = 0;
 Q.lower_tax_rates = 0;
 Q.upper_tax_rates = 0;
 Q.tariffs = 0;
+
+
+
+
+
+// Lands
+Q.vienna_oclk = 0;
+Q.lower_austria_oclk = 0;
+Q.upper_austria_oclk = 0;
+Q.styria_oclk = 0;
+Q.carinthia_oclk = 0;
+Q.burgenland_oclk = 0;
+Q.salzburg_oclk = 0;
+Q.tyrol_oclk = 0;
+Q.vorarlberg_oclk = 0;
+
+// Vienna
+Q.vienna_mayor = "Schmitz";
+Q.vienna_mayor_party = "VF";
+Q.next_election_year_vienna = 1941;
+Q.next_election_month_vienna = 8;
+//
+Q.oclk_seats_vienna = 4;
+Q.ap_seats_vienna = 22;
+Q.dnlp_seats_vienna = 4;
+Q.vf_seats_vienna = 68;
+Q.other_seats_vienna = 2;
+//
+Q.oclk_wl = 4;
+Q.ap_wl = 22;
+Q.dnlp_wl = 4;
+Q.vf_wl = 68;
+Q.other_wl = 2;
+
+
+// Lower Austria
+
+
+// Upper Austria
+
+
+// Styria
+
+
+// Carinthia
+
+
+// Burgenland
+
+
+// Salzburg
+
+
+// Tyrol
+
+
+// Vorarlberg
+
+
+
 
 
 // Advisors/Leaders
