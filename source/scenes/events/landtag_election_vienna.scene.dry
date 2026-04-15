@@ -28,7 +28,7 @@ for (var c of Q.classes) {
 }
 
 // Define adjustment factors
-if (Q.year == 1922) {
+if (Q.year == 1941) {
     Q.adjustmentFactors_ap_vienna = 1.25;
     Q.adjustmentFactors_oclk_vienna = 1.1;
     Q.adjustmentFactors_dnlp_vienna = 0.55;
