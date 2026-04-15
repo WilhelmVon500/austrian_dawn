@@ -242,7 +242,7 @@ WIP
 
 @oclk_majority
 title: We can form a majority government!
-subtitle: <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ([+ vf_wl +]%)
+subtitle: <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ([+ oclk_wl +]%)
 view-if: oclk_seats_vienna > 100
 on-arrival: {!
 Q.vienna_oclk = 1;
