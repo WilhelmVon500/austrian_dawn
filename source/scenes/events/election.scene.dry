@@ -26,7 +26,7 @@ for (var party of Q.parties) {
         Q[party + '_election_votes'] = 0;
     } else {
         Q[party + '_election_votes'] = parseFloat((Q[party+'_votes']).toFixed(1));
-        if (party == 'other') Q[party + '_election_votes'] = parseFloat((Q[party + '_votes'] * 0.3).toFixed(1));
+        if (party == 'other') Q[party + '_election_votes'] = parseFloat((Q[party + '_votes'] * 0.8).toFixed(1));
     }
     new_party_sum += Q[party + '_election_votes'];
 }
@@ -47,7 +47,7 @@ if (new_party_sum > 0) {
 
 for (var party of Q.parties) {
         if (Q[party + '_b'] > 0) {
-            Q[party + '_seats'] = Math.round(Q[party + '_b'] * 0.2);
+            Q[party + '_seats'] = Math.round(Q[party + '_b'] * 2);
         }
 }
 
@@ -55,7 +55,7 @@ let allocatedSeats = 0;
 let remainders = [];
 
 for (var party of Q.parties) {
-    let rawSeats = Q[party + '_b'] * 0.2;
+    let rawSeats = Q[party + '_b'] * 2;
     let seats = Math.floor(rawSeats);
     Q[party + '_seats'] = seats;
     allocatedSeats += seats;
