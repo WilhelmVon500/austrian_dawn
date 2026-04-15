@@ -217,7 +217,7 @@ There are some potential coalition arrangements.
 
 @no_majority
 title: There is no clear governing majority.
-view-if: vf_seats_vienna <= 100 and oclk_seats_vienna <= 100
+view-if: vf_seats_vienna <= 50 and oclk_seats_vienna <= 50
 
 The previous coalition continues to govern as a minority government.
 
@@ -226,7 +226,7 @@ The previous coalition continues to govern as a minority government.
 @vf_majority
 title: The <span style="color: #ED2939;">**VF**</span> forms a majority government.
 subtitle: <span style="color: #ED2939;">**VF**</span> ([+ vf_wl +]%)
-view-if: vf_seats_vienna > 100
+view-if: vf_seats_vienna > 50
 on-arrival: {!
 Q.vienna_oclk = 0;
 Q.vienna_vf = 1;
@@ -243,7 +243,7 @@ WIP
 @oclk_majority
 title: We can form a majority government!
 subtitle: <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ([+ oclk_wl +]%)
-view-if: oclk_seats_vienna > 100
+view-if: oclk_seats_vienna > 50
 on-arrival: {!
 Q.vienna_oclk = 1;
 Q.vienna_vf = 0;
