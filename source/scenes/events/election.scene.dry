@@ -26,7 +26,6 @@ for (var party of Q.parties) {
         Q[party + '_election_votes'] = 0;
     } else {
         Q[party + '_election_votes'] = parseFloat((Q[party+'_votes']).toFixed(1));
-        if (party == 'other') Q[party + '_election_votes'] = parseFloat((Q[party + '_votes'] * 0.8).toFixed(1));
     }
     new_party_sum += Q[party + '_election_votes'];
 }
