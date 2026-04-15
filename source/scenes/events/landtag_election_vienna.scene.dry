@@ -211,15 +211,48 @@ There are some potential coalition arrangements.
 
 @coalition_menu
 
+- @vf_majority
+- @oclk_majority
+- @no_majority
 
-@clear
+@no_majority
+
+The previous coalition continues to govern as a minority government.
+
+
+
+@vf_majority
+title: The <span style="color: #ED2939;">**VF**</span> forms a majority government.
+subtitle: <span style="color: #ED2939;">**VF**</span> ([+ vf_wl +]%)
+view-if: vf_seats > 100
 on-arrival: {!
 Q.vienna_oclk = 0;
-Q.vienna_vf = 0;
+Q.vienna_vf = 1;
 
-Q.vienna_leader = "Vacant";
-Q.vienna_leader_party = "I";
-
-Q.in_vf_majority_vienna = 0;
+Q.in_vf_majority_vienna = 1;
 Q.in_oclk_majority_vienna = 0;
 !}
+
+WIP
+
+- @mayor
+
+
+
+
+
+@mayor
+
+WIP
+
+- @schmitz
+
+
+
+@schmitz
+title: Richard Schmitz
+subtitle: The longtime Mayor and a prominent member of the <span style="color: #ED2939;">**VF**</span>.
+face-image: img/portraits/SchmitzRichard.jpg
+view-if: vienna_vf
+
+WIP
