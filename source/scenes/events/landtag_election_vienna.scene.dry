@@ -1,1 +1,225 @@
+title: Vienna Landtag Election
+new-page: true
+tags: event
+priority: -1
+view-if: (year = next_election_year_vienna and month >= next_election_month_vienna) or (year > next_election_year_vienna)
+on-departure: month_actions += 1; in_election = 0; next_election_year_vienna = next_election_year_vienna + 4; n_elections += 1; next_election_time_vienna = time + 48;
+set-jump: post_election
 
+= Vienna Landtag Election, [+ month : month +] [+ year +]
+
+The Viennese landtag elections are to be held now.
+
+- @election_algorithm: May we do our best...
+
+@post_election
+on-arrival: {!
+for (var c of Q.classes) {
+    var class_votes = 0;
+    for (var party of Q.parties) {
+        if (Q[c + '_' + party] < 0) {
+            Q[c + '_' + party] = 0;
+        }
+        class_votes += Q[c + '_' + party];
+    }
+    for (var party of Q.parties) {
+        Q[c + '_' + party + '_normalized_vienna'] = Math.round(100 * Q[c + '_' + party] / class_votes);
+    }
+}
+
+// Define adjustment factors
+if (Q.year == 1922) {
+    Q.adjustmentFactors_ap_vienna = 1.25;
+    Q.adjustmentFactors_oclk_vienna = 1.1;
+    Q.adjustmentFactors_dnlp_vienna = 0.55;
+    Q.adjustmentFactors_vf_vienna = 1.05;
+    Q.adjustmentFactors_other_vienna = 0.8;
+}
+
+
+
+// Calculate support for each of the parties
+var total_support = 0;
+for (var party of Q.parties) {
+    var party_support = 0;
+    for (var c of Q.classes) {
+        if (Q.old_demographics) {
+            party_support += Q[c] * Q[c + '_' + party];
+        } else {
+            party_support += Q[c] * Q[c + '_' + party + '_normalized_vienna'];
+        }
+    }
+    // Apply adjustment factor
+    Q[party + '_support'] = party_support * Q['adjustmentFactors_' + party + '_vienna'];
+    total_support += Q[party + '_support'];
+}
+console.log(total_support)
+// Normalize support (fraction)
+for (var party of Q.parties) {
+    Q[party + '_normalized_vienna'] = Q[party + '_support'] / total_support;
+    console.log(Q[party + '_support'])
+    console.log(total_support)
+    Q[party + '_votes_vienna'] = Math.round(Q[party + '_normalized_vienna'] * 1000) / 10;
+}
+
+
+var new_party_sum = 0;
+for (var party of Q.parties) {Q[party + '_wl'] = 0;
+    Q[party + '_seats_vienna'] = 0;
+    if (Q[party + '_banned']) {
+        Q[party + '_election_votes_vienna'] = 0;
+    } else {
+        Q[party + '_election_votes_vienna'] = parseFloat((Q[party+'_votes_vienna']).toFixed(1));
+    }
+    new_party_sum += Q[party + '_election_votes_vienna'];
+}
+
+// calculate new party sum
+if (new_party_sum > 0) {
+    for (var party of Q.parties) {
+        if (Q[party + '_election_votes_vienna'] > 0 && !(Q[party + '_election_votes_vienna'] < Q.electoral_threshold) && !(Q.electoral_threshold > 1 && party == 'other')) {
+            Q[party + '_election_votes_vienna'] = parseFloat((Q[party + '_election_votes_vienna']*100/new_party_sum).toFixed(1));
+            Q[party + '_wl'] = parseFloat((Q[party + '_election_votes_vienna']).toFixed(1));
+        } else {
+            Q[party + '_election_votes_vienna'] = parseFloat((Q[party + '_election_votes_vienna']*100/new_party_sum).toFixed(1));
+            Q[party + '_wl'] = 0;
+        }
+        Q[party + '_wl'] = parseFloat((Q[party+'_wl']).toFixed(1));
+    }
+}
+
+for (var party of Q.parties) {
+        if (Q[party + '_wl'] > 0) {
+            Q[party + '_seats_vienna'] = Math.round(Q[party + '_wl']);
+        }
+}
+
+let allocatedSeats = 0;
+let remainders = [];
+
+for (var party of Q.parties) {
+    let rawSeats = Q[party + '_wl'];
+    let seats = Math.floor(rawSeats);
+    Q[party + '_seats_vienna'] = seats;
+    allocatedSeats += seats;
+    remainders.push({
+        party: party,
+        remainder: rawSeats - seats
+    });
+}
+
+let remainingSeats = 100 - allocatedSeats;
+remainders.sort((a, b) => b.remainder - a.remainder);
+for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
+    let partyObj = remainders[i];
+    if (!partyObj || !partyObj.party) continue;
+
+    let party = partyObj.party;
+    Q[party + '_seats_vienna'] += 1;
+}
+
+for (var party of Q.parties) {
+    Q[party + '_wl'] = parseFloat((Q[party + '_seats_vienna']).toFixed(1));
+}
+!}
+on-display: {!
+data = []
+if (Q.ap_seats_vienna) {
+    data.push({
+        "id": "ap",
+        "legend": "AP",
+        "name": "AP",
+        "seats": Math.round(Q.ap_seats_vienna),
+    });
+}
+if (Q.oclk_seats_vienna) {
+    data.push({
+        "id": "oclk",
+        "legend": "ÖCLK",
+        "name": "ÖCLK",
+        "seats": Math.round(Q.oclk_seats_vienna),
+    });
+}
+if (Q.dnlp_seats_vienna) {
+    data.push({
+        "id": "dnlp",
+        "legend": "DNLP",
+        "name": "DNLP",
+        "seats": Math.round(Q.dnlp_seats_vienna),
+    });
+}
+if (Q.ovp_seats_vienna) {
+    data.push({
+        "id": "ovp",
+        "legend": "ÖVP",
+        "name": "ÖVP",
+        "seats": Math.round(Q.ovp_seats_vienna),
+    });
+}
+if (Q.vf_seats_vienna) {
+    data.push({
+        "id": "vf",
+        "legend": "VF",
+        "name": "VF",
+        "seats": Math.round(Q.vf_seats_vienna),
+    });
+}
+             
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+go-to: coalition_menu
+
+= Election results
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+{!<table>!}
+{!<tr><td>Party</td><td>Vote Share</td><td>Landtag Seats</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#EEEE22; outline: 2px; outline-style: solid;'> </div> !} **[+oclk_name+]:** {!</td><td>!} **[+ oclk_election_votes +]%** {!</td><td>!} **[+ oclk_seats +] ([+ oclk_b +]%)** {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#FA5A42'> </div> !} AP: {!</td><td>!} [+ ap_election_votes +]% {!</td><td>!} [+ ap_seats +] ([+ ap_b +]%) {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes +]% {!</td><td>!} [+ dnlp_seats +] ([+ dnlp_b +]%) {!</td></tr>!}
+
+[? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} ÖVP: {!</td><td>!} [+ ovp_election_votes +]% {!</td><td>!} [+ ovp_seats +] ([+ ovp_b +]%) {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#ED2939'> </div> !} VF: {!</td><td>!} [+ vf_election_votes +]% {!</td><td>!} [+ vf_seats +] ([+ vf_b +]%) {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#909090'> </div> !} Other: {!</td><td>!} [+ other_election_votes +]% {!</td><td>!} [+ other_seats +] ([+ other_b +]%) {!</td></tr>!}
+{!</table>!}
+
+**Potential coalitions:**
+
+WIP
+
+There are some potential coalition arrangements.
+
+@coalition_menu
+
+
+@clear
+on-arrival: {!
+Q.vienna_oclk = 0;
+Q.vienna_vf = 0;
+
+Q.vienna_leader = "Vacant";
+Q.vienna_leader_party = "I";
+
+Q.in_vf_majority_vienna = 0;
+Q.in_oclk_majority_vienna = 0;
+!}
