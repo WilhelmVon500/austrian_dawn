@@ -75,8 +75,8 @@ for (var party of Q.parties) {Q[party + '_wl'] = 0;
 }
 
 Q.other_votes_vienna = Q.other_election_votes_vienna * 0.3
-new_party_sum -= other_election_votes_vienna
-new_party_sum += other_votes_vienna
+new_party_sum -= Q.other_election_votes_vienna
+new_party_sum += Q.other_votes_vienna
 
 // calculate new party sum
 if (new_party_sum > 0) {
