@@ -252,7 +252,8 @@ title: The coalition has to choose the Mayor.
 @schmitz
 title: Richard Schmitz
 subtitle: The [? if vienna_leader != "Schmitz": former ?] longtime Mayor of Vienna and a prominent member of the <span style="color: #ED2939;">**VF**</span>.
-face-image: img/portraits/SchmitzRichard.jpg
 view-if: vienna_vf
+face-image: img/portraits/SchmitzRichard.jpg
+on-arrival: vienna_leader = "Schmitz"; vienna_leader_party = "VF";
 
 WIP
