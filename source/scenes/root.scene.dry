@@ -277,6 +277,16 @@ Q.salzburg_oclk = 0;
 Q.tyrol_oclk = 0;
 Q.vorarlberg_oclk = 0;
 
+Q.vienna_vf = 1;
+Q.lower_austria_vf = 1;
+Q.upper_austria_vf = 1;
+Q.styria_vf = 1;
+Q.carinthia_vf = 1;
+Q.burgenland_vf = 1;
+Q.salzburg_vf = 1;
+Q.tyrol_vf = 1;
+Q.vorarlberg_vf = 1;
+
 // Vienna
 Q.vienna_leader = "Schmitz";
 Q.vienna_leader_party = "VF";
