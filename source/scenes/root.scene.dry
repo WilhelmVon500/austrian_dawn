@@ -295,24 +295,6 @@ Q.next_election_month_vienna = 8;
 
 Q.in_vf_majority_vienna = 1;
 Q.in_oclk_majority_vienna = 0;
-//
-Q.oclk_election_votes_vienna = 3.5;
-Q.ap_election_votes_vienna = 21.5;
-Q.dnlp_election_votes_vienna = 3.5;
-Q.vf_election_votes_vienna = 67.5;
-Q.other_election_votes_vienna = 4;
-//
-Q.oclk_seats_vienna = 4;
-Q.ap_seats_vienna = 22;
-Q.dnlp_seats_vienna = 4;
-Q.vf_seats_vienna = 68;
-Q.other_seats_vienna = 2;
-//
-Q.oclk_wl = 4;
-Q.ap_wl = 22;
-Q.dnlp_wl = 4;
-Q.vf_wl = 68;
-Q.other_wl = 2;
 
 
 // Lower Austria
