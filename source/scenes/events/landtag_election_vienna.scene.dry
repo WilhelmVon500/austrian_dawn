@@ -144,6 +144,14 @@ if (Q.oclk_seats_vienna) {
         "seats": Math.round(Q.oclk_seats_vienna),
     });
 }
+if (Q.other_seats_vienna) {
+    data.push({
+        "id": "other",
+        "legend": "Other",
+        "name": "Other",
+        "seats": Math.round(Q.other_seats_vienna),
+    });
+}
 if (Q.dnlp_seats_vienna) {
     data.push({
         "id": "dnlp",
