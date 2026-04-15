@@ -147,15 +147,15 @@ Q.workers_other = 10;
 
 Q.old_middle_oclk = 30;
 Q.old_middle_ap = 0;
-Q.old_middle_dnlp = 20;
+Q.old_middle_dnlp = 25;
 Q.old_middle_vf = 40;
-Q.old_middle_other = 10;
+Q.old_middle_other = 5;
 
 Q.new_middle_oclk = 30;
 Q.new_middle_ap = 5;
-Q.new_middle_dnlp = 15;
+Q.new_middle_dnlp = 25;
 Q.new_middle_vf = 35;
-Q.new_middle_other = 15;
+Q.new_middle_other = 5;
 
 Q.rural_oclk = 10;
 Q.rural_ap = 0;
@@ -164,10 +164,10 @@ Q.rural_vf = 75;
 Q.rural_other = 10;
 
 Q.unemployed_oclk = 0;
-Q.unemployed_ap = 30;
-Q.unemployed_dnlp = 0;
+Q.unemployed_ap = 35;
+Q.unemployed_dnlp = 5;
 Q.unemployed_vf = 40;
-Q.unemployed_other = 30;
+Q.unemployed_other = 20;
 
 Q.catholics_oclk = 10;
 Q.catholics_ap = 5;
