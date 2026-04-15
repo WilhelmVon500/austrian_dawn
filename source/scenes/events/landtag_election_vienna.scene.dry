@@ -8,7 +8,7 @@ set-jump: post_election
 
 = Vienna Landtag Election, [+ month : month +] [+ year +]
 
-The Viennese landtag elections are to be held now.
+The Viennese Landtag elections are to be held now.
 
 - @election_algorithm: May we do our best...
 
