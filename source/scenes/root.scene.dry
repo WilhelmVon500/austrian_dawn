@@ -278,8 +278,8 @@ Q.tyrol_oclk = 0;
 Q.vorarlberg_oclk = 0;
 
 // Vienna
-Q.vienna_mayor = "Schmitz";
-Q.vienna_mayor_party = "VF";
+Q.vienna_leader = "Schmitz";
+Q.vienna_leader_party = "VF";
 Q.next_election_year_vienna = 1941;
 Q.next_election_month_vienna = 8;
 //
