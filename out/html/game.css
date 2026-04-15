@@ -546,6 +546,9 @@ table {
 .seat.ap {
     fill: #FA5A42;
 }
+.seat.other {
+    fill: #909090;
+}
 .seat.dnlp {
     fill: #0E428E;
 }
