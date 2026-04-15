@@ -287,6 +287,7 @@ Q.salzburg_vf = 1;
 Q.tyrol_vf = 1;
 Q.vorarlberg_vf = 1;
 
+
 // Vienna
 Q.vienna_leader = "Schmitz";
 Q.vienna_leader_party = "VF";
