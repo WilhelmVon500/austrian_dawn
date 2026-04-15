@@ -215,6 +215,8 @@ There are some potential coalition arrangements.
 - @no_majority
 
 @no_majority
+title: There is no clear governing majority.
+view-if: vf_seats <= 100 and oclk_seats <= 100
 
 The previous coalition continues to govern as a minority government.
 
