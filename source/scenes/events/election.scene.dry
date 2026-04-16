@@ -4,21 +4,19 @@ tags: event
 priority: -1
 view-if: (year = next_election_year and month >= next_election_month) or (year > next_election_year)
 on-departure: month_actions += 1; in_election = 0; next_election_year = next_election_year + 4; n_elections += 1; next_election_time = time + 48;
+on-arrival: bundestag_elected = 200 * elected_share; bundestag_appointed = 200 * appointed_share;
 set-jump: post_election
 
 = Elections, [+ month : month +] [+ year +]
 
 The Bundestag elections are to be held now.
 
-[? if appointed_share: [+ bundestag_appointed +] seats are, by Constitution, appointed by the estates - that means that these seats will be controlled by the <span style="color: #ED2939;">**VF**</span>. ?]
+[? if bundestag_appointed: [+ bundestag_appointed +] seats are, by Constitution, appointed by the estates - that means that these seats will be controlled by the <span style="color: #ED2939;">**VF**</span>. ?]
 
 - @election_algorithm: May we do our best...
 
 @post_election
 on-arrival: {!
-Q.bundestag_elected = 200 * Q.elected_share;
-Q.bundestag_appointed = 200 * Q.appointed_share;
-
 var new_party_sum = 0;
 for (var party of Q.parties) {
     Q['old_' + party + '_votes'] = Q[party + '_election_votes'];
