@@ -182,8 +182,8 @@ Q.dnlp_election_votes = 3.5;
 Q.vf_election_votes = 75;
 Q.other_election_votes = 4;
 // Current Bundestag composition
-Q.bundestag_elected = 150;
-Q.bundestag_appointed = 50;
+Q.elected_share = 0.75;
+Q.appointed_share = 0.25;
 Q.oclk_seats = 11;
 Q.ap_seats = 28;
 Q.dnlp_seats = 9;
