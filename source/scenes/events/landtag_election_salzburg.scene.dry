@@ -97,7 +97,7 @@ if (new_party_sum > 0) {
         }
         Q[party + '_zl'] = parseFloat((Q[party+'_zl']).toFixed(1));
         if (Q.salzburg_appointed) {
-            Q[party + '_zl'] = parseFloat((Q[party + '_zl']*Q.salzburg_elected/100).toFixed(1));
+            Q[party + '_zl'] = parseFloat((Q[party + '_zl']*Q.salzburg_elected/30).toFixed(1));
         }
     }
 }
