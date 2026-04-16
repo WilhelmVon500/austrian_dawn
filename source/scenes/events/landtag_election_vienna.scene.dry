@@ -135,7 +135,7 @@ for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
 }
 
 if (Q.vienna_appointed) {
-    Q.vf_seats = Math.round(Q.vf_seats + Q.vienna_appointed);
+    Q.vf_seats_vienna = Math.round(Q.vf_seats_vienna + Q.vienna_appointed);
 }
 
 for (var party of Q.parties) {
