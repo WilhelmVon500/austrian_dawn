@@ -16,6 +16,9 @@ The Bundestag elections are to be held now.
 
 @post_election
 on-arrival: {!
+Q.bundestag_elected = 200 * Q.elected_share;
+Q.bundestag_appointed = 200 * Q.appointed_share;
+
 var new_party_sum = 0;
 for (var party of Q.parties) {
     Q['old_' + party + '_votes'] = Q[party + '_election_votes'];
