@@ -57,11 +57,15 @@ if (new_party_sum > 0) {
     }
 }
 
+if (Q.bundestag_appointed) {
+    Q.vf_b = parseFloat((Q.vf_b + (Q.appointed_share * 100)).toFixed(1));
+}
+
 Q.other_election_votes = other_votes_fix
 
 for (var party of Q.parties) {
         if (Q[party + '_b'] > 0) {
-            Q[party + '_seats'] = Math.round(Q[party + '_b'] * Math.round(Q.bundestag_elected/100));
+            Q[party + '_seats'] = Math.round(Q[party + '_b']/2);
         }
 }
 
@@ -69,7 +73,7 @@ let allocatedSeats = 0;
 let remainders = [];
 
 for (var party of Q.parties) {
-    let rawSeats = Q[party + '_b'] * Math.round(Q.bundestag_elected/100);
+    let rawSeats = Q[party + '_b'] * 2;
     let seats = Math.floor(rawSeats);
     Q[party + '_seats'] = seats;
     allocatedSeats += seats;
@@ -79,7 +83,7 @@ for (var party of Q.parties) {
     });
 }
 
-let remainingSeats = (Q.bundestag_elected) - allocatedSeats;
+let remainingSeats = 200 - allocatedSeats;
 remainders.sort((a, b) => b.remainder - a.remainder);
 for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
     let partyObj = remainders[i];
@@ -87,10 +91,6 @@ for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
 
     let party = partyObj.party;
     Q[party + '_seats'] += 1;
-}
-
-if (Q.bundestag_appointed) {
-    Q.vf_seats = Math.round(Q.vf_seats + Q.bundestag_appointed);
 }
 
 for (var party of Q.parties) {
