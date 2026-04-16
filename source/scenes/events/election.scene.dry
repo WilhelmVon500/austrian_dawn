@@ -47,6 +47,9 @@ if (new_party_sum > 0) {
             Q[party + '_b'] = 0;
         }
         Q[party + '_b'] = parseFloat((Q[party+'_b']).toFixed(1));
+        if (Q.bundestag_appointed) {
+            Q[party + '_b'] = parseFloat((Q[party + '_b']*Q.bundestag_elected/200).toFixed(1));
+        }
     }
 }
 
