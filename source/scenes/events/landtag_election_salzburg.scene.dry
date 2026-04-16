@@ -127,6 +127,8 @@ for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
 for (var party of Q.parties) {
     Q[party + '_zl'] = parseFloat((Q[party + '_seats_salzburg']).toFixed(1));
 }
+
+Q.right_coalition_salzburg = parseFloat((Q.oclk_zl + Q.vf_zl + Q.ovp_zl).toFixed(1));
 !}
 on-display: {!
 data = []
@@ -219,7 +221,7 @@ go-to: coalition_menu
 
 **Potential coalitions:**
 
-WIP
+Right Coalition (<span style="color: #EEEE22;">**[+ oclk_name +]**</span> + <span style="color: #ED2939;">**VF**</span>[? if ovp_exist: + <span style="color: #000000;">**ÖVP**</span>?]): [+ right_coalition_salzburg +]%
 
 There are some potential coalition arrangements.
 
@@ -229,6 +231,93 @@ There are some potential coalition arrangements.
 
 @no_majority
 title: There is no clear governing majority.
-view-if: vf_seats_salzburg <= 16 and oclk_seats_salzburg <= 16
+view-if: vf_seats_salzburg <= 15 and oclk_seats_salzburg <= 15 and right_coalition_salzburg <= 50
 
 The previous coalition continues to govern as a minority government.
+
+
+
+@vf_majority
+title: The <span style="color: #ED2939;">**VF**</span> forms a majority government.
+subtitle: <span style="color: #ED2939;">**VF**</span> ([+ vf_zl +]%)
+view-if: vf_seats_salzburg > 15
+on-arrival: {!
+Q.salzburg_oclk = 0;
+Q.salzburg_vf = 1;
+
+Q.in_right_coalition_salzburg = 0;
+Q.in_vf_majority_salzburg = 1;
+Q.in_oclk_majority_salzburg = 0;
+!}
+
+WIP
+
+- @governor
+
+
+@oclk_majority
+title: We can form a majority government!
+subtitle: <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ([+ oclk_zl +]%)
+view-if: oclk_seats_salzburg > 15
+on-arrival: {!
+Q.salzburg_oclk = 1;
+Q.salzburg_vf = 0;
+
+Q.in_right_coalition_salzburg = 0;
+Q.in_vf_majority_salzburg = 0;
+Q.in_oclk_majority_salzburg = 1;
+!}
+
+WIP
+
+- @governor
+
+
+@right_coalition
+title: We can form a right-wing coalition.
+subtitle: <span style="color: #EEEE22;">**[+ oclk_name +]**</span> + <span style="color: #ED2939;">**VF**</span>[? if ovp_exist: + <span style="color: #000000;">**ÖVP**</span>?] ([+ right_coalition_salzburg +]%)
+view-if: right_coalition_salzburg > 50
+on-arrival: {!
+Q.salzburg_oclk = 1;
+Q.salzburg_vf = 1;
+
+Q.in_right_coalition_salzburg = 1;
+Q.in_vf_majority_salzburg = 0;
+Q.in_oclk_majority_salzburg = 0;
+!}
+
+WIP
+
+- @governor
+
+
+
+
+
+@governor
+title: The coalition has to choose the Governor.
+
+- @rehrl
+- @kemptner
+
+
+
+@rehrl
+title: Franz Rehrl
+subtitle: The popular [? if salzburg_leader != "Rehrl": former ?] longtime Governor of Salzburg and a member of <span style="color: #EEEE22;">**[+ oclk_name +]**</span>.
+view-if: salzburg_oclk
+face-image: img/portraits/RehrlFranz.jpg
+on-arrival: salzburg_leader = "Rehrl"; salzburg_leader_party = oclk_name;
+
+WIP
+
+@kemptner
+title: Otto Kemptner
+subtitle: A high-ranking member of <span style="color: #ED2939;">**VF**</span> and its regional leader.
+unavailable-subtitle: The <span style="color: #ED2939;">**VF**</span> wants Rehrl to be the governor...
+choose-if: not in_right_coalition
+view-if: salzburg_vf
+face-image: img/portraits/KemptnerOtto.jpg
+on-arrival: salzburg_leader = "Kemptner"; salzburg_leader_party = "VF";
+
+WIP
