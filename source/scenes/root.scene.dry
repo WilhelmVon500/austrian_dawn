@@ -190,10 +190,10 @@ Q.dnlp_seats = 9;
 Q.vf_seats = 152;
 Q.other_seats = 0;
 //
-Q.oclk_b = 10.5;
+Q.oclk_b = 5.5;
 Q.ap_b = 14;
 Q.dnlp_b = 4.5;
-Q.vf_b = 71;
+Q.vf_b = 76;
 Q.other_b = 0;
 //
 Q.ovp_seats = 0;
