@@ -234,7 +234,7 @@ There are some potential coalition arrangements.
 title: There is no clear governing majority.
 view-if: vf_seats_vienna <= 50 and oclk_seats_vienna <= 50
 
-The previous coalition continues to govern as a minority government.
+The previous administration continues to govern as a minority government.
 
 
 
