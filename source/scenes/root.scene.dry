@@ -317,7 +317,7 @@ Q.in_oclk_majority_vienna = 0;
 Q.salzburg_leader = "Rehrl";
 Q.salzburg_leader_party = Q.oclk_name;
 Q.next_election_year_salzburg = 1941;
-Q.next_election_month_salzburg = 4;
+Q.next_election_month_salzburg = 6;
 
 Q.in_right_coalition_salzburg = 1;
 Q.in_vf_majority_salzburg = 0;
