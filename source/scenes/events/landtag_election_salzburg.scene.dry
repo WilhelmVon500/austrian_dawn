@@ -322,7 +322,7 @@ WIP
 title: Otto Kemptner
 subtitle: A high-ranking member of <span style="color: #ED2939;">**VF**</span> and its regional leader.
 unavailable-subtitle: The <span style="color: #ED2939;">**VF**</span> wants Rehrl to be the governor...
-choose-if: not in_right_coalition
+choose-if: not in_right_coalition_salzburg
 view-if: salzburg_vf
 face-image: img/portraits/KemptnerOtto.jpg
 on-arrival: salzburg_leader = "Kemptner"; salzburg_leader_party = "VF";
