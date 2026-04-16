@@ -282,6 +282,8 @@ WIP
 title: We can form a right-wing coalition.
 subtitle: <span style="color: #EEEE22;">**[+ oclk_name +]**</span> + <span style="color: #ED2939;">**VF**</span>[? if ovp_exist: + <span style="color: #000000;">**ÖVP**</span>?] ([+ right_coalition_salzburg +]%)
 view-if: right_coalition_salzburg > 50
+unavailable-subtitle: We do not have good enough relations with the <span style="color: #ED2939;">**VF**</span>.
+choose-if: (salzburg_leader = "Rehrl" and vf_relation >= 25) or vf_relation >= 40
 on-arrival: {!
 Q.salzburg_oclk = 1;
 Q.salzburg_vf = 1;
