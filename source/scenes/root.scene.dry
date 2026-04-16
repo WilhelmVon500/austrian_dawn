@@ -197,6 +197,7 @@ Q.vf_b = 76;
 Q.other_b = 0;
 //
 Q.ovp_seats = 0;
+Q.ovp_election_votes = 0;
 Q.ovp_b = 0;
 
 //
