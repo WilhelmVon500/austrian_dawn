@@ -33,7 +33,7 @@ if (Q.year == 1941) {
     Q.adjustmentFactors_oclk_salzburg = 1.5;
     Q.adjustmentFactors_dnlp_salzburg = 1.25;
     Q.adjustmentFactors_ovp_salzburg = 1.0;
-    Q.adjustmentFactors_vf_salzburg = 1.15;
+    Q.adjustmentFactors_vf_salzburg = 0.9;
     Q.adjustmentFactors_other_salzburg = 0.5;
 }
 
