@@ -4,11 +4,17 @@ tags: event
 priority: -1
 view-if: (year = next_election_year_salzburg and month >= next_election_month_salzburg) or (year > next_election_year_salzburg)
 on-departure: month_actions += 1; in_election = 0; next_election_year_salzburg = next_election_year_salzburg + 4; n_elections += 1; next_election_time_salzburg = time + 48;
+on-arrival: {!
+Q.salzburg_elected = Math.floor(30 * Q.elected_share);
+Q.salzburg_appointed = Math.ceil(30 * Q.appointed_share);
+!}
 set-jump: post_election
 
 = Salzburg Landtag Election, [+ month : month +] [+ year +]
 
 The Salzburg Landtag elections are to be held now.
+
+[? if salzburg_appointed: [+ salzburg_appointed +] seats are, by Constitution, appointed by the estates - that means that these seats will be controlled by the <span style="color: #ED2939;">**VF**</span>. ?]
 
 - @election_algorithm: May we do our best...
 
@@ -90,6 +96,9 @@ if (new_party_sum > 0) {
             Q[party + '_zl'] = 0;
         }
         Q[party + '_zl'] = parseFloat((Q[party+'_zl']).toFixed(1));
+        if (Q.salzburg_appointed) {
+            Q[party + '_zl'] = parseFloat((Q[party + '_zl']*Q.salzburg_elected/100).toFixed(1));
+        }
     }
 }
 
@@ -97,7 +106,7 @@ Q.other_election_votes_salzburg = Q.other_votes_salzburg
 
 for (var party of Q.parties) {
         if (Q[party + '_zl'] > 0) {
-            Q[party + '_seats_salzburg'] = Math.round(Q[party + '_zl'] * 0.3);
+            Q[party + '_seats_salzburg'] = Math.round(Q[party + '_zl'] * Math.round(Q.salzburg_elected/100));
         }
 }
 
@@ -105,7 +114,7 @@ let allocatedSeats = 0;
 let remainders = [];
 
 for (var party of Q.parties) {
-    let rawSeats = Q[party + '_zl'] * 0.3;
+    let rawSeats = Q[party + '_zl'] * Math.round(Q.salzburg_elected/100);
     let seats = Math.floor(rawSeats);
     Q[party + '_seats_salzburg'] = seats;
     allocatedSeats += seats;
@@ -115,7 +124,7 @@ for (var party of Q.parties) {
     });
 }
 
-let remainingSeats = 30 - allocatedSeats;
+let remainingSeats = Q.salzburg_elected - allocatedSeats;
 remainders.sort((a, b) => b.remainder - a.remainder);
 for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
     let partyObj = remainders[i];
@@ -123,6 +132,10 @@ for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
 
     let party = partyObj.party;
     Q[party + '_seats_salzburg'] += 1;
+}
+
+if (Q.salzburg_appointed) {
+    Q.vf_seats_salzburg = Math.round(Q.vf_seats_salzburg + Q.salzburg_appointed);
 }
 
 for (var party of Q.parties) {
