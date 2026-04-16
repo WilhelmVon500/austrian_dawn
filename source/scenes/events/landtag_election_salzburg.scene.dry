@@ -238,7 +238,7 @@ There are some potential coalition arrangements.
 title: There is no clear governing majority.
 view-if: vf_seats_salzburg <= 15 and oclk_seats_salzburg <= 15 and right_coalition_salzburg <= 50
 
-The previous administration continues to govern as a minority government.
+The incumbent administration continues to govern as a minority government.
 
 
 
