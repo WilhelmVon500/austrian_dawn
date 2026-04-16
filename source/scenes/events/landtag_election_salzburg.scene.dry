@@ -228,6 +228,9 @@ There are some potential coalition arrangements.
 
 @coalition_menu
 
+- @oclk_majority
+- @vf_majority
+- @right_coalition
 - @no_majority
 
 @no_majority
