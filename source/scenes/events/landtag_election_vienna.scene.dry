@@ -102,11 +102,15 @@ if (new_party_sum > 0) {
     }
 }
 
+if (Q.vienna_appointed) {
+    Q.vf_wl = parseFloat((Q.vf_wl + (Q.appointed_share * 100)).toFixed(1));
+}
+
 Q.other_election_votes_vienna = Q.other_votes_vienna
 
 for (var party of Q.parties) {
         if (Q[party + '_wl'] > 0) {
-            Q[party + '_seats_vienna'] = Math.round(Q[party + '_wl'] * Math.round(Q.vienna_elected/100));
+            Q[party + '_seats_vienna'] = Math.round(Q[party + '_wl']);
         }
 }
 
@@ -114,7 +118,7 @@ let allocatedSeats = 0;
 let remainders = [];
 
 for (var party of Q.parties) {
-    let rawSeats = Q[party + '_wl'] * Math.round(Q.vienna_elected/100);
+    let rawSeats = Q[party + '_wl'];
     let seats = Math.floor(rawSeats);
     Q[party + '_seats_vienna'] = seats;
     allocatedSeats += seats;
@@ -124,7 +128,7 @@ for (var party of Q.parties) {
     });
 }
 
-let remainingSeats = Q.vienna_elected - allocatedSeats;
+let remainingSeats = 100 - allocatedSeats;
 remainders.sort((a, b) => b.remainder - a.remainder);
 for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
     let partyObj = remainders[i];
@@ -132,10 +136,6 @@ for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
 
     let party = partyObj.party;
     Q[party + '_seats_vienna'] += 1;
-}
-
-if (Q.vienna_appointed) {
-    Q.vf_seats_vienna = Math.round(Q.vf_seats_vienna + Q.vienna_appointed);
 }
 
 for (var party of Q.parties) {
