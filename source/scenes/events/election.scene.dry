@@ -14,7 +14,7 @@ set-jump: post_election
 
 The Bundestag elections are to be held now.
 
-[? if bundestag_appointed: [+ bundestag_appointed +] seats are, by Constitution, appointed by the estates - that means that these seats will be controlled by the <span style="color: #ED2939;">**VF**</span>. ?]
+[? if bundestag_appointed: [+ bundestag_appointed +] seats are, by Constitution, appointed by the guilds - that means that these seats will be controlled by the <span style="color: #ED2939;">**VF**</span> loyalists. ?]
 
 - @election_algorithm: May we do our best...
 
