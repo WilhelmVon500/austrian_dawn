@@ -10,6 +10,8 @@ set-jump: post_election
 
 The Bundestag elections are to be held now.
 
+[? if bundestag_appointed: [+ bundestag_appointed +] seats are, by Constitution, appointed by the estates - that means that these seats will be controlled by the <span style="color: #ED2939;">**VF**</span>. ?]
+
 - @election_algorithm: May we do our best...
 
 @post_election
@@ -52,7 +54,7 @@ Q.other_election_votes = other_votes_fix
 
 for (var party of Q.parties) {
         if (Q[party + '_b'] > 0) {
-            Q[party + '_seats'] = Math.round(Q[party + '_b'] * 2);
+            Q[party + '_seats'] = Math.round(Q[party + '_b'] * Math.round(Q.bundestag_elected/100));
         }
 }
 
@@ -60,7 +62,7 @@ let allocatedSeats = 0;
 let remainders = [];
 
 for (var party of Q.parties) {
-    let rawSeats = Q[party + '_b'] * 2;
+    let rawSeats = Q[party + '_b'] * Math.round(Q.bundestag_elected/100);
     let seats = Math.floor(rawSeats);
     Q[party + '_seats'] = seats;
     allocatedSeats += seats;
@@ -70,7 +72,7 @@ for (var party of Q.parties) {
     });
 }
 
-let remainingSeats = (200) - allocatedSeats;
+let remainingSeats = (Q.bundestag_elected) - allocatedSeats;
 remainders.sort((a, b) => b.remainder - a.remainder);
 for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
     let partyObj = remainders[i];
@@ -82,7 +84,11 @@ for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
 
 
 for (var party of Q.parties) {
-    Q[party + '_b'] = parseFloat((Q[party + '_seats']/2).toFixed(1));
+    Q[party + '_b'] = parseFloat((Q[party + '_seats']/Math.round(Q.bundestag_elected/100)).toFixed(1));
+    if (Q.bundestag_appointed) {
+        Q.vf_seats = parseFloat((Q.vf_seats + Math.round(Q.bundestag_appointed)).toFixed(1));
+        Q.vf_b = parseFloat((Q.vf_b + Math.round(Q.bundestag_appointed/200)).toFixed(1));
+    }
 
     Q['change_' + party + '_votes'] = Q[party + '_election_votes'] - Q['old_' + party + '_votes'];
     var sign2 = Q['change_' + party + '_votes'] > 0 
