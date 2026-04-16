@@ -96,7 +96,7 @@ Q.other_election_votes_salzburg = Q.other_votes_salzburg
 
 for (var party of Q.parties) {
         if (Q[party + '_zl'] > 0) {
-            Q[party + '_seats_salzburg'] = Math.round(Q[party + '_zl']);
+            Q[party + '_seats_salzburg'] = Math.round(Q[party + '_zl'] * 0.3);
         }
 }
 
@@ -104,7 +104,7 @@ let allocatedSeats = 0;
 let remainders = [];
 
 for (var party of Q.parties) {
-    let rawSeats = Q[party + '_zl'];
+    let rawSeats = Q[party + '_zl'] * 0.3;
     let seats = Math.floor(rawSeats);
     Q[party + '_seats_salzburg'] = seats;
     allocatedSeats += seats;
@@ -114,7 +114,7 @@ for (var party of Q.parties) {
     });
 }
 
-let remainingSeats = 100 - allocatedSeats;
+let remainingSeats = 30 - allocatedSeats;
 remainders.sort((a, b) => b.remainder - a.remainder);
 for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
     let partyObj = remainders[i];
@@ -125,10 +125,11 @@ for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
 }
 
 for (var party of Q.parties) {
-    Q[party + '_zl'] = parseFloat((Q[party + '_seats_salzburg']).toFixed(1));
+    Q[party + '_zl'] = parseFloat((Q[party + '_seats_salzburg']/0.3).toFixed(1));
 }
 
-Q.right_coalition_salzburg = parseFloat((Q.oclk_zl + Q.vf_zl + Q.ovp_zl).toFixed(1));
+Q.right_coalition_salzburg = parseFloat((Q.oclk_zl + Q.vf_zl).toFixed(1));
+if (Q.ovp_exist) Q.right_coalition_salzburg = parseFloat((Q.right_coalition_salzburg + Q.ovp_zl).toFixed(1));
 !}
 on-display: {!
 data = []
