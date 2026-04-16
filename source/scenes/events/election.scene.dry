@@ -4,7 +4,10 @@ tags: event
 priority: -1
 view-if: (year = next_election_year and month >= next_election_month) or (year > next_election_year)
 on-departure: month_actions += 1; in_election = 0; next_election_year = next_election_year + 4; n_elections += 1; next_election_time = time + 48;
-on-arrival: bundestag_elected = Math.floor(200 * elected_share); bundestag_appointed = Math.ceil(200 * appointed_share);
+on-arrival: {!
+Q.bundestag_elected = Math.floor(200 * Q.elected_share);
+Q.bundestag_appointed = Math.ceil(200 * Q.appointed_share);
+!}
 set-jump: post_election
 
 = Elections, [+ month : month +] [+ year +]
