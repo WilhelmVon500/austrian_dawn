@@ -134,6 +134,7 @@ Q.economic_expansion = 0;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
 Q.parties = ['oclk', 'ap', 'dnlp', 'vf', 'other'];
+Q.states = ['vienna', 'salzburg'];
 
 Q.ovp_exist = 0;
 
