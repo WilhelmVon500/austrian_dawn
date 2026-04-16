@@ -4,7 +4,10 @@ tags: event
 priority: -1
 view-if: (year = next_election_year_vienna and month >= next_election_month_vienna) or (year > next_election_year_vienna)
 on-departure: month_actions += 1; in_election = 0; next_election_year_vienna = next_election_year_vienna + 4; n_elections += 1; next_election_time_vienna = time + 48;
-on-arrival: vienna_elected = Math.floor(100 * elected_share); vienna_appointed = Math.ceil(100 * appointed_share);
+on-arrival: {!
+Q.vienna_elected = Math.floor(100 * Q.elected_share);
+Q.vienna_appointed = Math.ceil(100 * Q.appointed_share);
+!}
 set-jump: post_election
 
 = Vienna Landtag Election, [+ month : month +] [+ year +]
