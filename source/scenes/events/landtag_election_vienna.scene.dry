@@ -4,11 +4,14 @@ tags: event
 priority: -1
 view-if: (year = next_election_year_vienna and month >= next_election_month_vienna) or (year > next_election_year_vienna)
 on-departure: month_actions += 1; in_election = 0; next_election_year_vienna = next_election_year_vienna + 4; n_elections += 1; next_election_time_vienna = time + 48;
+on-arrival: vienna_elected = Math.floor(100 * elected_share); vienna_appointed = Math.ceil(100 * appointed_share);
 set-jump: post_election
 
 = Vienna Landtag Election, [+ month : month +] [+ year +]
 
 The Viennese Landtag elections are to be held now.
+
+[? if vienna_appointed: [+ vienna_appointed +] seats are, by Constitution, appointed by the estates - that means that these seats will be controlled by the <span style="color: #ED2939;">**VF**</span>. ?]
 
 - @election_algorithm: May we do our best...
 
@@ -32,7 +35,7 @@ if (Q.year == 1941) {
     Q.adjustmentFactors_ap_vienna = 1.45;
     Q.adjustmentFactors_oclk_vienna = 1.1;
     Q.adjustmentFactors_dnlp_vienna = 0.75;
-    Q.adjustmentFactors_ovp_salzburg = 1.0;
+    Q.adjustmentFactors_ovp_vienna = 1.0;
     Q.adjustmentFactors_vf_vienna = 1.35;
     Q.adjustmentFactors_other_vienna = 0.5;
 }
@@ -90,6 +93,9 @@ if (new_party_sum > 0) {
             Q[party + '_wl'] = 0;
         }
         Q[party + '_wl'] = parseFloat((Q[party+'_wl']).toFixed(1));
+        if (Q.vienna_appointed) {
+            Q[party + '_wl'] = parseFloat((Q[party + '_wl']*Q.vienna_elected/100).toFixed(1));
+        }
     }
 }
 
@@ -97,7 +103,7 @@ Q.other_election_votes_vienna = Q.other_votes_vienna
 
 for (var party of Q.parties) {
         if (Q[party + '_wl'] > 0) {
-            Q[party + '_seats_vienna'] = Math.round(Q[party + '_wl']);
+            Q[party + '_seats_vienna'] = Math.round(Q[party + '_wl'] * Math.round(Q.vienna_elected/100));
         }
 }
 
@@ -105,7 +111,7 @@ let allocatedSeats = 0;
 let remainders = [];
 
 for (var party of Q.parties) {
-    let rawSeats = Q[party + '_wl'];
+    let rawSeats = Q[party + '_wl'] * Math.round(Q.vienna_elected/100);
     let seats = Math.floor(rawSeats);
     Q[party + '_seats_vienna'] = seats;
     allocatedSeats += seats;
@@ -115,7 +121,7 @@ for (var party of Q.parties) {
     });
 }
 
-let remainingSeats = 100 - allocatedSeats;
+let remainingSeats = Q.vienna_elected - allocatedSeats;
 remainders.sort((a, b) => b.remainder - a.remainder);
 for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
     let partyObj = remainders[i];
@@ -123,6 +129,10 @@ for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
 
     let party = partyObj.party;
     Q[party + '_seats_vienna'] += 1;
+}
+
+if (Q.vienna_appointed) {
+    Q.vf_seats = Math.round(Q.vf_seats + Q.vienna_appointed);
 }
 
 for (var party of Q.parties) {
