@@ -84,7 +84,7 @@ if (new_party_sum > 0) {
     for (var party of Q.parties) {
         if (Q[party + '_election_votes_salzburg'] > 0 && !(Q[party + '_election_votes_salzburg'] < Q.electoral_threshold) && !(Q.electoral_threshold > 1 && party == 'other')) {
             Q[party + '_zl'] = parseFloat((Q[party + '_election_votes_salzburg']*100/new_new_party_sum).toFixed(1));
-            Q[party + '_election_votes'] = parseFloat((Q[party + '_election_votes_salzburg']*100/new_party_sum).toFixed(1));
+            Q[party + '_election_votes_salzburg'] = parseFloat((Q[party + '_election_votes_salzburg']*100/new_party_sum).toFixed(1));
         } else {
             Q[party + '_election_votes_salzburg'] = parseFloat((Q[party + '_election_votes_salzburg']*100/new_party_sum).toFixed(1));
             Q[party + '_zl'] = 0;
