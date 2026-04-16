@@ -82,7 +82,7 @@ for (var party of Q.parties) {Q[party + '_wl'] = 0;
 }
 
 Q.other_votes_vienna = Q.other_election_votes_vienna
-Q.other_election_votes_vienna = parseFloat((Q.other_election_votes_vienna * 0.3).toFixed(1));
+Q.other_election_votes_vienna = parseFloat((Q.other_election_votes_vienna * 0.2).toFixed(1));
 var new_new_party_sum = new_party_sum + Q.other_election_votes_vienna - Q.other_votes_vienna;
 
 // calculate new party sum
