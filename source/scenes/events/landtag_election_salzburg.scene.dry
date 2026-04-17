@@ -236,7 +236,7 @@ go-to: coalition_menu
 
 **Potential coalitions:**
 
-Center-Right Coalition (<span style="color: #EEEE22;">**[+ oclk_name +]**</span> + <span style="color: #ED2939;">**VF**</span>[? if ovp_exist: + <span style="color: #000000;">**ÖVP**</span>?]): [+ center_right_coalition_salzburg +]%
+<span style="color: #EEEE22;">Center</span>-<span style="color: #ED2939;">Right</span> Coalition (<span style="color: #EEEE22;">**[+ oclk_name +]**</span> + <span style="color: #ED2939;">**VF**</span>[? if ovp_exist: + <span style="color: #000000;">**ÖVP**</span>?]): [+ center_right_coalition_salzburg +]%
 
 There are some potential coalition arrangements.
 
@@ -292,7 +292,7 @@ WIP
 
 
 @center_right_coalition
-title: We can form a center-right coalition.
+title: We can form a <span style="color: #EEEE22;">Center</span>-<span style="color: #ED2939;">Right</span> coalition.
 subtitle: <span style="color: #EEEE22;">**[+ oclk_name +]**</span> + <span style="color: #ED2939;">**VF**</span>[? if ovp_exist: + <span style="color: #000000;">**ÖVP**</span>?] ([+ center_right_coalition_salzburg +]%)
 view-if: center_right_coalition_salzburg > 50
 unavailable-subtitle: We do not have good enough relations with the <span style="color: #ED2939;">**VF**</span>.
