@@ -115,11 +115,21 @@ Klang has been removed as an advisor. The Social Liberal faction disapproves.
 # christian left
 
 
+@remove_winter
+title: Remove Winter
+view-if: winter_advisor
+tags: remove_advisor
+on-arrival: winter_advisor = 0; christian_left_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Winter has been removed as an advisor. The Christian Left faction disapproves.
+
+
 @remove_dobretsberger
 title: Remove Dobretsberger
 view-if: dobretsberger_advisor
 tags: remove_advisor
-on-arrival: dobretsberger_advisor = 0; christian_left_dissent += 5; n_advisors -= 1
+on-arrival: dobretsberger_advisor = 0; christian_left_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
 Dobretsberger has been removed as an advisor. The Christian Left faction disapproves.
@@ -292,6 +302,19 @@ Heinrich Klang is now an advisor.
 # christian left
 
 
+@add_winter
+title: Ernst Karl Winter
+subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
+is-card: true
+face-image: img/portraits/WinterErnst.jpg
+tags: christian_left_advisor
+view-if: not winter_advisor and n_advisors < 3 and christian_left_oclk
+on-arrival: winter_advisor = 1; n_advisors += 1; christian_left_strength += 5
+go-to: advisor_menu
+
+Ernst Karl Winter is now an advisor.
+
+
 @add_dobretsberger
 title: Josef Dobretsberger
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
@@ -299,7 +322,7 @@ is-card: true
 face-image: img/portraits/DobretsbergerJosef.jpg
 tags: christian_left_advisor
 view-if: not dobretsberger_advisor and n_advisors < 3 and christian_left_oclk
-on-arrival: dobretsberger_advisor = 1; n_advisors += 1; christian_left_strength += 5
+on-arrival: dobretsberger_advisor = 1; n_advisors += 1; christian_left_strength += 3
 go-to: advisor_menu
 
 Josef Dobretsberger is now an advisor.
