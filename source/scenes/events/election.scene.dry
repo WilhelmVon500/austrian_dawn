@@ -281,7 +281,7 @@ We have to elect the President of Bundestag first.
 @hoyos_sprinzenstein
 title: Rudolf Hoyos-Sprinzenstein.
 subtitle: Longtime <span style="color: #ED2939;">**VF**</span> President of Bundestag.
-#face-image: img/portraits/HoyosSprinzensteinRudolf.jpg
+face-image: img/portraits/HoyosSprinzensteinRudolf.jpg
 on-arrival: bundestag_president = "Hoyos-Sprinzenstein"; bundestag_president_party = "VF";
 go-to: coalition_menu
 
