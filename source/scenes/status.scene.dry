@@ -168,6 +168,8 @@ Bundesheer: [+ bundesheer_strength +] thousand troops.
 
 [? if oclk_in_government: Bundesheer Loyalty: [+ bundesheer_loyalty : loyalty +] ?]
 
+Federal Police: [+ federal_police_strength +] thousand troops.
+
 [? if oclk_in_government: Federal police loyalty: [+ federal_police_loyalty : loyalty +] ?]
 
 @polls
