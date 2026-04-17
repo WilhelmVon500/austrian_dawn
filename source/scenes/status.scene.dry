@@ -239,4 +239,4 @@ Next election: [+ next_election_month_salzburg: month +] [+ next_election_year_s
 
 = Constitution
 
-Legislature: [? if appointed_share and elected_share: [+elected_share+]% elected, [+appointed_share+]% appointed ?][? if appointed_share and not elected_share: fully appointed ?][? if elected_share and not appointed_share: fully elected ?]
+Legislature: [? if appointed_share and elected_share: [+elected_share*100+]% elected, [+appointed_share*100+]% appointed ?][? if appointed_share and not elected_share: fully appointed ?][? if elected_share and not appointed_share: fully elected ?]
