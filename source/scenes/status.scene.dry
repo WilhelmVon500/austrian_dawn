@@ -139,9 +139,6 @@ if (Q.fm_strength) {
 if (Q.rso_strength) {
     Q.rso_strength_2 = Q.rso_strength.toFixed(1);
 }
-if (Q.sa_strength) {
-    Q.sa_strength_2 = Q.sa_strength.toFixed(1);
-}
 !}
 
 = Paramilitaries
@@ -157,10 +154,6 @@ if (Q.sa_strength) {
 {!<span class="tooltip-text" title="WIP." style="color: #AA0000;">!}**RSÖ**{!</span>!} Strength: [+ rso_strength_2 +] thousand
 
 <span style="color: #AA0000;">**RSÖ**</span> Militarization: [+ rso_militancy : militancy +]
-
-{!<span class="tooltip-text" title="WIP.">!}**SA**{!</span>!} Strength: [+ sa_strength_2 +] thousand
-
-**SA** Militarization: [+ sa_militancy : militancy +]
 
 = Official military/paramilitaries
 
