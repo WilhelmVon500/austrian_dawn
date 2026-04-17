@@ -158,7 +158,7 @@ if (Q.sa_strength) {
 
 <span style="color: #AA0000;">**RSÖ**</span> Militarization: [+ rso_militancy : militancy +]
 
-{!<span class="tooltip-text" title="WIP.">**SA**</span>!} Strength: [+ sa_strength_2 +] thousand
+{!<span class="tooltip-text" title="WIP.">!}**SA**{!</span>!} Strength: [+ sa_strength_2 +] thousand
 
 **SA** Militarization: [+ sa_militancy : militancy +]
 
