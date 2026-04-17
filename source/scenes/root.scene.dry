@@ -83,10 +83,6 @@ Q.fm_strength = 100;
 Q.fm_militancy = 0.5;
 Q.fm_banned = 0;
 
-Q.sa_strength = 15;
-Q.sa_militancy = 0.5;
-Q.sa_banned = 0;
-
 Q.rso_strength = 10;
 Q.rso_militancy = 0.5;
 Q.rso_banned = 1;
