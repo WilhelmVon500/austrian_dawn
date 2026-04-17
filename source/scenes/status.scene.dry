@@ -146,19 +146,19 @@ if (Q.sa_strength) {
 
 = Paramilitaries
 
-{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
+{!<span class="tooltip-text" title="WIP.">Freiheitsbund</span>!} Strength: [+ rb_strength_2 +] thousand
 
-Reichsbanner Militarization: [+ rb_militancy : militancy +]
+Freiheitsbund Militarization: [+ rb_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
+{!<span class="tooltip-text" title="WIP.">Frontmiliz</span>!} Strength: [+ sh_strength_2 +] thousand
+
+Frontmiliz Militarization: [+ sh_militancy : militancy +]
+
+{!<span class="tooltip-text" title="WIP.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
 
 RFB Militarization: [+ rfb_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The Stahlhelm is a right-wing organization of war veterans associated with the DNVP.">Stahlhelm</span>!} Strength: [+ sh_strength_2 +] thousand
-
-Stahlhelm Militarization: [+ sh_militancy : militancy +]
-
-{!<span class="tooltip-text" title="The SA (Sturmabteilung) is the DNSAP paramilitary.">SA</span>!} Strength: [+ sa_strength_2 +] thousand
+{!<span class="tooltip-text" title="WIP.">SA</span>!} Strength: [+ sa_strength_2 +] thousand
 
 SA Militarization: [+ sa_militancy : militancy +]
 
@@ -166,9 +166,9 @@ SA Militarization: [+ sa_militancy : militancy +]
 
 Bundesheer: [+ bundesheer_strength +] thousand troops.
 
-Bundesheer Loyalty: [+ bundesheer_loyalty : loyalty +]
+[? if oclk_in_government: Bundesheer Loyalty: [+ bundesheer_loyalty : loyalty +] ?]
 
-[? if oclk_in_government : Federal police loyalty: [+ federal_police_loyalty : loyalty +] ?]
+[? if oclk_in_government: Federal police loyalty: [+ federal_police_loyalty : loyalty +] ?]
 
 @polls
 on-arrival: {!
