@@ -222,7 +222,7 @@ Next election: [+ next_election_month_vienna: month +] [+ next_election_year_vie
 
 Minister-President: [+ salzburg_leader +] ([?if salzburg_leader_party == oclk_name: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>?][?if salzburg_leader_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
-Government: [? if in_right_coalition_salzburg: Right Coalition ?][? if in_oclk_majority_salzburg: <span style="color: #EEEE22;">**[+ oclk_name +]**</span> Majority ?][? if in_vf_majority_salzburg: <span style="color: #ED2939;">**VF**</span> Majority ?]
+Government: [? if in_center_right_coalition_salzburg: Center-Right Coalition ?][? if in_oclk_majority_salzburg: <span style="color: #EEEE22;">**[+ oclk_name +]**</span> Majority ?][? if in_vf_majority_salzburg: <span style="color: #ED2939;">**VF**</span> Majority ?]
 
 Next election: [+ next_election_month_salzburg: month +] [+ next_election_year_salzburg +]
 
