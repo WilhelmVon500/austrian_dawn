@@ -29,7 +29,7 @@ go-to: vf_op if vf_in_government and not oclk_in_government; vf_coalition if vf_
 @vf_op
 on-arrival: vf_relation += 5*(1 - dissent)
 
-We are currently in opposition to the <span style="color: #ED2939;">**VF**</span>-led government, but that does not preclude the general building of feelings of good will.
+WIP.
 
 @vf_coalition
 on-arrival: vf_relation += 8*(1 - dissent)
