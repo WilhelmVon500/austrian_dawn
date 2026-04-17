@@ -142,8 +142,8 @@ for (var party of Q.parties) {
     Q[party + '_zl'] = parseFloat((Q[party + '_seats_salzburg']/0.3).toFixed(1));
 }
 
-Q.right_coalition_salzburg = parseFloat((Q.oclk_zl + Q.vf_zl).toFixed(1));
-if (Q.ovp_exist) Q.right_coalition_salzburg = parseFloat((Q.right_coalition_salzburg + Q.ovp_zl).toFixed(1));
+Q.center_right_coalition_salzburg = parseFloat((Q.oclk_zl + Q.vf_zl).toFixed(1));
+if (Q.ovp_exist) Q.center_right_coalition_salzburg = parseFloat((Q.center_right_coalition_salzburg + Q.ovp_zl).toFixed(1));
 !}
 on-display: {!
 data = []
@@ -236,7 +236,7 @@ go-to: coalition_menu
 
 **Potential coalitions:**
 
-Right Coalition (<span style="color: #EEEE22;">**[+ oclk_name +]**</span> + <span style="color: #ED2939;">**VF**</span>[? if ovp_exist: + <span style="color: #000000;">**ÖVP**</span>?]): [+ right_coalition_salzburg +]%
+Center-Right Coalition (<span style="color: #EEEE22;">**[+ oclk_name +]**</span> + <span style="color: #ED2939;">**VF**</span>[? if ovp_exist: + <span style="color: #000000;">**ÖVP**</span>?]): [+ center_right_coalition_salzburg +]%
 
 There are some potential coalition arrangements.
 
@@ -244,12 +244,12 @@ There are some potential coalition arrangements.
 
 - @oclk_majority
 - @vf_majority
-- @right_coalition
+- @center_right_coalition
 - @no_majority
 
 @no_majority
 title: There is no clear governing majority.
-view-if: vf_seats_salzburg <= 15 and oclk_seats_salzburg <= 15 and (right_coalition_salzburg <= 50 or not ((salzburg_leader = "Rehrl" and vf_relation >= 25) or vf_relation >= 40))
+view-if: vf_seats_salzburg <= 15 and oclk_seats_salzburg <= 15 and (center_right_coalition_salzburg <= 50 or not ((salzburg_leader = "Rehrl" and vf_relation >= 25) or vf_relation >= 40))
 
 The incumbent administration continues to govern as a minority government.
 
@@ -263,7 +263,7 @@ on-arrival: {!
 Q.salzburg_oclk = 0;
 Q.salzburg_vf = 1;
 
-Q.in_right_coalition_salzburg = 0;
+Q.in_center_right_coalition_salzburg = 0;
 Q.in_vf_majority_salzburg = 1;
 Q.in_oclk_majority_salzburg = 0;
 !}
@@ -281,7 +281,7 @@ on-arrival: {!
 Q.salzburg_oclk = 1;
 Q.salzburg_vf = 0;
 
-Q.in_right_coalition_salzburg = 0;
+Q.in_center_right_coalition_salzburg = 0;
 Q.in_vf_majority_salzburg = 0;
 Q.in_oclk_majority_salzburg = 1;
 !}
@@ -291,17 +291,17 @@ WIP
 - @governor
 
 
-@right_coalition
-title: We can form a right-wing coalition.
-subtitle: <span style="color: #EEEE22;">**[+ oclk_name +]**</span> + <span style="color: #ED2939;">**VF**</span>[? if ovp_exist: + <span style="color: #000000;">**ÖVP**</span>?] ([+ right_coalition_salzburg +]%)
-view-if: right_coalition_salzburg > 50
+@center_right_coalition
+title: We can form a center-right coalition.
+subtitle: <span style="color: #EEEE22;">**[+ oclk_name +]**</span> + <span style="color: #ED2939;">**VF**</span>[? if ovp_exist: + <span style="color: #000000;">**ÖVP**</span>?] ([+ center_right_coalition_salzburg +]%)
+view-if: center_right_coalition_salzburg > 50
 unavailable-subtitle: We do not have good enough relations with the <span style="color: #ED2939;">**VF**</span>.
 choose-if: (salzburg_leader = "Rehrl" and vf_relation >= 25) or vf_relation >= 40
 on-arrival: {!
 Q.salzburg_oclk = 1;
 Q.salzburg_vf = 1;
 
-Q.in_right_coalition_salzburg = 1;
+Q.in_center_right_coalition_salzburg = 1;
 Q.in_vf_majority_salzburg = 0;
 Q.in_oclk_majority_salzburg = 0;
 !}
@@ -335,7 +335,7 @@ WIP
 title: Otto Kemptner
 subtitle: A high-ranking member of <span style="color: #ED2939;">**VF**</span> and its regional leader.
 unavailable-subtitle: The <span style="color: #ED2939;">**VF**</span> wants Rehrl to be the governor...
-choose-if: not in_right_coalition_salzburg
+choose-if: not in_center_right_coalition_salzburg
 view-if: salzburg_vf
 face-image: img/portraits/KemptnerOtto.jpg
 on-arrival: salzburg_leader = "Kemptner"; salzburg_leader_party = "VF";
