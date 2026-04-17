@@ -214,7 +214,7 @@ Loyalty: [+ prussian_police_loyalty : loyalty +]
 
 Overall dissent: [+ dissent_percent : dissent +]
 
-[? if moderate_right_oclk: **Moderate Right** ?]
+[? if moderate_right_oclk: <span style="color: #63C3D0;">**Moderate Right**</span> ?]
 
 [? if moderate_right_oclk: WIP. ?]
 
