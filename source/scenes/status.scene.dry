@@ -91,7 +91,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 = Internal Factions of the <span style="color: #EEEE22;">**[+ oclk_name +]**</span>
 
-[? if moderate_right_oclk: {!<span class="tooltip-text" title="WIP.">!}**Moderate Right**{!</span>!} strength: [+ moderate_right_strength : strength +], dissent: [+ moderate_right_dissent : dissent +] ?]
+[? if moderate_right_oclk: {!<span class="tooltip-text" title="WIP." style="color: #63C3D0;">!}**Moderate Right**{!</span>!} strength: [+ moderate_right_strength : strength +], dissent: [+ moderate_right_dissent : dissent +] ?]
 
 [? if classical_liberal_oclk: {!<span class="tooltip-text" title="WIP.">!}**Classical Liberal**{!</span>!} strength: [+ classical_liberal_strength : strength +], dissent: [+ classical_liberal_dissent : dissent +] ?]
 
