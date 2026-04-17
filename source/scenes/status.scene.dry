@@ -146,21 +146,21 @@ if (Q.sa_strength) {
 
 = Paramilitaries
 
-{!<span class="tooltip-text" title="WIP.">Freiheitsbund</span>!} Strength: [+ fb_strength_2 +] thousand
+{!<span class="tooltip-text" title="WIP." style="color: #63C3D0;">**Freiheitsbund**</span>!} Strength: [+ fb_strength_2 +] thousand
 
-Freiheitsbund Militarization: [+ fb_militancy : militancy +]
+<span style="color: #63C3D0;">**Freiheitsbund**</span> Militarization: [+ fb_militancy : militancy +]
 
-{!<span class="tooltip-text" title="WIP.">Frontmiliz</span>!} Strength: [+ fm_strength_2 +] thousand
+{!<span class="tooltip-text" title="WIP." style="color: #ED2939;">**Frontmiliz**</span>!} Strength: [+ fm_strength_2 +] thousand
 
-Frontmiliz Militarization: [+ fm_militancy : militancy +]
+<span style="color: #ED2939;">**Frontmiliz**</span> Militarization: [+ fm_militancy : militancy +]
 
-{!<span class="tooltip-text" title="WIP.">RSÖ</span>!} Strength: [+ rso_strength_2 +] thousand
+{!<span class="tooltip-text" title="WIP." style="color: #AA0000;">**RSÖ**</span>!} Strength: [+ rso_strength_2 +] thousand
 
-RSÖ Militarization: [+ rso_militancy : militancy +]
+<span style="color: #AA0000;">**RSÖ**</span> Militarization: [+ rso_militancy : militancy +]
 
-{!<span class="tooltip-text" title="WIP.">SA</span>!} Strength: [+ sa_strength_2 +] thousand
+{!<span class="tooltip-text" title="WIP.">**SA**</span>!} Strength: [+ sa_strength_2 +] thousand
 
-SA Militarization: [+ sa_militancy : militancy +]
+**SA** Militarization: [+ sa_militancy : militancy +]
 
 = Official military/paramilitaries
 
