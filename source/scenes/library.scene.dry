@@ -238,7 +238,7 @@ Overall dissent: [+ dissent_percent : dissent +]
 
 [? if social_liberal_oclk: Dissent: [+ social_liberal_dissent : dissent +] ?]
 
-[? if christian_left_oclk: **Christian Left** ?]
+[? if christian_left_oclk: <span style="color: #DB812E;">**Christian Left**</span> ?]
 
 [? if christian_left_oclk: WIP. ?]
 
