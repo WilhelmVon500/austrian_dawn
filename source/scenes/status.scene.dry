@@ -97,7 +97,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 [? if social_liberal_oclk: {!<span class="tooltip-text" title="WIP.">!}**Social Liberal**{!</span>!} strength: [+ social_liberal_strength : strength +], dissent: [+ social_liberal_dissent : dissent +] ?]
 
-[? if christian_left_oclk: {!<span class="tooltip-text" title="WIP.">!}**Christian Left**{!</span>!} strength: [+ christian_left_strength : strength +], dissent: [+ christian_left_dissent : dissent +] ?]
+[? if christian_left_oclk: {!<span class="tooltip-text" title="WIP." style="color: #DB812E;">!}**Christian Left**{!</span>!} strength: [+ christian_left_strength : strength +], dissent: [+ christian_left_dissent : dissent +] ?]
 
 
 @cabinet
