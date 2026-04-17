@@ -37,17 +37,17 @@ Chancellor: [+ chancellor +] ([?if chancellor_party == "I":<span style="color: #
 
 = Bundestag
 
-{!<span class="tooltip-text" title="Austrian Christian-Liberal Coalition" style="color: #EEEE22;">!}**[+ oclk_name +]**{!</span>!}: [+ oclk_seats +] ([+ oclk_b +]%)
+{!<span class="tooltip-text" title="Austrian Christian-Liberal Coalition" style="color: #EEEE22;">!}**[+ oclk_name +]**{!</span>!}: [+ oclk_seats +] seats ([+ oclk_b +]%)
 
-{!<span class="tooltip-text" title="Workers' Party" style="color: #FA5A42;">!}**AP**{!</span>!}: [+ ap_seats +] ([+ ap_b +]%)
+{!<span class="tooltip-text" title="Workers' Party" style="color: #FA5A42;">!}**AP**{!</span>!}: [+ ap_seats +] seats ([+ ap_b +]%)
 
-{!<span class="tooltip-text" title="German National Liberal Party" style="color: #0E428E;">!}**DNLP**{!</span>!}: [+ dnlp_seats +] ([+ dnlp_b +]%)
+{!<span class="tooltip-text" title="German National Liberal Party" style="color: #0E428E;">!}**DNLP**{!</span>!}: [+ dnlp_seats +] seats ([+ dnlp_b +]%)
 
-[? if ovp_exist: {!<span class="tooltip-text" title="Austrian People's Party" style="color: #000000;">!}**ÖVP**{!</span>!}: [+ ovp_seats +] ([+ ovp_b +]%) ?]
+[? if ovp_exist: {!<span class="tooltip-text" title="Austrian People's Party" style="color: #000000;">!}**ÖVP**{!</span>!}: [+ ovp_seats +] seats ([+ ovp_b +]%) ?]
 
-{!<span class="tooltip-text" title="Fatherland Front" style="color: #ED2939;">!}**VF**{!</span>!}: [+ vf_seats +] ([+ vf_b +]%)
+{!<span class="tooltip-text" title="Fatherland Front" style="color: #ED2939;">!}**VF**{!</span>!}: [+ vf_seats +] seats ([+ vf_b +]%)
 
-<span style="color: #909090;">**Others**</span>: [+ other_seats +] ([+ other_b +]%)
+<span style="color: #909090;">**Others**</span>: [+ other_seats +] seats ([+ other_b +]%)
 
 Bundestag President: [+ bundestag_president +] ([?if bundestag_president_party == "I":<span style="color: #808080;">**I**</span>?][?if bundestag_president_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
