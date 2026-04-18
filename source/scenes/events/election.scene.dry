@@ -281,9 +281,12 @@ go-to: coalition_menu
 
 Rudolf Hoyos-Sprinzenstein is elected to be the President of Bundestag.
 
-There are some potential coalition arrangements.
+- @coalition_menu
 
 
 
 
 @coalition_menu
+title: There are some potential coalition arrangements.
+
+
