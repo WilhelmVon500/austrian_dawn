@@ -3,7 +3,7 @@ new-page: true
 tags: event
 priority: -1
 view-if: (year = next_election_year_salzburg and month >= next_election_month_salzburg) or (year > next_election_year_salzburg)
-on-departure: month_actions += 1; in_election = 0; next_election_year_salzburg = next_election_year_salzburg + 4; n_elections += 1; next_election_time_salzburg = time + 48;
+on-departure: next_election_year_salzburg = next_election_year_salzburg + 4; next_election_time_salzburg = time + 48;
 on-arrival: {!
 Q.salzburg_elected = Math.floor(30 * Q.elected_share);
 Q.salzburg_appointed = Math.ceil(30 * Q.appointed_share);
