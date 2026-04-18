@@ -108,12 +108,6 @@ if (Q.salzburg_appointed) {
 
 Q.other_election_votes_salzburg = Q.other_votes_salzburg
 
-for (var party of Q.parties) {
-        if (Q[party + '_zl'] > 0) {
-            Q[party + '_seats_salzburg'] = Math.round(Q[party + '_zl']/0.3);
-        }
-}
-
 let allocatedSeats = 0;
 let remainders = [];
 
