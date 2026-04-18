@@ -12,6 +12,7 @@ The <span style="color: #EEEE22;">**[+ oclk_name +]**</span> has some supportive
 
 - @campaign
 - @write_editorials
+- @newspapers
 - @return: We should not do anything with media at the moment.
 - @easy_discard
 
@@ -27,3 +28,12 @@ title: Have leading party figures write editorials in non-partisan newspapers.
 on-arrival: moderate_right_dissent -= 6; classical_liberal_dissent -= 6; social_liberal_dissent -= 6; christian_left_dissent -= 6;
 
 This is not particularly effective in drawing voters, but the ability of the factions to debate over print may reduce internal dissent.
+
+@newspapers
+title: Support our newspapers.
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: newspapers += 1; resources -= 1; new_middle_oclk += 4*(1 - dissent); old_middle_oclk += 4*(1 - dissent);
+
+WIP
