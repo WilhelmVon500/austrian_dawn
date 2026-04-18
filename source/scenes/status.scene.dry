@@ -216,6 +216,16 @@ Government: [? if in_oclk_majority_vienna: <span style="color: #EEEE22;">**[+ oc
 
 Next election: [+ next_election_month_vienna: month +] [+ next_election_year_vienna +]
 
+= Upper Austria
+
+<span style="color: #EEEE22;">**[+ oclk_name +]**</span> position: [? if upper_austria_oclk: in government ?][? if not upper_austria_oclk: opposition ?]
+
+Minister-President: [+ upper_austria_leader +] ([?if upper_austria_leader_party == oclk_name: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>?][?if upper_austria_leader_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+
+Government: [? if in_oclk_majority_upper_austria: <span style="color: #EEEE22;">**[+ oclk_name +]**</span> Majority ?][? if in_vf_majority_upper_austria: <span style="color: #ED2939;">**VF**</span> Majority ?]
+
+Next election: [+ next_election_month_upper_austria: month +] [+ next_election_year_upper_austria +]
+
 = Salzburg
 
 <span style="color: #EEEE22;">**[+ oclk_name +]**</span> position: [? if salzburg_oclk: in government ?][? if not salzburg_oclk: opposition ?]
