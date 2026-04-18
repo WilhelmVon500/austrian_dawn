@@ -152,11 +152,11 @@ Q.new_middle_dnlp = 25;
 Q.new_middle_vf = 35;
 Q.new_middle_other = 5;
 
-Q.rural_oclk = 10;
+Q.rural_oclk = 15;
 Q.rural_ap = 0;
 Q.rural_dnlp = 5;
 Q.rural_vf = 75;
-Q.rural_other = 10;
+Q.rural_other = 5;
 
 Q.unemployed_oclk = 0;
 Q.unemployed_ap = 45;
