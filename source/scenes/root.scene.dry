@@ -70,7 +70,7 @@ Q.ap_leader = "Schorsch";
 Q.dnlp_leader = "Straffner";
 Q.vf_leader = "Schuschnigg";
 
-Q.ap_ideology = "Loyalist";
+Q.ap_ideology = "Moderate";
 Q.vf_ideology = "Moderate";
 
 // The array of forces - paramilitary groups
