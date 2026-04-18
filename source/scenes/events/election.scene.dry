@@ -63,12 +63,6 @@ if (Q.bundestag_appointed) {
 
 Q.other_election_votes = other_votes_fix
 
-for (var party of Q.parties) {
-        if (Q[party + '_b'] > 0) {
-            Q[party + '_seats'] = Math.round(Q[party + '_b']/2);
-        }
-}
-
 let allocatedSeats = 0;
 let remainders = [];
 
