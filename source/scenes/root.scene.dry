@@ -137,8 +137,8 @@ Q.ovp_exist = 0;
 Q.workers_oclk = 5;
 Q.workers_ap = 50;
 Q.workers_dnlp = 5;
-Q.workers_vf = 30;
-Q.workers_other = 10;
+Q.workers_vf = 35;
+Q.workers_other = 5;
 
 Q.old_middle_oclk = 30;
 Q.old_middle_ap = 0;
@@ -159,16 +159,16 @@ Q.rural_vf = 75;
 Q.rural_other = 10;
 
 Q.unemployed_oclk = 0;
-Q.unemployed_ap = 35;
+Q.unemployed_ap = 45;
 Q.unemployed_dnlp = 5;
 Q.unemployed_vf = 40;
-Q.unemployed_other = 20;
+Q.unemployed_other = 10;
 
 Q.catholics_oclk = 10;
 Q.catholics_ap = 5;
 Q.catholics_dnlp = 0;
-Q.catholics_vf = 85;
-Q.catholics_other = 0;
+Q.catholics_vf = 80;
+Q.catholics_other = 5;
 
 
 //
