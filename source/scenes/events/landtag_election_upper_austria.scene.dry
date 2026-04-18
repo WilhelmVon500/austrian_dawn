@@ -35,12 +35,12 @@ for (var c of Q.classes) {
 
 // Define adjustment factors
 if (Q.year == 1941) {
-    Q.adjustmentFactors_ap_upper_austria = 1.0;
-    Q.adjustmentFactors_oclk_upper_austria = 1.0;
-    Q.adjustmentFactors_dnlp_upper_austria = 1.0;
+    Q.adjustmentFactors_ap_upper_austria = 0.8;
+    Q.adjustmentFactors_oclk_upper_austria = 0.6;
+    Q.adjustmentFactors_dnlp_upper_austria = 1.1;
     Q.adjustmentFactors_ovp_upper_austria = 1.0;
-    Q.adjustmentFactors_vf_upper_austria = 1.0;
-    Q.adjustmentFactors_other_upper_austria = 1.0;
+    Q.adjustmentFactors_vf_upper_austria = 1.4;
+    Q.adjustmentFactors_other_upper_austria = 0.3;
 }
 
 
