@@ -1,0 +1,228 @@
+title: Upper Austria Landtag Election
+new-page: true
+tags: event
+priority: -1
+view-if: (year = next_election_year_upper_austria and month >= next_election_month_upper_austria) or (year > next_election_year_upper_austria)
+on-departure: month_actions += 1; in_election = 0; next_election_year_upper_austria = next_election_year_upper_austria + 4; n_elections += 1; next_election_time_upper_austria = time + 48;
+on-arrival: {!
+Q.upper_austria_elected = Math.floor(48 * Q.elected_share);
+Q.upper_austria_appointed = Math.ceil(48 * Q.appointed_share);
+!}
+set-jump: post_election
+
+= Upper Austria Landtag Election, [+ month : month +] [+ year +]
+
+The Upper Austrian Landtag elections are to be held now.
+
+[? if upper_austria_appointed: [+ upper_austria_appointed +] seats are, by Constitution, appointed by the guilds - that means that these seats will be controlled by the <span style="color: #ED2939;">**VF**</span> loyalists. ?]
+
+- @election_algorithm: May we do our best...
+
+@post_election
+on-arrival: {!
+for (var c of Q.classes) {
+    var class_votes = 0;
+    for (var party of Q.parties) {
+        if (Q[c + '_' + party] < 0) {
+            Q[c + '_' + party] = 0;
+        }
+        class_votes += Q[c + '_' + party];
+    }
+    for (var party of Q.parties) {
+        Q[c + '_' + party + '_normalized_upper_austria'] = Math.round(100 * Q[c + '_' + party] / class_votes);
+    }
+}
+
+// Define adjustment factors
+if (Q.year == 1941) {
+    Q.adjustmentFactors_ap_upper_austria = 1.0;
+    Q.adjustmentFactors_oclk_upper_austria = 1.0;
+    Q.adjustmentFactors_dnlp_upper_austria = 1.0;
+    Q.adjustmentFactors_ovp_upper_austria = 1.0;
+    Q.adjustmentFactors_vf_upper_austria = 1.0;
+    Q.adjustmentFactors_other_upper_austria = 1.0;
+}
+
+
+
+// Calculate support for each of the parties
+var total_support = 0;
+for (var party of Q.parties) {
+    var party_support = 0;
+    for (var c of Q.classes) {
+        if (Q.old_demographics) {
+            party_support += Q[c] * Q[c + '_' + party];
+        } else {
+            party_support += Q[c] * Q[c + '_' + party + '_normalized_upper_austria'];
+        }
+    }
+    // Apply adjustment factor
+    Q[party + '_support'] = party_support * Q['adjustmentFactors_' + party + '_upper_austria'];
+    total_support += Q[party + '_support'];
+}
+console.log(total_support)
+// Normalize support (fraction)
+for (var party of Q.parties) {
+    Q[party + '_normalized_upper_austria'] = Q[party + '_support'] / total_support;
+    console.log(Q[party + '_support'])
+    console.log(total_support)
+    Q[party + '_votes_upper_austria'] = Math.round(Q[party + '_normalized_upper_austria'] * 1000) / 10;
+}
+
+
+var new_party_sum = 0;
+for (var party of Q.parties) {Q[party + '_ul'] = 0;
+    Q[party + '_seats_upper_austria'] = 0;
+    if (Q[party + '_banned']) {
+        Q[party + '_election_votes_upper_austria'] = 0;
+    } else {
+        Q[party + '_election_votes_upper_austria'] = parseFloat((Q[party+'_votes_upper_austria']).toFixed(1));
+    }
+    new_party_sum += Q[party + '_election_votes_upper_austria'];
+}
+
+Q.other_votes_upper_austria = Q.other_election_votes_upper_austria
+Q.other_election_votes_upper_austria = parseFloat((Q.other_election_votes_upper_austria * 0.2).toFixed(1));
+var new_new_party_sum = new_party_sum + Q.other_election_votes_upper_austria - Q.other_votes_upper_austria;
+
+// calculate new party sum
+if (new_party_sum > 0) {
+    for (var party of Q.parties) {
+        if (Q[party + '_election_votes_upper_austria'] > 0 && !(Q[party + '_election_votes_upper_austria'] < Q.electoral_threshold) && !(Q.electoral_threshold > 1 && party == 'other')) {
+            Q[party + '_ul'] = parseFloat((Q[party + '_election_votes_upper_austria']*100/new_new_party_sum).toFixed(1));
+            Q[party + '_election_votes_upper_austria'] = parseFloat((Q[party + '_election_votes_upper_austria']*100/new_party_sum).toFixed(1));
+        } else {
+            Q[party + '_election_votes_upper_austria'] = parseFloat((Q[party + '_election_votes_upper_austria']*100/new_party_sum).toFixed(1));
+            Q[party + '_ul'] = 0;
+        }
+        Q[party + '_ul'] = parseFloat((Q[party+'_ul']).toFixed(1));
+        if (Q.upper_austria_appointed) {
+            Q[party + '_ul'] = parseFloat((Q[party + '_ul']*Q.upper_austria_elected/48).toFixed(1));
+        }
+    }
+}
+
+if (Q.upper_austria_appointed) {
+    Q.vf_ul = parseFloat((Q.vf_ul + (Q.appointed_share * 100)).toFixed(1));
+}
+
+Q.other_election_votes_upper_austria = Q.other_votes_upper_austria
+
+let allocatedSeats = 0;
+let remainders = [];
+
+for (var party of Q.parties) {
+    let rawSeats = Q[party + '_ul'] * 0.48;
+    let seats = Math.floor(rawSeats);
+    Q[party + '_seats_upper_austria'] = seats;
+    allocatedSeats += seats;
+    remainders.push({
+        party: party,
+        remainder: rawSeats - seats
+    });
+}
+
+let remainingSeats = 48 - allocatedSeats;
+remainders.sort((a, b) => b.remainder - a.remainder);
+for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
+    let partyObj = remainders[i];
+    if (!partyObj || !partyObj.party) continue;
+
+    let party = partyObj.party;
+    Q[party + '_seats_upper_austria'] += 1;
+}
+
+for (var party of Q.parties) {
+    Q[party + '_ul'] = parseFloat((Q[party + '_seats_upper_austria']/0.48).toFixed(1));
+}
+!}
+on-display: {!
+data = []
+if (Q.ap_seats_upper_austria) {
+    data.push({
+        "id": "ap",
+        "legend": "AP",
+        "name": "AP",
+        "seats": Math.round(Q.ap_seats_upper_austria),
+    });
+}
+if (Q.oclk_seats_upper_austria) {
+    data.push({
+        "id": "oclk",
+        "legend": "ÖCLK",
+        "name": "ÖCLK",
+        "seats": Math.round(Q.oclk_seats_upper_austria),
+    });
+}
+if (Q.other_seats_upper_austria) {
+    data.push({
+        "id": "other",
+        "legend": "Other",
+        "name": "Other",
+        "seats": Math.round(Q.other_seats_upper_austria),
+    });
+}
+if (Q.dnlp_seats_upper_austria) {
+    data.push({
+        "id": "dnlp",
+        "legend": "DNLP",
+        "name": "DNLP",
+        "seats": Math.round(Q.dnlp_seats_upper_austria),
+    });
+}
+if (Q.ovp_seats_upper_austria) {
+    data.push({
+        "id": "ovp",
+        "legend": "ÖVP",
+        "name": "ÖVP",
+        "seats": Math.round(Q.ovp_seats_upper_austria),
+    });
+}
+if (Q.vf_seats_upper_austria) {
+    data.push({
+        "id": "vf",
+        "legend": "VF",
+        "name": "VF",
+        "seats": Math.round(Q.vf_seats_upper_austria),
+    });
+}
+             
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+go-to: coalition_menu
+
+= Election results
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+{!<table>!}
+{!<tr><td>Party</td><td>Vote Share</td><td>Landtag Seats</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#EEEE22; outline: 2px; outline-style: solid;'> </div> !} **[+oclk_name+]:** {!</td><td>!} **[+ oclk_election_votes_upper_austria +]%** {!</td><td>!} **[+ oclk_seats_upper_austria +] ([+ oclk_ul +]%)** {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#FA5A42'> </div> !} AP: {!</td><td>!} [+ ap_election_votes_upper_austria +]% {!</td><td>!} [+ ap_seats_upper_austria +] ([+ ap_ul +]%) {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes_upper_austria +]% {!</td><td>!} [+ dnlp_seats_upper_austria +] ([+ dnlp_ul +]%) {!</td></tr>!}
+
+[? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} ÖVP: {!</td><td>!} [+ ovp_election_votes_upper_austria +]% {!</td><td>!} [+ ovp_seats_upper_austria +] ([+ ovp_ul +]%) {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#ED2939'> </div> !} VF: {!</td><td>!} [+ vf_election_votes_upper_austria +]% {!</td><td>!} [+ vf_seats_upper_austria +] ([+ vf_ul +]%) {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#909090'> </div> !} Other: {!</td><td>!} [+ other_election_votes_upper_austria +]% {!</td><td>!} [+ other_seats_upper_austria +] ([+ other_ul +]%) {!</td></tr>!}
+{!</table>!}
+
+**Potential coalitions:**
