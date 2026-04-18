@@ -3,7 +3,7 @@ new-page: true
 tags: event
 priority: -1
 view-if: (year = next_election_year_vienna and month >= next_election_month_vienna) or (year > next_election_year_vienna)
-on-departure: month_actions += 1; in_election = 0; next_election_year_vienna = next_election_year_vienna + 4; n_elections += 1; next_election_time_vienna = time + 48;
+on-departure: next_election_year_vienna = next_election_year_vienna + 4; next_election_time_vienna = time + 48;
 on-arrival: {!
 Q.vienna_elected = Math.floor(100 * Q.elected_share);
 Q.vienna_appointed = Math.ceil(100 * Q.appointed_share);
