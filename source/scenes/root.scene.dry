@@ -79,9 +79,9 @@ Q.fb_strength = 25;
 Q.fb_militancy = 0.01;
 Q.fb_banned = 0;
 
-Q.fm_strength = 100;
-Q.fm_militancy = 0.5;
-Q.fm_banned = 0;
+Q.sk_strength = 80;
+Q.sk_militancy = 0.5;
+Q.sk_banned = 0;
 
 Q.rso_strength = 10;
 Q.rso_militancy = 0.5;
