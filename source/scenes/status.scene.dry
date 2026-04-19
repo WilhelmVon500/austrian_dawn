@@ -133,8 +133,8 @@ on-arrival: {!
 if (Q.fb_strength) {
     Q.fb_strength_2 = Q.fb_strength.toFixed(1);
 }
-if (Q.fm_strength) {
-    Q.fm_strength_2 = Q.fm_strength.toFixed(1);
+if (Q.sk_strength) {
+    Q.sk_strength_2 = Q.sk_strength.toFixed(1);
 }
 if (Q.rso_strength) {
     Q.rso_strength_2 = Q.rso_strength.toFixed(1);
@@ -147,9 +147,9 @@ if (Q.rso_strength) {
 
 <span style="color: #63C3D0;">**Freiheitsbund**</span> Militarization: [+ fb_militancy : militancy +]
 
-{!<span class="tooltip-text" title="WIP." style="color: #ED2939;">!}**Frontmiliz**{!</span>!} Strength: [+ fm_strength_2 +] thousand
+{!<span class="tooltip-text" title="WIP." style="color: #ED2939;">!}**SK**{!</span>!} Strength: [+ sk_strength_2 +] thousand
 
-<span style="color: #ED2939;">**Frontmiliz**</span> Militarization: [+ fm_militancy : militancy +]
+<span style="color: #ED2939;">**SK**</span> Militarization: [+ sk_militancy : militancy +]
 
 {!<span class="tooltip-text" title="WIP." style="color: #AA0000;">!}**RSÖ**{!</span>!} Strength: [+ rso_strength_2 +] thousand
 
