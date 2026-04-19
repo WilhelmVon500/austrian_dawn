@@ -67,10 +67,11 @@ Q.vf_relation = 50;
 
 Q.oclk_leader = "Kelsen";
 Q.ap_leader = "Schorsch";
-Q.dnlp_leader = "Straffner";
+Q.dnlp_leader = "Dinghofer";
 Q.vf_leader = "Schuschnigg";
 
 Q.ap_ideology = "Moderate";
+Q.dnlp_ideology = "Loyalist";
 Q.vf_ideology = "Moderate";
 
 // The array of forces - paramilitary groups
