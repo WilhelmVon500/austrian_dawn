@@ -306,6 +306,6 @@ WIP
 @schuschnigg_vf_majority
 title: Schuschnigg will be the Chancellor.
 face-image: img/portraits/SchuschniggKurt.jpg
-on-arrival: chancellor = "Schuschnigg"; chancellor_party = "VF"; vice_chancellor = 'Skubl'; vice_chancellor_party = 'VF'; foreign_minister = 'Berger-Waldenegg'; foreign_minister_party = 'VF'; interior_minister = 'Skubl'; interior_minister_party = 'VF'; justice_minister = 'Schuschnigg'; justice_minister_party = 'VF'; finance_minister = 'Draxler'; finance_minister_party = 'VF'; economic_minister = 'Raab'; economic_minister_party = 'VF'; social_minister = 'Neustädter-Stürmer'; social_minister_party = 'VF'; agriculture_minister = 'Mandorfer'; agriculture_minister_party = 'VF'; defense_minister = 'Zehner'; defense_minister_party = 'I';
+on-arrival: chancellor = "Schuschnigg"; chancellor_party = "VF"; vice_chancellor = 'Skubl' if not president = "Skubl"; vice_chancellor = 'Zernatto' if president = "Skubl"; vice_chancellor_party = 'VF'; foreign_minister = 'Berger-Waldenegg'; foreign_minister_party = 'VF'; interior_minister = 'Skubl'; interior_minister_party = 'VF'; justice_minister = 'Schuschnigg'; justice_minister_party = 'VF'; finance_minister = 'Draxler'; finance_minister_party = 'VF'; economic_minister = 'Raab'; economic_minister_party = 'VF'; social_minister = 'Neustädter-Stürmer'; social_minister_party = 'VF'; agriculture_minister = 'Mandorfer'; agriculture_minister_party = 'VF'; defense_minister = 'Zehner'; defense_minister_party = 'I';
 
 WIP
