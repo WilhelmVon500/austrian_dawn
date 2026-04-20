@@ -63,7 +63,7 @@ Q.christian_left_oclk = 1;
 // inter-party relations
 Q.ap_relation = 30;
 Q.dnlp_relation = 40;
-Q.vf_relation = 50;
+Q.vf_relation = 40;
 
 Q.oclk_leader = "Kelsen";
 Q.ap_leader = "Schorsch";
