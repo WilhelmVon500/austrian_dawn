@@ -1,5 +1,6 @@
 title: Presidential Election
 subtitle: Bundestag is electing a new Federal President.
+new-page: true
 face-image: img/bundestag.jpg
 tags: event
 view-if: year = 1942 and month = 1
