@@ -136,9 +136,9 @@ Q.ovp_exist = 0;
 // Support for party by social group
 // they don't have to sum to 100 since the electoral calculations will be normalized.
 Q.workers_oclk = 5;
-Q.workers_ap = 50;
+Q.workers_ap = 45;
 Q.workers_dnlp = 5;
-Q.workers_vf = 35;
+Q.workers_vf = 40;
 Q.workers_other = 5;
 
 Q.old_middle_oclk = 30;
@@ -150,8 +150,8 @@ Q.old_middle_other = 5;
 Q.new_middle_oclk = 30;
 Q.new_middle_ap = 5;
 Q.new_middle_dnlp = 25;
-Q.new_middle_vf = 35;
-Q.new_middle_other = 5;
+Q.new_middle_vf = 40;
+Q.new_middle_other = 0;
 
 Q.rural_oclk = 15;
 Q.rural_ap = 0;
