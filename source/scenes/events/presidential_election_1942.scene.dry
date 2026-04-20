@@ -52,7 +52,7 @@ The <span style="color: #FA5A42;">**AP**</span> chose to run Karl Renner, a mode
 @oclk
 face-image: img/portraits/KelsenHans.jpg
 
-Hans Kelsen, the leader of our party, has been floated around a candidate for the presidency WIP
+Hans Kelsen has been floated around a candidate for the presidency WIP
 
 So, what's our choice?
 
@@ -80,6 +80,8 @@ on-arrival: oclk_campaign = 1; oclk_candidate = "Kelsen";
 
 WIP
 
+- @endorsements_kelsen: Scout out potential endorsements.
+
 
 
 @support_dinghofer
@@ -104,3 +106,53 @@ on-arrival: oclk_candidate = "Skubl"; social_liberal_dissent += 7; classical_lib
 
 WIP
 
+
+
+
+
+@endorsements_kelsen
+
+We can't win this election alone, we need support from other parties.
+
+- @convince_ap: Convince the <span style="color: #FA5A42;">**AP**</span> to back <span style="color: #EEEE22;">Kelsen</span>.
+- @convince_dnlp: Convince the <span style="color: #0E428E;">**DNLP**</span> to back <span style="color: #EEEE22;">Kelsen</span>.
+- @view_candidates: View party endorsements.
+- @hope: We have concluded negotiations with other parties.
+
+@convince_ap
+max-visits: 1
+go-to: convince_ap_success if (ap_ideology = "Moderate" and ap_relation >= 50) or (ap_ideology = "Reformist" and ap_relation >= 40); convince_ap_fail if not ((ap_ideology = "Moderate" and ap_relation >= 50) or (ap_ideology = "Reformist" and ap_relation >= 40))
+
+WIP
+
+@convince_ap_success
+on-arrival: ap_campaign = 0; ap_candidate = "Kelsen";
+go-to: endorsements_kelsen
+
+The <span style="color: #FA5A42;">**AP**</span> is convinced! They will be supporting Kelsen for the election.
+
+@convince_ap_fail
+go-to: endorsements_kelsen
+
+Unfortunately, the <span style="color: #FA5A42;">**AP**</span> is not convinced.
+
+
+
+@convince_dnlp
+unavailable-subtitle: The <span style="color: #0E428E;">**DNLP**</span> will never vote for him.
+choose-if: dnlp_ideology = "Reformist"
+max-visits: 1
+go-to: convince_dnlp_success if dnlp_relation >= 50; convince_dnlp_fail if not (dnlp_relation >= 50)
+
+WIP
+
+@convince_dnlp_success
+on-arrival: dnlp_campaign = 0; dnlp_candidate = "Kelsen";
+go-to: endorsements_kelsen
+
+Quite surprisingly, we managed to convince <span style="color: #0E428E;">**DNLP**</span> to support Kelsen for the election!
+
+@convince_dnlp_fail
+go-to: endorsements_kelsen
+
+Unfortunately, even after taking a more liberal course, the <span style="color: #0E428E;">**DNLP**</span> is unwilling to support our candidate.
