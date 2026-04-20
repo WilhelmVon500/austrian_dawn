@@ -64,6 +64,37 @@ So, what's our choice?
 
 
 
+@view_candidates
+go-to: endorsements_kelsen if oclk_campaign
+
+[? if oclk_campaign: <span style="color: #EEEE22;">**Hans Kelsen**</span> ?]
+
+[? if ap_candidate = "Kelsen": - <span style="color: #FA5A42;">**AP**</span> ?]
+
+[? if oclk_candidate = "Kelsen": - <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ?]
+
+[? if dnlp_candidate = "Kelsen": - <span style="color: #0E428E;">**DNLP**</span> ?]
+
+[? if ap_campaign: <span style="color: #FA5A42;">**Karl Renner**</span> ?]
+
+[? if ap_candidate = "Renner": - <span style="color: #FA5A42;">**AP**</span> ?]
+
+[? if oclk_candidate = "Renner": - <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ?]
+
+[? if dnlp_campaign: <span style="color: #0E428E;">**Franz Dinghofer**</span> ?]
+
+[? if oclk_candidate = "Dinghofer": - <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ?]
+
+[? if dnlp_candidate = "Dinghofer": - <span style="color: #0E428E;">**DNLP**</span> ?]
+
+[? if vf_campaign: <span style="color: #ED2939;">**Michael Skubl**</span> ?]
+
+[? if oclk_candidate = "Skubl": - <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ?]
+
+[? if vf_candidate = "ED2939": - <span style="color: #EEEE22;">**VF**</span> ?]
+
+
+
 
 
 @abstain
