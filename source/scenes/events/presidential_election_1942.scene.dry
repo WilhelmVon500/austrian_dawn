@@ -57,9 +57,9 @@ Hans Kelsen, the leader of our party, has been floated around a candidate for th
 So, what's our choice?
 
 - @run_kelsen: Run Hans Kelsen of the <span style="color: #EEEE22;">**[+ oclk_name +]**</span>.
-- @support_dinghofer: Support <span style="color: #0E428E;">**Dinghofer**</span>.
-- @support_renner: Support <span style="color: #FA5A42;">**Renner**</span>.
-- @support_skubl: Support <span style="color: #ED2939;">**Skubl**</span>.
+- @support_dinghofer: Support <span style="color: #0E428E;">Dinghofer</span>.
+- @support_renner: Support <span style="color: #FA5A42;">Renner</span>.
+- @support_skubl: Support <span style="color: #ED2939;">Skubl</span>.
 - @abstain: Abstain from endorsing any candidate.
 
 
@@ -75,7 +75,7 @@ Participating in this vote is not worthy of our time, and we will not field a ca
 
 
 @run_kelsen
-subtitle: WIP
+subtitle: A legal philosopher and the architect of the 1920 democratic Constitution.
 on-arrival: oclk_campaign = 1; oclk_candidate = "Kelsen";
 
 WIP
