@@ -1,5 +1,6 @@
 title: Presidential Election
 subtitle: Bundestag is electing a new Federal President.
+face-image: img/bundestag.jpg
 tags: event
 view-if: year = 1942 and month = 1
 priority: 1
@@ -69,7 +70,7 @@ So, what's our choice?
 
 @abstain
 subtitle: We will not put forward any candidate and our delegation will abstain from the vote.
-on-arrival: Q.oclk_candidate = "Abstain";
+on-arrival: oclk_candidate = "Abstain";
 
 Participating in this vote is not worthy of our time, and we will not field a candidate of our own or support any other.
 
