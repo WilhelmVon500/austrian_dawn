@@ -216,30 +216,30 @@ Q.skubl_votes = Q.vf_seats;
 
 
 
-if (Q.oclk_candidate = "Kelsen") {
+if (Q.oclk_candidate == "Kelsen") {
     Q.kelsen_votes += Q.oclk_seats;
 }
-if (Q.oclk_candidate = "Renner") {
+if (Q.oclk_candidate == "Renner") {
     Q.renner_votes += Q.oclk_seats;
 }
-if (Q.oclk_candidate = "Dinghofer") {
+if (Q.oclk_candidate == "Dinghofer") {
     Q.dinghofer_votes += Q.oclk_seats;
 }
-if (Q.oclk_candidate = "Abstain") {
+if (Q.oclk_candidate == "Abstain") {
     Q.abstain_votes += Q.oclk_seats;
 }
 
-if (Q.ap_candidate = "Kelsen") {
+if (Q.ap_candidate == "Kelsen") {
     Q.kelsen_votes += Q.ap_seats;
 }
-if (Q.ap_candidate = "Renner") {
+if (Q.ap_candidate == "Renner") {
     Q.renner_votes += Q.ap_seats;
 }
 
-if (Q.dnlp_candidate = "Kelsen") {
+if (Q.dnlp_candidate == "Kelsen") {
     Q.kelsen_votes += Q.dnlp_seats;
 }
-if (Q.dnlp_candidate = "Dinghofer") {
+if (Q.dnlp_candidate == "Dinghofer") {
     Q.dinghofer_votes += Q.dnlp_seats;
 }
 
