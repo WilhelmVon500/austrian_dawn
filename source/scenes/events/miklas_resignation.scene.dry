@@ -1,5 +1,6 @@
 title: Wilhelm Miklas resigns!
 subtitle: After serving as the Federal President for 13 years, Wilhelm Miklas has resigned.
+new-page: true
 tags: event
 view-if: year = 1941 and month = 12
 priority: 1
