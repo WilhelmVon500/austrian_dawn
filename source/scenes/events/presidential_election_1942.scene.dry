@@ -1,9 +1,107 @@
 title: Presidential Election
-subtitle: The Bundestag is to choose the new President...
+subtitle: Bundestag is electing a new Federal President.
 tags: event
 view-if: year = 1942 and month = 1
 priority: 1
 max-visits: 1
-face-image: img/bundestag.jpg
+on-arrival: {!
+Q.oclk_candidate = "Skubl";
+Q.ap_candidate = "Renner";
+Q.dnlp_candidate = "Dinghofer";
+Q.vf_candidate = "Skubl";
+
+Q.oclk_campaign = 0;
+Q.ap_campaign = 1;
+Q.dnlp_campaign = 1;
+Q.vf_campaign = 1;
+!}
+go-to: candidate_selection
 
 WIP
+
+= Presidential Election
+
+WIP
+
+Anyhow, let's see who will be the candidates of other parties.
+
+@candidate_selection
+
+- @skubl: Who will be the successor to Miklas?
+
+@skubl
+face-image: img/portraits/SkublMichael.jpg
+
+Michael Skubl, the current Vice-Chancellor and Interior Minister WIP
+
+- @dnlp: We await the decision of the <span style="color: #0E428E;">**DNLP**</span>.
+
+@dnlp
+face-image: img/portraits/DinghoferFranz.jpg
+
+The <span style="color: #0E428E;">**DNLP**</span> will run Franz Dinghofer, a known German nationalist and its leader WIP
+
+- @ap: We await the decision the <span style="color: #FA5A42;">**AP**</span>.
+
+@ap
+face-image: img/portraits/RennerKarl.jpg
+
+The <span style="color: #FA5A42;">**AP**</span> chose to run Karl Renner, a moderate socialist WIP
+
+- @oclk: So, what is our decision? Should we run our own candidate?
+
+@oclk
+face-image: img/portraits/KelsenHans.jpg
+
+Hans Kelsen, the leader of our party, has been floated around a candidate for the presidency WIP
+
+So, what's our choice?
+
+- @run_kelsen: Run Hans Kelsen of the <span style="color: #EEEE22;">**[+ oclk_name +]**</span>.
+- @support_dinghofer: Support <span style="color: #0E428E;">**Dinghofer**</span>.
+- @support_renner: Support <span style="color: #FA5A42;">**Renner**</span>.
+- @support_skubl: Support <span style="color: #ED2939;">**Skubl**</span>.
+- @abstain: Abstain from endorsing any candidate.
+
+
+
+
+
+@abstain
+subtitle: We will not put forward any candidate and our delegation will abstain from the vote.
+on-arrival: Q.oclk_candidate = "Abstain";
+
+Participating in this vote is not worthy of our time, and we will not field a candidate of our own or support any other.
+
+
+
+@run_kelsen
+subtitle: WIP
+on-arrival: oclk_campaign = 1; oclk_candidate = "Kelsen";
+
+WIP
+
+
+
+@support_dinghofer
+subtitle: The left wing of our party is vehemently opposed to supporting a German nationalist.
+on-arrival: oclk_candidate = "Dinghofer"; social_liberal_dissent += 10; christian_left_dissent += 7;
+
+WIP
+
+
+
+@support_renner
+subtitle: Supporting a socialist candidate is unpopular among the right wing of our party.
+on-arrival: oclk_candidate = "Renner"; moderate_right_dissent += 7; classical_liberal_dissent += 5;
+
+WIP
+
+
+
+@support_skubl
+subtitle: The liberals in our party will not like this.
+on-arrival: oclk_candidate = "Skubl"; social_liberal_dissent += 7; classical_liberal_dissent += 5;
+
+WIP
+
