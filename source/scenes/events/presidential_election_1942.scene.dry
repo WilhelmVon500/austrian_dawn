@@ -306,12 +306,12 @@ if (window && d3) {
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
-[? if oclk_campaign: <span style="color: #EEEE22;">**Hans Kelsen**</span> - [+ kelsen_votes +] ([+ kelsen_percent +]) ?]
+[? if oclk_campaign: <span style="color: #EEEE22;">**Hans Kelsen**</span> - [+ kelsen_votes +] votes ([+ kelsen_percent +]) ?]
 
-[? if ap_campaign: <span style="color: #FA5A42;">**Karl Renner**</span> - [+ renner_votes +] ([+ renner_percent +]) ?]
+[? if ap_campaign: <span style="color: #FA5A42;">**Karl Renner**</span> - [+ renner_votes +] votes ([+ renner_percent +]) ?]
 
-[? if dnlp_campaign: <span style="color: #0E428E;">**Franz Dinghofer**</span> - [+ dinghofer_votes +] ([+ dinghofer_percent +]) ?]
+[? if dnlp_campaign: <span style="color: #0E428E;">**Franz Dinghofer**</span> - [+ dinghofer_votes +] votes ([+ dinghofer_percent +]) ?]
 
-[? if vf_campaign: <span style="color: #ED2939;">**Michael Skubl**</span> - [+ skubl_votes +] ([+ skubl_percent +]) ?]
+[? if vf_campaign: <span style="color: #ED2939;">**Michael Skubl**</span> - [+ skubl_votes +] votes ([+ skubl_percent +]) ?]
 
-<span style="color: #909090;">**Abstained**</span> - [+ abstain_votes +] ([+ abstain_percent +])
+<span style="color: #909090;">**Abstention**</span> - [+ abstain_votes +] votes ([+ abstain_percent +])
