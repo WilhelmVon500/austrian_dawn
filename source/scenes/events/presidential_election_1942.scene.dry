@@ -104,6 +104,8 @@ on-arrival: oclk_candidate = "Abstain";
 
 Participating in this vote is not worthy of our time, and we will not field a candidate of our own or support any other.
 
+- @vote: The Bundestag votes...
+
 
 
 @run_kelsen
@@ -122,6 +124,8 @@ on-arrival: oclk_candidate = "Dinghofer"; social_liberal_dissent += 10; christia
 
 WIP
 
+- @vote: The Bundestag votes...
+
 
 
 @support_renner
@@ -130,6 +134,8 @@ on-arrival: oclk_candidate = "Renner"; moderate_right_dissent += 7; classical_li
 
 WIP
 
+- @vote: The Bundestag votes...
+
 
 
 @support_skubl
@@ -137,6 +143,8 @@ subtitle: The liberals in our party will not like this.
 on-arrival: oclk_candidate = "Skubl"; social_liberal_dissent += 7; classical_liberal_dissent += 5;
 
 WIP
+
+- @vote: The Bundestag votes...
 
 
 
