@@ -92,7 +92,7 @@ go-to: endorsements_kelsen if oclk_campaign
 
 [? if oclk_candidate = "Skubl": - <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ?]
 
-[? if vf_candidate = "ED2939": - <span style="color: #EEEE22;">**VF**</span> ?]
+[? if vf_candidate = "Skubl": - <span style="color: #ED2939;">**VF**</span> ?]
 
 
 
