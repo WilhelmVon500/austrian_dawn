@@ -195,3 +195,123 @@ Unfortunately, even after taking a more liberal course, the <span style="color: 
 @hope
 
 Hopefully, the [+ oclk_candidate +] coalition is strong enough to win...
+
+- @vote: The Bundestag votes...
+
+@vote
+on-arrival: {!
+Q.kelsen_votes = 0;
+Q.renner_votes = 0;
+Q.dinghofer_votes = 0;
+Q.abstain_votes = 0;
+Q.skubl_votes = Q.vf_seats;
+
+
+
+if (Q.oclk_candidate = "Kelsen") {
+    Q.kelsen_votes += Q.oclk_seats;
+}
+if (Q.oclk_candidate = "Renner") {
+    Q.renner_votes += Q.oclk_seats;
+}
+if (Q.oclk_candidate = "Dinghofer") {
+    Q.dinghofer_votes += Q.oclk_seats;
+}
+if (Q.oclk_candidate = "Abstain") {
+    Q.abstain_votes += Q.oclk_seats;
+}
+
+if (Q.ap_candidate = "Kelsen") {
+    Q.kelsen_votes += Q.ap_seats;
+}
+if (Q.ap_candidate = "Renner") {
+    Q.renner_votes += Q.ap_seats;
+}
+
+if (Q.dnlp_candidate = "Kelsen") {
+    Q.kelsen_votes += Q.dnlp_seats;
+}
+if (Q.dnlp_candidate = "Dinghofer") {
+    Q.dinghofer_votes += Q.dnlp_seats;
+}
+
+Q.kelsen_percent = parseFloat((Q.kelsen_votes / 200).toFixed(1));
+Q.renner_percent = parseFloat((Q.renner_votes / 200).toFixed(1));
+Q.dinghofer_percent = parseFloat((Q.dinghofer_votes / 200).toFixed(1));
+Q.skubl_percent = parseFloat((Q.skubl_votes / 200).toFixed(1));
+Q.abstain_percent = parseFloat((Q.abstain_votes / 200).toFixed(1));
+!}
+on-display: {!
+data = []
+if (Q.renner_votes) {
+    data.push({
+        "id": "ap",
+        "legend": "Renner",
+        "name": "Renner",
+        "seats": Math.round(Q.renner_votes),
+    });
+}
+if (Q.kelsen_votes) {
+    data.push({
+        "id": "oclk",
+        "legend": "Kelsen",
+        "name": "Kelsen",
+        "seats": Math.round(Q.kelsen_votes),
+    });
+}
+if (Q.dinghofer_votes) {
+    data.push({
+        "id": "dnlp",
+        "legend": "Dinghofer",
+        "name": "Dinghofer",
+        "seats": Math.round(Q.dinghofer_votes),
+    });
+}
+if (Q.skubl_votes) {
+    data.push({
+        "id": "vf",
+        "legend": "Skubl",
+        "name": "Skubl",
+        "seats": Math.round(Q.skubl_votes),
+    });
+}
+if (Q.abstain_votes) {
+    data.push({
+        "id": "other",
+        "legend": "Abstain",
+        "name": "Abstain",
+        "seats": Math.round(Q.abstain_votes),
+    });
+}
+             
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+
+= Election results
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+[? if oclk_campaign: <span style="color: #EEEE22;">**Hans Kelsen**</span> - [+ kelsen_votes +] ([+ kelsen_percent +]) ?]
+
+[? if ap_campaign: <span style="color: #FA5A42;">**Karl Renner**</span> - [+ renner_votes +] ([+ renner_percent +]) ?]
+
+[? if dnlp_campaign: <span style="color: #0E428E;">**Franz Dinghofer**</span> - [+ dinghofer_votes +] ([+ dinghofer_percent +]) ?]
+
+[? if vf_campaign: <span style="color: #ED2939;">**Michael Skubl**</span> - [+ skubl_votes +] ([+ skubl_percent +]) ?]
+
+<span style="color: #909090;">**Abstained**</span> - [+ abstain_votes +] ([+ abstain_percent +])
