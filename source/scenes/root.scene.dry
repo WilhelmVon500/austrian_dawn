@@ -61,8 +61,8 @@ Q.christian_left_oclk = 1;
 // organizations
 
 // inter-party relations
-Q.ap_relation = 30;
-Q.dnlp_relation = 40;
+Q.ap_relation = 40;
+Q.dnlp_relation = 35;
 Q.vf_relation = 40;
 
 Q.oclk_leader = "Kelsen";
@@ -429,8 +429,8 @@ Q.moderate_right_dissent = 25;
 Q.classical_liberal_dissent = 25;
 Q.social_liberal_dissent = 25;
 Q.christian_left_dissent = 30;
-Q.ap_relation = 36;
-Q.dnlp_relation = 39;
+Q.ap_relation = 39;
+Q.dnlp_relation = 36;
 Q.vf_relation = 34;
 Q.budget = 2;
 this.state.disableSaves = true;
