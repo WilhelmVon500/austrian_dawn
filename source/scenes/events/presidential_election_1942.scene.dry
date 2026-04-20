@@ -309,6 +309,7 @@ if (window && d3) {
     d3.select("#reichstag").datum(data).call(parliament);
 }
 !}
+go-to: skubl_win
 
 = Election results
 
@@ -323,3 +324,9 @@ if (window && d3) {
 [? if vf_campaign: <span style="color: #ED2939;">**Michael Skubl**</span> - [+ skubl_votes +] votes ([+ skubl_percent +]%) ?]
 
 <span style="color: #909090;">**Abstention**</span> - [+ abstain_votes +] votes ([+ abstain_percent +]%)
+
+
+@skubl_win
+on-arrival: president = "Skubl"; president_party = "VF"; vice_chancellor = "Zernatto" if vice_chancellor = "Skubl"; vice_chancellor_party = "VF" if vice_chancellor = "Skubl";
+
+Michael Skubl has risen from Vice-Chancellor and Interior Minister to Federal President. He is expected to not involve himself much into day-to-day politics and continue Miklas' course, staying loyal to the Chancellor.
