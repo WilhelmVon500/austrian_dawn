@@ -1,5 +1,6 @@
 title: 1941 Congress of the <span style="color: #ED2939;">**VF**</span>.
 subtitle: The <span style="color: #ED2939;">**VF**</span> holds its first congress since the election.
+new-page: true
 tags: event
 view-if: year = 1941 and month = 5
 priority: 1
