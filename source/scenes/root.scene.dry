@@ -392,11 +392,14 @@ Q.hayek_advisor = 0; // Friedrich Hayek
 
 // social liberal advisors
 Q.stolper_advisor = 0; // Gustav Stolper
+Q.klang_advisor = 0; // Heinrich Klang
 
 // christian left advisors
+Q.winter_advisor = 0; // Ernst Karl Winter
 Q.dobretsberger_advisor = 0; // Josef Dobretsberger
 
 // Nonfactional advisors
+Q.taucher_advisor = 0; // Wilhelm Taucher
 !}
 set-bg: img/map_2.jpg
 new-page: true
