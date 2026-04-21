@@ -124,19 +124,10 @@ WIP
 
 
 
-@support_dinghofer
-subtitle: The left wing of our party is vehemently opposed to supporting a German nationalist.
-on-arrival: oclk_candidate = "Dinghofer"; social_liberal_dissent += 10; christian_left_dissent += 7;
-
-WIP
-
-- @vote: The Bundestag votes...
-
-
-
 @support_renner
 subtitle: Supporting a socialist candidate is unpopular among the right wing of our party.
 on-arrival: oclk_candidate = "Renner"; moderate_right_dissent += 7; classical_liberal_dissent += 5;
+view-if: ap_campaign
 
 WIP
 
@@ -147,6 +138,17 @@ WIP
 @support_skubl
 subtitle: The liberals in our party will not like this.
 on-arrival: oclk_candidate = "Skubl"; social_liberal_dissent += 7; classical_liberal_dissent += 5;
+
+WIP
+
+- @vote: The Bundestag votes...
+
+
+
+@support_dinghofer
+subtitle: The left wing of our party is vehemently opposed to supporting a German nationalist.
+on-arrival: oclk_candidate = "Dinghofer"; social_liberal_dissent += 10; christian_left_dissent += 7;
+view-if: dnlp_campaign
 
 WIP
 
@@ -265,6 +267,9 @@ if (Q.oclk_candidate == "Renner") {
 }
 if (Q.oclk_candidate == "Dinghofer") {
     Q.dinghofer_votes += Q.oclk_seats;
+}
+if (Q.oclk_candidate == "Skubl") {
+    Q.skubl_votes += Q.oclk_seats;
 }
 if (Q.oclk_candidate == "Abstain") {
     Q.abstain_votes += Q.oclk_seats;
