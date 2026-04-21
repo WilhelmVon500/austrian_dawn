@@ -62,17 +62,17 @@ Q.christian_left_oclk = 1;
 
 // inter-party relations
 Q.ap_relation = 40;
-Q.dnlp_relation = 35;
 Q.vf_relation = 40;
+Q.dnlp_relation = 35;
 
 Q.oclk_leader = "Kelsen";
 Q.ap_leader = "Schorsch";
-Q.dnlp_leader = "Dinghofer";
 Q.vf_leader = "Schuschnigg";
+Q.dnlp_leader = "Dinghofer";
 
 Q.ap_ideology = "Moderate";
-Q.dnlp_ideology = "Loyalist";
 Q.vf_ideology = "Moderate";
+Q.dnlp_ideology = "Loyalist";
 
 // The array of forces - paramilitary groups
 // Number of members in 1941 (in thousands)
@@ -128,7 +128,7 @@ Q.economic_growth = 3.1;
 Q.economic_expansion = 0;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
-Q.parties = ['oclk', 'ap', 'dnlp', 'vf', 'other'];
+Q.parties = ['oclk', 'ap', 'vf', 'dnlp', 'other'];
 Q.states = ['vienna', 'upper_austria', 'styria', 'salzburg'];
 
 Q.ovp_exist = 0;
@@ -137,38 +137,38 @@ Q.ovp_exist = 0;
 // they don't have to sum to 100 since the electoral calculations will be normalized.
 Q.workers_oclk = 5;
 Q.workers_ap = 45;
-Q.workers_dnlp = 5;
 Q.workers_vf = 40;
+Q.workers_dnlp = 5;
 Q.workers_other = 5;
 
 Q.old_middle_oclk = 30;
 Q.old_middle_ap = 0;
-Q.old_middle_dnlp = 25;
 Q.old_middle_vf = 40;
+Q.old_middle_dnlp = 25;
 Q.old_middle_other = 5;
 
 Q.new_middle_oclk = 30;
 Q.new_middle_ap = 5;
-Q.new_middle_dnlp = 25;
 Q.new_middle_vf = 40;
+Q.new_middle_dnlp = 25;
 Q.new_middle_other = 0;
 
 Q.rural_oclk = 15;
 Q.rural_ap = 0;
-Q.rural_dnlp = 5;
 Q.rural_vf = 75;
+Q.rural_dnlp = 5;
 Q.rural_other = 5;
 
 Q.unemployed_oclk = 0;
 Q.unemployed_ap = 45;
-Q.unemployed_dnlp = 5;
 Q.unemployed_vf = 40;
+Q.unemployed_dnlp = 5;
 Q.unemployed_other = 10;
 
 Q.catholics_oclk = 10;
 Q.catholics_ap = 5;
-Q.catholics_dnlp = 0;
 Q.catholics_vf = 80;
+Q.catholics_dnlp = 0;
 Q.catholics_other = 5;
 
 
@@ -446,8 +446,8 @@ Q.classical_liberal_dissent = 25;
 Q.social_liberal_dissent = 25;
 Q.christian_left_dissent = 30;
 Q.ap_relation = 39;
-Q.dnlp_relation = 36;
 Q.vf_relation = 34;
+Q.dnlp_relation = 36;
 Q.budget = 2;
 this.state.disableSaves = true;
 !}
