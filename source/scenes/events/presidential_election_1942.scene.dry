@@ -9,13 +9,13 @@ max-visits: 1
 on-arrival: {!
 Q.oclk_candidate = "Skubl";
 Q.ap_candidate = "Renner";
-Q.dnlp_candidate = "Dinghofer";
 Q.vf_candidate = "Skubl";
+Q.dnlp_candidate = "Dinghofer";
 
 Q.oclk_campaign = 0;
 Q.ap_campaign = 1;
-Q.dnlp_campaign = 1;
 Q.vf_campaign = 1;
+Q.dnlp_campaign = 1;
 !}
 go-to: candidate_selection
 
@@ -58,9 +58,9 @@ Hans Kelsen has been floated around a candidate for the presidency WIP
 So, what's our choice?
 
 - @run_kelsen: Run Hans Kelsen of the <span style="color: #EEEE22;">**[+ oclk_name +]**</span>.
-- @support_dinghofer: Support <span style="color: #0E428E;">Dinghofer</span>.
 - @support_renner: Support <span style="color: #FA5A42;">Renner</span>.
 - @support_skubl: Support <span style="color: #ED2939;">Skubl</span>.
+- @support_dinghofer: Support <span style="color: #0E428E;">Dinghofer</span>.
 - @abstain: Abstain from endorsing any candidate.
 
 
@@ -82,17 +82,17 @@ go-to: endorsements_kelsen if oclk_campaign
 
 [? if oclk_candidate = "Renner": - <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ?]
 
-[? if dnlp_campaign: <span style="color: #0E428E;">**Franz Dinghofer**</span> ?]
-
-[? if oclk_candidate = "Dinghofer": - <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ?]
-
-[? if dnlp_candidate = "Dinghofer": - <span style="color: #0E428E;">**DNLP**</span> ?]
-
 [? if vf_campaign: <span style="color: #ED2939;">**Michael Skubl**</span> ?]
 
 [? if oclk_candidate = "Skubl": - <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ?]
 
 [? if vf_candidate = "Skubl": - <span style="color: #ED2939;">**VF**</span> ?]
+
+[? if dnlp_campaign: <span style="color: #0E428E;">**Franz Dinghofer**</span> ?]
+
+[? if oclk_candidate = "Dinghofer": - <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ?]
+
+[? if dnlp_candidate = "Dinghofer": - <span style="color: #0E428E;">**DNLP**</span> ?]
 
 
 
@@ -267,20 +267,20 @@ if (Q.kelsen_votes) {
         "seats": Math.round(Q.kelsen_votes),
     });
 }
-if (Q.dinghofer_votes) {
-    data.push({
-        "id": "dnlp",
-        "legend": "Dinghofer",
-        "name": "Dinghofer",
-        "seats": Math.round(Q.dinghofer_votes),
-    });
-}
 if (Q.skubl_votes) {
     data.push({
         "id": "vf",
         "legend": "Skubl",
         "name": "Skubl",
         "seats": Math.round(Q.skubl_votes),
+    });
+}
+if (Q.dinghofer_votes) {
+    data.push({
+        "id": "dnlp",
+        "legend": "Dinghofer",
+        "name": "Dinghofer",
+        "seats": Math.round(Q.dinghofer_votes),
     });
 }
 if (Q.abstain_votes) {
@@ -319,9 +319,9 @@ go-to: skubl_win
 
 [? if ap_campaign: <span style="color: #FA5A42;">**Karl Renner**</span> - [+ renner_votes +] votes ([+ renner_percent +]%) ?]
 
-[? if dnlp_campaign: <span style="color: #0E428E;">**Franz Dinghofer**</span> - [+ dinghofer_votes +] votes ([+ dinghofer_percent +]%) ?]
-
 [? if vf_campaign: <span style="color: #ED2939;">**Michael Skubl**</span> - [+ skubl_votes +] votes ([+ skubl_percent +]%) ?]
+
+[? if dnlp_campaign: <span style="color: #0E428E;">**Franz Dinghofer**</span> - [+ dinghofer_votes +] votes ([+ dinghofer_percent +]%) ?]
 
 <span style="color: #909090;">**Abstention**</span> - [+ abstain_votes +] votes ([+ abstain_percent +]%)
 
