@@ -13,20 +13,19 @@ In our media and campaign materials, who should we consider as our main opponent
 [? if enemies != 0 : Previously, we had considered the [+ enemies +] as our prior enemies. Is a change of direction necessary? ?]
 
 - @regime: The regime of <span style="color: #ED2939;">**VF**</span>.
-- @far_right: The pro-German far-right.
+- @far_right: The pro-German right.
 - @leftists: The leftists.
 - @easy_discard
 
 @regime
-on-arrival: enemies = "clerical-corporatist right"; classical_liberal_strength += 5; social_liberal_strength += 5; new_middle_vf -= 2; old_middle_vf -= 2; vf_relation -= 5
+on-arrival: enemies = "clerical-corporatist right"; classical_liberal_strength += 5; social_liberal_strength += 5; new_middle_vf -= 2; old_middle_vf -= 2; vf_relation -= 5;
 
 Attacking the clerical-corporatist right is popular among our party, though this might hamper our ability to cooperate with the <span style="color: #ED2939;">**VF**</span> in the future.
 
 @far_right
-on-arrival: enemies = "pro-German far-right"; old_middle_other -= 3;
+on-arrival: enemies = "pro-German right"; old_middle_dnlp -= 3; dnlp_relation -= 5; vf_relation += 3;
 
-[? if other_votes >= 5: Attacking the far right is popular among the entire party, as they are considered the most dangerous force. ?]
-[? if other_votes < 5 : The pan-German far-right is a fringe movement right now, with more bark than bite. Many in our party are questioning our choices. ?]
+Attacking the pro-German right is popular among the entire party.
 
 @leftists
 on-arrival: enemies = "leftists"; christian_left_dissent += 8; ap_relation -= 5; vf_relation += 3;
