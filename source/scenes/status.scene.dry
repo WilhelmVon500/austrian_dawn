@@ -83,7 +83,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="Workers' Party" style="color: #FA5A42;">!}**AP**{!</span>!}: Corporatist Social Democracy ([+ap_leader+])
 
-{!<span class="tooltip-text" title="German National Liberal Party" style="color: #0E428E;">!}**DNLP**{!</span>!}: Moderate German Nationalism ([+dnlp_leader+])
+{!<span class="tooltip-text" title="German National Liberal Party" style="color: #0E428E;">!}**DNLP**{!</span>!}: Loyalist German Nationalism ([+dnlp_leader+])
 
 [? if ovp_exist: {!<span class="tooltip-text" title="Austrian People's Party" style="color: #000000;">!}**ÖVP**{!</span>!}: Progressive Conservatism ([+ovp_leader+]) ?]
 
