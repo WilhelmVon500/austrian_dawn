@@ -1,0 +1,37 @@
+title: 1941 Congress of the <span style="color: #0E428E;">**DNLP**</span>.
+subtitle: WIP.
+new-page: true
+tags: event
+view-if: year = 1941 and month = 9
+priority: 1
+max-visits: 1
+
+= <span style="color: #0E428E;">**DNLP**</span> Congress
+
+WIP
+
+WIP
+
+- @reformist: The reformist, pro-parliamentary wing of the party triumphs.
+- @loyalist: Dinghofer's faction stays in control.
+
+@reformist
+subtitle: Is it really possible to make the <span style="color: #0E428E;">**DNLP**</span> a more democratic party, after all?
+unavailable-subtitle: The reformist wing of the party is too weak.
+choose-if: dnlp_relation >= 50
+face-image: img/portraits/StraffnerSepp.jpg
+
+Surprisingly, the <span style="color: #0E428E;">**DNLP**</span> leadership election was won by Sepp Straffner. A former railway official and convinced German nationalist, Straffner was the Third President of Nationalrat when the parliament self-eliminated back in 1933. It was Sepp Straffner who tried to reconvene the parliament on 15th of March, and later filed a criminal complaint against Dollfuss.
+
+Straffner's victory sparks hope in Austrian liberal circles, as this means the <span style="color: #0E428E;">**DNLP**</span> may start drifting away from its radical nationalist agenda. Time will tell whether the new leadership even desires that. Nonetheless, victory of Dollfuss' opponent is symbolic for everyone in anti-<span style="color: #ED2939;">**VF**</span> camp.
+
+
+@loyalist
+subtitle: Expectedly, the party has chosen to continue Dinghofer's course.
+unavailable-subtitle: Surprisingly, Dinghofer's faction wasn't able to enforce their terms...
+choose-if: dnlp_relation < 50
+face-image: img/portraits/DinghoferFranz.jpg
+
+As expected, Franz Dinghofer was re-elected as the party leader. The nationalist party has chosen to continue its current course, calling for Anschluss and spreading antisemitism while not directly clashing with the regime that tolerates its existence.
+
+Dinghofer's re-election effectively means the <span style="color: #0E428E;">**DNLP**</span> will continue staying a catch-all party for German nationalists serving Schuschnigg's regime, keeping the "third camp" under Chancellor's control.
