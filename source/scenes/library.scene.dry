@@ -52,11 +52,11 @@ Chancellor: [+ chancellor +] ([?if chancellor_party == "I":<span style="color: #
 
 {!<span class="tooltip-text" title="Workers' Party" style="color: #FA5A42;">!}**AP**{!</span>!}: [+ ap_seats +] ([+ ap_b +]%)
 
-{!<span class="tooltip-text" title="German National Liberal Party" style="color: #0E428E;">!}**DNLP**{!</span>!}: [+ dnlp_seats +] ([+ dnlp_b +]%)
-
 [? if ovp_exist: {!<span class="tooltip-text" title="Austrian People's Party" style="color: #000000;">!}**ÖVP**{!</span>!}: [+ ovp_seats +] ([+ ovp_b +]%) ?]
 
 {!<span class="tooltip-text" title="Fatherland Front" style="color: #ED2939;">!}**VF**{!</span>!}: [+ vf_seats +] ([+ vf_b +]%)
+
+{!<span class="tooltip-text" title="German National Liberal Party" style="color: #0E428E;">!}**DNLP**{!</span>!}: [+ dnlp_seats +] ([+ dnlp_b +]%)
 
 <span style="color: #909090;">**Others**</span>: [+ other_seats +] ([+ other_b +]%)
 
@@ -81,7 +81,7 @@ Finance: [+ finance_minister +] ([?if finance_minister_party == "I":<span style=
 
 Trade and Communications: [+ economic_minister +] ([?if economic_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if economic_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
-Social Administration: [+ social_minister +] ([?if social_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if social_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+Social Affairs: [+ social_minister +] ([?if social_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if social_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
 Agriculture: [+ agriculture_minister +] ([?if agriculture_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if agriculture_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
@@ -135,27 +135,27 @@ go-to: menu
 
 <span style="color: #FA5A42;">**AP**</span>: [+ ap_votes +]%
 
-<span style="color: #0E428E;">**DNLP**</span>: [+ dnlp_votes +]%
-
 [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ ovp_votes +]% ?]
 
 <span style="color: #ED2939;">**VF**</span>: [+ vf_votes +]%
+
+<span style="color: #0E428E;">**DNLP**</span>: [+ dnlp_votes +]%
 
 <span style="color: #909090;">**Others**</span>: [+ other_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>: [+ workers_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ workers_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ workers_dnlp_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ workers_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ workers_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ workers_other_display +]%
+Workers: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>: [+ workers_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ workers_ap_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ workers_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ workers_vf_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ workers_dnlp_display +]%, <span style="color: #909090;">**Others**</span>: [+ workers_other_display +]%
 
-New Middle Class: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>: [+ new_middle_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ new_middle_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ new_middle_dnlp_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ new_middle_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ new_middle_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ new_middle_other_display +]%
+New Middle Class: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>: [+ new_middle_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ new_middle_ap_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ new_middle_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ new_middle_vf_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ new_middle_dnlp_display +]%, <span style="color: #909090;">**Others**</span>: [+ new_middle_other_display +]%
 
-Old Middle Class: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>: [+ old_middle_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ old_middle_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ old_middle_dnlp_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ old_middle_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ old_middle_vf_display +]%,  <span style="color: #909090;">**Others**</span>: [+ old_middle_other_display +]%
+Old Middle Class: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>: [+ old_middle_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ old_middle_ap_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ old_middle_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ old_middle_vf_display +]%,  <span style="color: #0E428E;">**DNLP**</span>: [+ old_middle_dnlp_display +]%, <span style="color: #909090;">**Others**</span>: [+ old_middle_other_display +]%
 
-Rural: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>: [+ rural_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ rural_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ rural_dnlp_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ rural_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ rural_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ rural_other_display +]%
+Rural: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>: [+ rural_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ rural_ap_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ rural_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ rural_vf_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ rural_dnlp_display +]%, <span style="color: #909090;">**Others**</span>: [+ rural_other_display +]%
 
-Unemployed: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>: [+ unemployed_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ unemployed_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ unemployed_dnlp_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ unemployed_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ unemployed_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ unemployed_other_display +]%
+Unemployed: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>: [+ unemployed_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ unemployed_ap_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ unemployed_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ unemployed_vf_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ unemployed_dnlp_display +]%, <span style="color: #909090;">**Others**</span>: [+ unemployed_other_display +]%
 
-Catholics: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>: [+ catholics_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ catholics_ap_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ catholics_dnlp_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ catholics_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ catholics_vf_display +]%, <span style="color: #909090;">**Others**</span>: [+ catholics_other_display +]%
+Catholics: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>: [+ catholics_oclk_display +]%, <span style="color: #FA5A42;">**AP**</span>: [+ catholics_ap_display +]%, [? if ovp_exist: <span style="color: #000000;">**ÖVP**</span>: [+ catholics_ovp_display +]%, ?]<span style="color: #ED2939;">**VF**</span>: [+ catholics_vf_display +]%, <span style="color: #0E428E;">**DNLP**</span>: [+ catholics_dnlp_display +]%, <span style="color: #909090;">**Others**</span>: [+ catholics_other_display +]%
 
 @parties
 go-to: menu
@@ -276,14 +276,6 @@ if (Q.other_seats) {
         "seats": Math.round(Q.other_seats),
     });
 }
-if (Q.dnlp_seats) {
-    data.push({
-        "id": "dnlp",
-        "legend": "DNLP",
-        "name": "DNLP",
-        "seats": Math.round(Q.dnlp_seats),
-    });
-}
 if (Q.ovp_seats) {
     data.push({
         "id": "ovp",
@@ -298,6 +290,14 @@ if (Q.vf_seats) {
         "legend": "VF",
         "name": "VF",
         "seats": Math.round(Q.vf_seats),
+    });
+}
+if (Q.dnlp_seats) {
+    data.push({
+        "id": "dnlp",
+        "legend": "DNLP",
+        "name": "DNLP",
+        "seats": Math.round(Q.dnlp_seats),
     });
 }
 if (d3 && window) {
@@ -318,8 +318,8 @@ if (d3 && window) {
 
     var lines = d3.linegraph(false, false,
             Q.parties,
-            {'oclk': '#EEEE22', 'ap': '#FA5A42', 'dnlp': '#0E428E', 'ovp': '#000000', 'vf': '#ED2939', 'other': '#909090'},
-            {'oclk': Q.oclk_name, 'ap': 'AP', 'dnlp': 'DNLP', 'ovp': 'ÖVP', 'vf': 'VF', 'other': 'Others'});
+            {'oclk': '#EEEE22', 'ap': '#FA5A42', 'ovp': '#000000', 'vf': '#ED2939', 'dnlp': '#0E428E', 'other': '#909090'},
+            {'oclk': Q.oclk_name, 'ap': 'AP', 'ovp': 'ÖVP', 'vf': 'VF', 'dnlp': 'DNLP', 'other': 'Others'});
     lines.width(width).height(400);
     //var svg = lines(Q.election_records);
     if (Q.election_records.length > 0) {
@@ -331,8 +331,8 @@ if (d3 && window) {
     if (!Q.historical_mode || Q.game_over) {
         var lines_2 = d3.linegraph(true, true,
             Q.parties,
-            {'oclk': '#EEEE22', 'ap': '#FA5A42', 'dnlp': '#0E428E', 'ovp': '#000000', 'vf': '#ED2939', 'other': '#909090'},
-            {'oclk': Q.oclk_name, 'ap': 'AP', 'dnlp': 'DNLP', 'ovp': 'ÖVP', 'vf': 'VF', 'other': 'Others'});
+            {'oclk': '#EEEE22', 'ap': '#FA5A42', 'ovp': '#000000', 'vf': '#ED2939', 'dnlp': '#0E428E', 'other': '#909090'},
+            {'oclk': Q.oclk_name, 'ap': 'AP', 'ovp': 'ÖVP', 'vf': 'VF', 'dnlp': 'DNLP', 'other': 'Others'});
         lines_2.width(width).height(400);
         d3.select("#party_support_history").datum(Q.party_support_records).call(lines_2);
     }
@@ -358,11 +358,11 @@ if (d3 && window) {
 
 {!<tr><td><div class="box" style='background-color:#FA5A42'> </div></td> <td>!} AP: {!</td><td>!} [+ ap_seats +] ([+ ap_b +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#0E428E'> </div></td><td>!} DNLP: {!</td><td>!} [+ dnlp_seats +] ([+ dnlp_b +]%) {!</td></tr>!}
-
 [? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div></td> <td>!} ÖVP: {!</td><td>!} [+ ovp_seats +] ([+ ovp_b +]%) {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#ED2939'> </div></td> <td>!} VF: {!</td><td>!} [+ vf_seats +] ([+ vf_b +]%) {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#0E428E'> </div></td><td>!} DNLP: {!</td><td>!} [+ dnlp_seats +] ([+ dnlp_b +]%) {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#909090'> </div></td><td>!} Other: {!</td><td>!} [+ other_seats +] ([+ other_b +]%) {!</td></tr>!}
 {!</table>!}
