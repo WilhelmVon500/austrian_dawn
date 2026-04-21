@@ -37,9 +37,9 @@ for (var c of Q.classes) {
 if (Q.year == 1941) {
     Q.adjustmentFactors_ap_styria = 0.9;
     Q.adjustmentFactors_oclk_styria = 0.5;
-    Q.adjustmentFactors_dnlp_styria = 1.4;
     Q.adjustmentFactors_ovp_styria = 1.0;
     Q.adjustmentFactors_vf_styria = 1.1;
+    Q.adjustmentFactors_dnlp_styria = 1.4;
     Q.adjustmentFactors_other_styria = 1.3;
 }
 
@@ -162,14 +162,6 @@ if (Q.other_seats_styria) {
         "seats": Math.round(Q.other_seats_styria),
     });
 }
-if (Q.dnlp_seats_styria) {
-    data.push({
-        "id": "dnlp",
-        "legend": "DNLP",
-        "name": "DNLP",
-        "seats": Math.round(Q.dnlp_seats_styria),
-    });
-}
 if (Q.ovp_seats_styria) {
     data.push({
         "id": "ovp",
@@ -184,6 +176,14 @@ if (Q.vf_seats_styria) {
         "legend": "VF",
         "name": "VF",
         "seats": Math.round(Q.vf_seats_styria),
+    });
+}
+if (Q.dnlp_seats_styria) {
+    data.push({
+        "id": "dnlp",
+        "legend": "DNLP",
+        "name": "DNLP",
+        "seats": Math.round(Q.dnlp_seats_styria),
     });
 }
              
@@ -216,11 +216,11 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#FA5A42'> </div> !} AP: {!</td><td>!} [+ ap_election_votes_styria +]% {!</td><td>!} [+ ap_seats_styria +] ([+ ap_sl +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes_styria +]% {!</td><td>!} [+ dnlp_seats_styria +] ([+ dnlp_sl +]%) {!</td></tr>!}
-
 [? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} ÖVP: {!</td><td>!} [+ ovp_election_votes_styria +]% {!</td><td>!} [+ ovp_seats_styria +] ([+ ovp_sl +]%) {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#ED2939'> </div> !} VF: {!</td><td>!} [+ vf_election_votes_styria +]% {!</td><td>!} [+ vf_seats_styria +] ([+ vf_sl +]%) {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes_styria +]% {!</td><td>!} [+ dnlp_seats_styria +] ([+ dnlp_sl +]%) {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#909090'> </div> !} Other: {!</td><td>!} [+ other_election_votes_styria +]% {!</td><td>!} [+ other_seats_styria +] ([+ other_sl +]%) {!</td></tr>!}
 {!</table>!}
