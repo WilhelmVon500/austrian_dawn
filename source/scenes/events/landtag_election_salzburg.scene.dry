@@ -165,14 +165,6 @@ if (Q.other_seats_salzburg) {
         "seats": Math.round(Q.other_seats_salzburg),
     });
 }
-if (Q.dnlp_seats_salzburg) {
-    data.push({
-        "id": "dnlp",
-        "legend": "DNLP",
-        "name": "DNLP",
-        "seats": Math.round(Q.dnlp_seats_salzburg),
-    });
-}
 if (Q.ovp_seats_salzburg) {
     data.push({
         "id": "ovp",
@@ -187,6 +179,14 @@ if (Q.vf_seats_salzburg) {
         "legend": "VF",
         "name": "VF",
         "seats": Math.round(Q.vf_seats_salzburg),
+    });
+}
+if (Q.dnlp_seats_salzburg) {
+    data.push({
+        "id": "dnlp",
+        "legend": "DNLP",
+        "name": "DNLP",
+        "seats": Math.round(Q.dnlp_seats_salzburg),
     });
 }
              
@@ -219,11 +219,11 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#FA5A42'> </div> !} AP: {!</td><td>!} [+ ap_election_votes_salzburg +]% {!</td><td>!} [+ ap_seats_salzburg +] ([+ ap_zl +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes_salzburg +]% {!</td><td>!} [+ dnlp_seats_salzburg +] ([+ dnlp_zl +]%) {!</td></tr>!}
-
 [? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} ÖVP: {!</td><td>!} [+ ovp_election_votes_salzburg +]% {!</td><td>!} [+ ovp_seats_salzburg +] ([+ ovp_zl +]%) {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#ED2939'> </div> !} VF: {!</td><td>!} [+ vf_election_votes_salzburg +]% {!</td><td>!} [+ vf_seats_salzburg +] ([+ vf_zl +]%) {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes_salzburg +]% {!</td><td>!} [+ dnlp_seats_salzburg +] ([+ dnlp_zl +]%) {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#909090'> </div> !} Other: {!</td><td>!} [+ other_election_votes_salzburg +]% {!</td><td>!} [+ other_seats_salzburg +] ([+ other_zl +]%) {!</td></tr>!}
 {!</table>!}
