@@ -129,7 +129,7 @@ Q.economic_expansion = 0;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
 Q.parties = ['oclk', 'ap', 'dnlp', 'vf', 'other'];
-Q.states = ['vienna', 'upper_austria', 'salzburg'];
+Q.states = ['vienna', 'upper_austria', 'styria', 'salzburg'];
 
 Q.ovp_exist = 0;
 
@@ -315,6 +315,13 @@ Q.in_oclk_majority_upper_austria = 0;
 
 
 // Styria
+Q.styria_leader = "Stepan";
+Q.styria_leader_party = "VF";
+Q.next_election_year_styria = 1941;
+Q.next_election_month_styria = 8;
+
+Q.in_vf_majority_styria = 1;
+Q.in_oclk_majority_styria = 0;
 
 
 // Carinthia
