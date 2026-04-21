@@ -66,7 +66,7 @@ So, what's our choice?
 
 
 @view_candidates
-go-to: endorsements_kelsen if oclk_campaign
+go-to: endorsements_kelsen if oclk_campaign; endorsements_abstain if oclk_candidate = "Abstain"
 
 [? if oclk_campaign: <span style="color: #EEEE22;">**Hans Kelsen**</span> ?]
 
