@@ -16,7 +16,7 @@ WIP
 - @loyalist: Dinghofer's faction stays in control.
 
 @reformist
-subtitle: Is it really possible to make the <span style="color: #0E428E;">**DNLP**</span> a more democratic party, after all?
+subtitle: Is it really possible to make the <span style="color: #0E428E;">**DNLP**</span> a more constructive party, after all?
 unavailable-subtitle: The reformist wing of the party is too minor.
 choose-if: dnlp_relation >= 50
 face-image: img/portraits/StraffnerSepp.jpg
