@@ -549,14 +549,14 @@ table {
 .seat.other {
     fill: #909090;
 }
-.seat.dnlp {
-    fill: #0E428E;
-}
 .seat.ovp {
     fill: #000000;
 }
 .seat.vf {
     fill: #ED2939;
+}
+.seat.dnlp {
+    fill: #0E428E;
 }
 
 .tooltip-text {
