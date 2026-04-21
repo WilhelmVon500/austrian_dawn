@@ -79,6 +79,16 @@ go-to: rm_main
 Mises has been removed as an advisor. The Classical Liberal faction disapproves.
 
 
+@remove_stolper
+title: Remove Stolper
+view-if: stolper_advisor
+tags: remove_advisor
+on-arrival: stolper_advisor = 0; classical_liberal_dissent += 3; n_advisors -= 1
+go-to: rm_main
+
+Stolper has been removed as an advisor. The Classical Liberal faction disapproves.
+
+
 # social liberal
 
 
@@ -90,16 +100,6 @@ on-arrival: kelsen_advisor = 0; social_liberal_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
 Kelsen has been removed as an advisor. The Social Liberal faction disapproves.
-
-
-@remove_stolper
-title: Remove Stolper
-view-if: stolper_advisor
-tags: remove_advisor
-on-arrival: stolper_advisor = 0; social_liberal_dissent += 3; n_advisors -= 1
-go-to: rm_main
-
-Stolper has been removed as an advisor. The Social Liberal faction disapproves.
 
 
 @remove_klang
@@ -257,6 +257,19 @@ go-to: advisor_menu
 Ludwig Mises is now an advisor.
 
 
+@add_stolper
+title: Gustav Stolper
+subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
+is-card: true
+face-image: img/portraits/StolperGustav.jpg
+tags: classical_liberal_advisor
+view-if: not stolper_advisor and n_advisors < 3 and classical_liberal_oclk
+on-arrival: stolper_advisor = 1; n_advisors += 1; classical_liberal_strength += 3
+go-to: advisor_menu
+
+Gustav Stolper is now an advisor.
+
+
 # social liberal
 
 
@@ -271,19 +284,6 @@ on-arrival: kelsen_advisor = 1; n_advisors += 1; social_liberal_strength += 5
 go-to: advisor_menu
 
 Hans Kelsen is now an advisor.
-
-
-@add_stolper
-title: Gustav Stolper
-subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
-is-card: true
-face-image: img/portraits/StolperGustav.jpg
-tags: social_liberal_advisor
-view-if: not stolper_advisor and n_advisors < 3 and social_liberal_oclk
-on-arrival: stolper_advisor = 1; n_advisors += 1; social_liberal_strength += 3
-go-to: advisor_menu
-
-Gustav Stolper is now an advisor.
 
 
 @add_klang
