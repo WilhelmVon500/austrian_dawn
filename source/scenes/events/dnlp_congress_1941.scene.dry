@@ -20,6 +20,7 @@ subtitle: Is it really possible to make the <span style="color: #0E428E;">**DNLP
 unavailable-subtitle: The reformist wing of the party is too minor.
 choose-if: dnlp_relation >= 50
 face-image: img/portraits/StraffnerSepp.jpg
+on-arrival: dnlp_leader = "Straffner"; dnlp_ideology = "Reformist";
 
 Surprisingly, the <span style="color: #0E428E;">**DNLP**</span> leadership election was won by Sepp Straffner. A former railway official and convinced German nationalist, Straffner was the Third President of Nationalrat when the parliament self-eliminated back in 1933. It was Sepp Straffner who tried to reconvene the parliament on 15th of March, and later filed a criminal complaint against Dollfuss.
 
@@ -31,6 +32,7 @@ subtitle: Expectedly, the party has chosen to continue Dinghofer's course.
 unavailable-subtitle: Surprisingly, Dinghofer's faction wasn't able to enforce their terms...
 choose-if: dnlp_relation < 50
 face-image: img/portraits/DinghoferFranz.jpg
+on-arrival: dnlp_leader = "Dinghofer"; dnlp_ideology = "Loyalist";
 
 As expected, Franz Dinghofer was re-elected as the party leader. The nationalist party has chosen to continue its current course, calling for Anschluss and spreading antisemitism while not directly clashing with the regime that tolerates its existence.
 
