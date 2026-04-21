@@ -1,0 +1,34 @@
+title: Labor Policy
+new-page: true
+is-card: true
+tags: govt_affairs, cabinet
+on-arrival: labor_policy_timer += 6; month_actions += 1
+view-if: oclk_in_government and social_minister_party = oclk_name and labor_rights_timer <= 0
+card-image: img/portraits/DobretsbergerJosef.jpg
+
+= Labor Policy
+
+- @working_hours_45: Shorten work hours from 48 to 45 hours.
+- @safety: Develop and enforce safety regulations.
+- @unions: Fully legalize independent trade unions.
+- @root: Do not enact any policies.
+- @easy_discard
+
+@working_hours_45
+view-if: working_hours < 1
+on-arrival: working_hours += 1; christian_left_strength += 5; christian_left_dissent -= 5; classical_liberal_dissent += 5; ap_relation += 4; workers_oclk += 5*(1-dissent); new_middle_oclk += 5*(1-dissent);
+
+We have shortened the work week by 3 hours. This is extremely popular among our left and labor wing, and improves our relations with the <span style="color: #FA5A42;">**AP**</span>.
+
+
+@safety
+on-arrival: workers_safety += 1; christian_left_strength += 3; christian_left_dissent -= 3; ap_relation += 3; workers_oclk += 3*(1-dissent);
+
+The Ministry of Social Affairs works on developing and enforcing safety regulations, in order to ensure healty working conditions for the workers.
+
+
+@unions
+view-if: not independent_unions_legal
+on-arrival: independent_unions_legal = 1; ap_relation += 7; vf_relation -= 10; workers_vf -= 7; new_middle_vf -= 5;
+
+As part of our program to protect freedom of association, we have legalized independent trade unions! This is a great step forward from the authoritarian corporatist system.
