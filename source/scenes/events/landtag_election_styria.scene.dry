@@ -1,0 +1,309 @@
+title: Upper Austria Landtag Election
+new-page: true
+tags: event
+priority: -1
+view-if: (year = next_election_year_styria and month >= next_election_month_styria) or (year > next_election_year_styria)
+on-departure: next_election_year_styria = next_election_year_styria + 4; next_election_time_styria = time + 48;
+on-arrival: {!
+Q.styria_elected = Math.floor(48 * Q.elected_share);
+Q.styria_appointed = Math.ceil(48 * Q.appointed_share);
+!}
+set-jump: post_election
+
+= Upper Austria Landtag Election, [+ month : month +] [+ year +]
+
+The Upper Austrian Landtag elections are to be held now.
+
+[? if styria_appointed: [+ styria_appointed +] seats are, by Constitution, appointed by the guilds - that means that these seats will be controlled by the <span style="color: #ED2939;">**VF**</span> loyalists. ?]
+
+- @election_algorithm: May we do our best...
+
+@post_election
+on-arrival: {!
+for (var c of Q.classes) {
+    var class_votes = 0;
+    for (var party of Q.parties) {
+        if (Q[c + '_' + party] < 0) {
+            Q[c + '_' + party] = 0;
+        }
+        class_votes += Q[c + '_' + party];
+    }
+    for (var party of Q.parties) {
+        Q[c + '_' + party + '_normalized_styria'] = Math.round(100 * Q[c + '_' + party] / class_votes);
+    }
+}
+
+// Define adjustment factors
+if (Q.year == 1941) {
+    Q.adjustmentFactors_ap_styria = 0.9;
+    Q.adjustmentFactors_oclk_styria = 0.5;
+    Q.adjustmentFactors_dnlp_styria = 1.4;
+    Q.adjustmentFactors_ovp_styria = 1.0;
+    Q.adjustmentFactors_vf_styria = 1.1;
+    Q.adjustmentFactors_other_styria = 1.3;
+}
+
+
+
+// Calculate support for each of the parties
+var total_support = 0;
+for (var party of Q.parties) {
+    var party_support = 0;
+    for (var c of Q.classes) {
+        if (Q.old_demographics) {
+            party_support += Q[c] * Q[c + '_' + party];
+        } else {
+            party_support += Q[c] * Q[c + '_' + party + '_normalized_styria'];
+        }
+    }
+    // Apply adjustment factor
+    Q[party + '_support'] = party_support * Q['adjustmentFactors_' + party + '_styria'];
+    total_support += Q[party + '_support'];
+}
+console.log(total_support)
+// Normalize support (fraction)
+for (var party of Q.parties) {
+    Q[party + '_normalized_styria'] = Q[party + '_support'] / total_support;
+    console.log(Q[party + '_support'])
+    console.log(total_support)
+    Q[party + '_votes_styria'] = Math.round(Q[party + '_normalized_styria'] * 1000) / 10;
+}
+
+
+var new_party_sum = 0;
+for (var party of Q.parties) {Q[party + '_sl'] = 0;
+    Q[party + '_seats_styria'] = 0;
+    if (Q[party + '_banned']) {
+        Q[party + '_election_votes_styria'] = 0;
+    } else {
+        Q[party + '_election_votes_styria'] = parseFloat((Q[party+'_votes_styria']).toFixed(1));
+    }
+    new_party_sum += Q[party + '_election_votes_styria'];
+}
+
+Q.other_votes_styria = Q.other_election_votes_styria
+Q.other_election_votes_styria = parseFloat((Q.other_election_votes_styria * 0.2).toFixed(1));
+var new_new_party_sum = new_party_sum + Q.other_election_votes_styria - Q.other_votes_styria;
+
+// calculate new party sum
+if (new_party_sum > 0) {
+    for (var party of Q.parties) {
+        if (Q[party + '_election_votes_styria'] > 0 && !(Q[party + '_election_votes_styria'] < Q.electoral_threshold) && !(Q.electoral_threshold > 1 && party == 'other')) {
+            Q[party + '_sl'] = parseFloat((Q[party + '_election_votes_styria']*100/new_new_party_sum).toFixed(1));
+            Q[party + '_election_votes_styria'] = parseFloat((Q[party + '_election_votes_styria']*100/new_party_sum).toFixed(1));
+        } else {
+            Q[party + '_election_votes_styria'] = parseFloat((Q[party + '_election_votes_styria']*100/new_party_sum).toFixed(1));
+            Q[party + '_sl'] = 0;
+        }
+        Q[party + '_sl'] = parseFloat((Q[party+'_sl']).toFixed(1));
+        if (Q.styria_appointed) {
+            Q[party + '_sl'] = parseFloat((Q[party + '_sl']*Q.styria_elected/48).toFixed(1));
+        }
+    }
+}
+
+if (Q.styria_appointed) {
+    Q.vf_sl = parseFloat((Q.vf_sl + (Q.appointed_share * 100)).toFixed(1));
+}
+
+Q.other_election_votes_styria = Q.other_votes_styria
+
+let allocatedSeats = 0;
+let remainders = [];
+
+for (var party of Q.parties) {
+    let rawSeats = Q[party + '_sl'] * 0.48;
+    let seats = Math.floor(rawSeats);
+    Q[party + '_seats_styria'] = seats;
+    allocatedSeats += seats;
+    remainders.push({
+        party: party,
+        remainder: rawSeats - seats
+    });
+}
+
+let remainingSeats = 48 - allocatedSeats;
+remainders.sort((a, b) => b.remainder - a.remainder);
+for (let i = 0; i < remainingSeats && i < remainders.length; i++) {
+    let partyObj = remainders[i];
+    if (!partyObj || !partyObj.party) continue;
+
+    let party = partyObj.party;
+    Q[party + '_seats_styria'] += 1;
+}
+
+for (var party of Q.parties) {
+    Q[party + '_sl'] = parseFloat((Q[party + '_seats_styria']/0.48).toFixed(1));
+}
+!}
+on-display: {!
+data = []
+if (Q.ap_seats_styria) {
+    data.push({
+        "id": "ap",
+        "legend": "AP",
+        "name": "AP",
+        "seats": Math.round(Q.ap_seats_styria),
+    });
+}
+if (Q.oclk_seats_styria) {
+    data.push({
+        "id": "oclk",
+        "legend": "ÖCLK",
+        "name": "ÖCLK",
+        "seats": Math.round(Q.oclk_seats_styria),
+    });
+}
+if (Q.other_seats_styria) {
+    data.push({
+        "id": "other",
+        "legend": "Other",
+        "name": "Other",
+        "seats": Math.round(Q.other_seats_styria),
+    });
+}
+if (Q.dnlp_seats_styria) {
+    data.push({
+        "id": "dnlp",
+        "legend": "DNLP",
+        "name": "DNLP",
+        "seats": Math.round(Q.dnlp_seats_styria),
+    });
+}
+if (Q.ovp_seats_styria) {
+    data.push({
+        "id": "ovp",
+        "legend": "ÖVP",
+        "name": "ÖVP",
+        "seats": Math.round(Q.ovp_seats_styria),
+    });
+}
+if (Q.vf_seats_styria) {
+    data.push({
+        "id": "vf",
+        "legend": "VF",
+        "name": "VF",
+        "seats": Math.round(Q.vf_seats_styria),
+    });
+}
+             
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+go-to: coalition_menu
+
+= Election results
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+{!<table>!}
+{!<tr><td>Party</td><td>Vote Share</td><td>Landtag Seats</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#EEEE22; outline: 2px; outline-style: solid;'> </div> !} **[+oclk_name+]:** {!</td><td>!} **[+ oclk_election_votes_styria +]%** {!</td><td>!} **[+ oclk_seats_styria +] ([+ oclk_sl +]%)** {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#FA5A42'> </div> !} AP: {!</td><td>!} [+ ap_election_votes_styria +]% {!</td><td>!} [+ ap_seats_styria +] ([+ ap_sl +]%) {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes_styria +]% {!</td><td>!} [+ dnlp_seats_styria +] ([+ dnlp_sl +]%) {!</td></tr>!}
+
+[? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} ÖVP: {!</td><td>!} [+ ovp_election_votes_styria +]% {!</td><td>!} [+ ovp_seats_styria +] ([+ ovp_sl +]%) {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#ED2939'> </div> !} VF: {!</td><td>!} [+ vf_election_votes_styria +]% {!</td><td>!} [+ vf_seats_styria +] ([+ vf_sl +]%) {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#909090'> </div> !} Other: {!</td><td>!} [+ other_election_votes_styria +]% {!</td><td>!} [+ other_seats_styria +] ([+ other_sl +]%) {!</td></tr>!}
+{!</table>!}
+
+**Potential coalitions:**
+
+WIP
+
+There are some potential coalition arrangements.
+
+@coalition_menu
+
+- @oclk_majority
+- @vf_majority
+- @no_majority
+
+@no_majority
+title: There is no clear governing majority.
+view-if: vf_seats_styria <= 25 and oclk_seats_styria <= 25
+
+The incumbent administration continues to govern as a minority government.
+
+
+
+@vf_majority
+title: The <span style="color: #ED2939;">**VF**</span> forms a majority government.
+subtitle: <span style="color: #ED2939;">**VF**</span> ([+ vf_sl +]%)
+view-if: vf_seats_styria > 25
+on-arrival: {!
+Q.styria_oclk = 0;
+Q.styria_vf = 1;
+
+Q.in_vf_majority_styria = 1;
+Q.in_oclk_majority_styria = 0;
+!}
+
+WIP
+
+- @governor
+
+
+@oclk_majority
+title: We can form a majority government!
+subtitle: <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ([+ oclk_sl +]%)
+view-if: oclk_seats_styria > 25
+on-arrival: {!
+Q.styria_oclk = 1;
+Q.styria_vf = 0;
+
+Q.in_vf_majority_styria = 0;
+Q.in_oclk_majority_styria = 1;
+!}
+
+WIP
+
+- @governor
+
+
+
+
+
+@governor
+title: The coalition has to choose the Governor.
+
+- @taucher
+- @stepan
+
+
+
+@taucher
+title: Wilhelm Taucher
+subtitle: WIP
+view-if: styria_oclk
+face-image: img/portraits/TaucherWilhelm.jpg
+on-arrival: styria_leader = "Taucher"; styria_leader_party = oclk_name;
+
+WIP
+
+@stepan
+title: Karl Maria Stepan
+subtitle: WIP.
+view-if: styria_vf
+face-image: img/portraits/StepanKarlMaria.jpg
+on-arrival: styria_leader = "Stepan"; styria_leader_party = "VF";
+
+WIP
