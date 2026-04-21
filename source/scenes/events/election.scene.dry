@@ -199,14 +199,6 @@ if (Q.other_seats) {
         "seats": Math.round(Q.other_seats),
     });
 }
-if (Q.dnlp_seats) {
-    data.push({
-        "id": "dnlp",
-        "legend": "DNLP",
-        "name": "DNLP",
-        "seats": Math.round(Q.dnlp_seats),
-    });
-}
 if (Q.ovp_seats) {
     data.push({
         "id": "ovp",
@@ -221,6 +213,14 @@ if (Q.vf_seats) {
         "legend": "VF",
         "name": "VF",
         "seats": Math.round(Q.vf_seats),
+    });
+}
+if (Q.dnlp_seats) {
+    data.push({
+        "id": "dnlp",
+        "legend": "DNLP",
+        "name": "DNLP",
+        "seats": Math.round(Q.dnlp_seats),
     });
 }
              
@@ -253,11 +253,11 @@ go-to: speaker_election
 
 {!<tr><td><div class="box" style='background-color:#FA5A42'> </div> !} AP: {!</td><td>!} [+ ap_election_votes +]% {!</td><td>!} [+ votes_change_ap +] {!</td><td>!} [+ ap_seats +] ([+ ap_b +]%) {!</td><td>!} [+ str_seats_change_ap +] ([+ str_change_ap +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes +]% {!</td><td>!} [+ votes_change_dnlp +] {!</td><td>!} [+ dnlp_seats +] ([+ dnlp_b +]%) {!</td><td>!} [+ str_seats_change_dnlp +] ([+ str_change_dnlp +]%) {!</td></tr>!}
-
 [? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} ÖVP: {!</td><td>!} [+ ovp_election_votes +]% {!</td><td>!} [+ votes_change_ovp +] {!</td><td>!} [+ ovp_seats +] ([+ ovp_b +]%) {!</td><td>!} [+ str_seats_change_ovp +] ([+ str_change_ovp +]%) {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#ED2939'> </div> !} VF: {!</td><td>!} [+ vf_election_votes +]% {!</td><td>!} [+ votes_change_vf +] {!</td><td>!} [+ vf_seats +] ([+ vf_b +]%) {!</td><td>!} [+ str_seats_change_vf +] ([+ str_change_vf +]%) {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes +]% {!</td><td>!} [+ votes_change_dnlp +] {!</td><td>!} [+ dnlp_seats +] ([+ dnlp_b +]%) {!</td><td>!} [+ str_seats_change_dnlp +] ([+ str_change_dnlp +]%) {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#909090'> </div> !} Other: {!</td><td>!} [+ other_election_votes +]% {!</td><td>!} [+ votes_change_other +] {!</td><td>!} [+ other_seats +] ([+ other_b +]%) {!</td><td>!} [+ str_seats_change_other +] ([+ str_change_other +]%) {!</td></tr>!}
 {!</table>!}
