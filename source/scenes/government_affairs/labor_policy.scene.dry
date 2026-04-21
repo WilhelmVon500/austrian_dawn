@@ -15,8 +15,8 @@ card-image: img/portraits/DobretsbergerJosef.jpg
 - @easy_discard
 
 @working_hours_45
-view-if: working_hours < 1
-on-arrival: working_hours += 1; christian_left_strength += 5; christian_left_dissent -= 5; classical_liberal_dissent += 5; ap_relation += 4; workers_oclk += 5*(1-dissent); new_middle_oclk += 5*(1-dissent);
+view-if: working_hours = 48
+on-arrival: working_hours = 45; christian_left_strength += 5; christian_left_dissent -= 5; classical_liberal_dissent += 5; ap_relation += 4; workers_oclk += 5*(1-dissent); new_middle_oclk += 5*(1-dissent);
 
 We have shortened the work week by 3 hours. This is extremely popular among our left and labor wing, and improves our relations with the <span style="color: #FA5A42;">**AP**</span>.
 
