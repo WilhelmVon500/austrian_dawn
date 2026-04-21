@@ -121,7 +121,7 @@ Finance: [+ finance_minister +] ([?if finance_minister_party == "I":<span style=
 
 Trade and Communications: [+ economic_minister +] ([?if economic_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if economic_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
-Social Administration: [+ social_minister +] ([?if social_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if social_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
+Social Affairs: [+ social_minister +] ([?if social_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if social_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
 Agriculture: [+ agriculture_minister +] ([?if agriculture_minister_party == "I":<span style="color: #808080;">**I**</span>?][?if agriculture_minister_party == "VF": <span style="color: #ED2939;">**VF**</span>?])
 
