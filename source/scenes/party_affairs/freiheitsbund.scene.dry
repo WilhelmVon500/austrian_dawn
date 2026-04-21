@@ -17,7 +17,7 @@ WIP
 - @easy_discard
 - @cancel_advisor_action
 
-@militant
+@fund_fb
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources (1 needed).
 subtitle: -1 resources
@@ -26,7 +26,7 @@ on-arrival: resources -= 1; fb_strength += 10; christian_left_strength += 2; chr
 WIP
 
 
-@militant_2
+@fund_fb_2
 view-if: funded_freiheitsbund >= 1
 on-arrival: fb_strength += 5; funded_freiheitsbund -= 1
 
