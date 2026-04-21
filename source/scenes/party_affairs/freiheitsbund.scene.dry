@@ -10,8 +10,8 @@ on-arrival: month_actions += 1; freiheitsbund_timer += 6;
 
 WIP
 
-- @fund_fb: Fund more military-style training and equipment for the <span style="color: #63C3D0;">**Freiheitsbund**</span>.
-- @fund_fb_2: Use our existing resources to support more training for the <span style="color: #63C3D0;">**Freiheitsbund**</span>.
+- @fund_fb: Fund more training and recruitment for the <span style="color: #63C3D0;">**Freiheitsbund**</span>.
+- @fund_fb_2: Use our existing resources to support more training and recruitment for the <span style="color: #63C3D0;">**Freiheitsbund**</span>.
 - @same: Keep the <span style="color: #63C3D0;">**Freiheitsbund**</span> as it is.
 - @cut_fb: Cut funding for the <span style="color: #63C3D0;">**Freiheitsbund**</span>.
 - @easy_discard
