@@ -356,6 +356,7 @@ Q.advisor_action_timer = 0;
 // party affairs timers
 Q.fundraising_timer = 0;
 Q.ideology_timer = 0;
+Q.freiheitsbund_timer = 0;
 Q.inter_party_relationships_timer = 0;
 Q.international_relations_timer = 0;
 Q.media_timer = 0;
