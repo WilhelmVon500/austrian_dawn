@@ -1,4 +1,4 @@
-title: Upper Austria Landtag Election
+title: Styria Landtag Election
 new-page: true
 tags: event
 priority: -1
@@ -10,9 +10,9 @@ Q.styria_appointed = Math.ceil(48 * Q.appointed_share);
 !}
 set-jump: post_election
 
-= Upper Austria Landtag Election, [+ month : month +] [+ year +]
+= Styria Landtag Election, [+ month : month +] [+ year +]
 
-The Upper Austrian Landtag elections are to be held now.
+The Styrian Landtag elections are to be held now.
 
 [? if styria_appointed: [+ styria_appointed +] seats are, by Constitution, appointed by the guilds - that means that these seats will be controlled by the <span style="color: #ED2939;">**VF**</span> loyalists. ?]
 
