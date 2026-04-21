@@ -92,6 +92,14 @@ go-to: endorsements_kelsen if oclk_campaign
 
 [? if dnlp_candidate = "Dinghofer": - <span style="color: #0E428E;">**DNLP**</span> ?]
 
+<span style="color: #909090;">**Abstention**</span>
+
+[? if ap_candidate = "Abstain": - <span style="color: #FA5A42;">**AP**</span> ?]
+
+[? if oclk_candidate = "Abstain": - <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ?]
+
+[? if dnlp_candidate = "Abstain": - <span style="color: #0E428E;">**DNLP**</span> ?]
+
 
 
 
@@ -102,7 +110,7 @@ on-arrival: oclk_candidate = "Abstain";
 
 Participating in this vote is not worthy of our time, and we will not field a candidate of our own or support any other.
 
-- @vote: The Bundestag votes...
+- @endorsements_abstain: Can we get other parties to abstain too?
 
 
 
@@ -152,34 +160,83 @@ WIP
 
 We can't win this election alone, we need support from other parties.
 
-- @convince_ap: Convince the <span style="color: #FA5A42;">**AP**</span> to back <span style="color: #EEEE22;">Kelsen</span>.
-- @convince_dnlp: Convince the <span style="color: #0E428E;">**DNLP**</span> to back <span style="color: #EEEE22;">Kelsen</span>.
+- @convince_ap_kelsen: Convince the <span style="color: #FA5A42;">**AP**</span> to back <span style="color: #EEEE22;">Kelsen</span>.
+- @convince_dnlp_kelsen: Convince the <span style="color: #0E428E;">**DNLP**</span> to back <span style="color: #EEEE22;">Kelsen</span>.
 - @view_candidates: View party endorsements.
 - @hope: We have concluded negotiations with other parties.
 
-@convince_ap
+@convince_ap_kelsen
 max-visits: 1
-go-to: convince_ap_success if (ap_ideology = "Moderate" and ap_relation >= 50) or (ap_ideology = "Reformist" and ap_relation >= 40); convince_ap_fail if not ((ap_ideology = "Moderate" and ap_relation >= 50) or (ap_ideology = "Reformist" and ap_relation >= 40))
+go-to: convince_ap_success_kelsen if (ap_ideology = "Moderate" and ap_relation >= 50) or (ap_ideology = "Reformist" and ap_relation >= 40); convince_ap_fail_kelsen if not ((ap_ideology = "Moderate" and ap_relation >= 50) or (ap_ideology = "Reformist" and ap_relation >= 40))
 
 WIP
 
-@convince_ap_success
+@convince_ap_success_kelsen
 on-arrival: ap_campaign = 0; ap_candidate = "Kelsen";
 go-to: endorsements_kelsen
 
 The <span style="color: #FA5A42;">**AP**</span> is convinced! They will be supporting Kelsen for the election.
 
-@convince_ap_fail
+@convince_ap_fail_kelsen
 go-to: endorsements_kelsen
 
 Unfortunately, the <span style="color: #FA5A42;">**AP**</span> is not convinced.
 
 
 
-@convince_dnlp
+@convince_dnlp_kelsen
 unavailable-subtitle: The <span style="color: #0E428E;">**DNLP**</span> will never vote for him.
 choose-if: false
 max-visits: 1
+
+
+
+
+
+@endorsements_abstain
+
+We can try to get other parties to abstain, hurting election winner's legitimacy.
+
+- @convince_ap_abstain: Convince the <span style="color: #FA5A42;">**AP**</span> to abstain.
+- @convince_dnlp_abstain: Convince the <span style="color: #0E428E;">**DNLP**</span> to abstain.
+- @view_candidates: View party endorsements.
+- @hope: We have concluded negotiations with other parties.
+
+@convince_ap_abstain
+max-visits: 1
+go-to: convince_ap_success_abstain if (ap_ideology = "Moderate" and ap_relation >= 40) or (ap_ideology = "Reformist"); convince_ap_fail_abstain if not ((ap_ideology = "Moderate" and ap_relation >= 40) or (ap_ideology = "Reformist"))
+
+WIP
+
+@convince_ap_success_abstain
+on-arrival: ap_campaign = 0; ap_candidate = "Abstain";
+go-to: endorsements_abstain
+
+The <span style="color: #FA5A42;">**AP**</span> is convinced! They will be abstaining.
+
+@convince_ap_fail_abstain
+go-to: endorsements_abstain
+
+Unfortunately, the <span style="color: #FA5A42;">**AP**</span> is not convinced.
+
+
+
+@convince_dnlp_abstain
+max-visits: 1
+go-to: convince_dnlp_success_abstain if (dnlp_ideology = "Reformist" and dnlp_relation >= 40); convince_dnlp_fail_abstain if not ((dnlp_ideology = "Reformist" and dnlp_relation >= 40))
+
+WIP
+
+@convince_dnlp_success_abstain
+on-arrival: dnlp_campaign = 0; dnlp_candidate = "Abstain";
+go-to: endorsements_abstain
+
+The <span style="color: #0E428E;">**DNLP**</span> is convinced! They will be abstaining.
+
+@convince_dnlp_fail_abstain
+go-to: endorsements_abstain
+
+Unfortunately, the <span style="color: #0E428E;">**DNLP**</span> is not convinced.
 
 
 
@@ -219,9 +276,15 @@ if (Q.ap_candidate == "Kelsen") {
 if (Q.ap_candidate == "Renner") {
     Q.renner_votes += Q.ap_seats;
 }
+if (Q.ap_candidate == "Abstain") {
+    Q.abstain_votes += Q.ap_seats;
+}
 
-if (Q.dnlp_candidate == "Dinghofer") {
-    Q.dinghofer_votes += Q.dnlp_seats;
+if (Q.ap_candidate == "Dinghofer") {
+    Q.dinghofer_votes += Q.ap_seats;
+}
+if (Q.ap_candidate == "Abstain") {
+    Q.abstain_votes += Q.ap_seats;
 }
 
 Q.kelsen_percent = parseFloat((Q.kelsen_votes / 2).toFixed(1));
