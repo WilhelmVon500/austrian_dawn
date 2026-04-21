@@ -74,8 +74,6 @@ go-to: endorsements_kelsen if oclk_campaign
 
 [? if oclk_candidate = "Kelsen": - <span style="color: #EEEE22;">**[+ oclk_name +]**</span> ?]
 
-[? if dnlp_candidate = "Kelsen": - <span style="color: #0E428E;">**DNLP**</span> ?]
-
 [? if ap_campaign: <span style="color: #FA5A42;">**Karl Renner**</span> ?]
 
 [? if ap_candidate = "Renner": - <span style="color: #FA5A42;">**AP**</span> ?]
@@ -180,22 +178,8 @@ Unfortunately, the <span style="color: #FA5A42;">**AP**</span> is not convinced.
 
 @convince_dnlp
 unavailable-subtitle: The <span style="color: #0E428E;">**DNLP**</span> will never vote for him.
-choose-if: dnlp_ideology = "Reformist"
+choose-if: false
 max-visits: 1
-go-to: convince_dnlp_success if dnlp_relation >= 50; convince_dnlp_fail if not (dnlp_relation >= 50)
-
-WIP
-
-@convince_dnlp_success
-on-arrival: dnlp_campaign = 0; dnlp_candidate = "Kelsen";
-go-to: endorsements_kelsen
-
-Quite surprisingly, we managed to convince <span style="color: #0E428E;">**DNLP**</span> to support Kelsen for the election!
-
-@convince_dnlp_fail
-go-to: endorsements_kelsen
-
-Unfortunately, even after taking a more liberal course, the <span style="color: #0E428E;">**DNLP**</span> is unwilling to support our candidate.
 
 
 
@@ -236,9 +220,6 @@ if (Q.ap_candidate == "Renner") {
     Q.renner_votes += Q.ap_seats;
 }
 
-if (Q.dnlp_candidate == "Kelsen") {
-    Q.kelsen_votes += Q.dnlp_seats;
-}
 if (Q.dnlp_candidate == "Dinghofer") {
     Q.dinghofer_votes += Q.dnlp_seats;
 }
