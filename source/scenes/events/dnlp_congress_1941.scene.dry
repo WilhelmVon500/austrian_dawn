@@ -17,7 +17,7 @@ WIP
 
 @reformist
 subtitle: Is it really possible to make the <span style="color: #0E428E;">**DNLP**</span> a more democratic party, after all?
-unavailable-subtitle: The reformist wing of the party is too weak.
+unavailable-subtitle: The reformist wing of the party is too minor.
 choose-if: dnlp_relation >= 50
 face-image: img/portraits/StraffnerSepp.jpg
 
