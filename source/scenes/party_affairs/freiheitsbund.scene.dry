@@ -1,0 +1,47 @@
+title: Freiheitsbund
+new-page: true
+is-card: true
+tags: party_affairs
+view-if: freiheitsbund_timer <= 0
+card-image: img/freiheitsbund.jpg
+on-arrival: month_actions += 1; freiheitsbund_timer += 6;
+
+= <span style="color: #63C3D0;">**Freiheitsbund**</span>
+
+WIP
+
+- @fund_fb: Fund more military-style training and equipment for the <span style="color: #63C3D0;">**Freiheitsbund**</span>.
+- @fund_fb_2: Use our existing resources to support more training for the <span style="color: #63C3D0;">**Freiheitsbund**</span>.
+- @same: Keep the <span style="color: #63C3D0;">**Freiheitsbund**</span> as it is.
+- @cut_fb: Cut funding for the <span style="color: #63C3D0;">**Freiheitsbund**</span>.
+- @easy_discard
+- @cancel_advisor_action
+
+@militant
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources (1 needed).
+subtitle: -1 resources
+on-arrival: resources -= 1; fb_strength += 10; christian_left_strength += 2; christian_left_dissent -= 2; workers_oclk += 2*(1-dissent); new_middle_oclk += 2*(1-dissent); vf_relation -= 3 if historical_mode 
+
+WIP
+
+
+@militant_2
+view-if: funded_freiheitsbund >= 1
+on-arrival: fb_strength += 5; funded_freiheitsbund -= 1
+
+As we have already funded resources towards the <span style="color: #63C3D0;">**Freiheitsbund**</span>, we can invest in building up their militancy.
+
+
+@same
+
+The <span style="color: #63C3D0;">**Freiheitsbund**</span> is already serving the purpose it needs to serve. There is no reason to change what already works.
+
+- @return: Continue...
+
+
+@cut_fb
+subtitle: +1 resources
+on-arrival: resources += 1; fb_strength -= 10; christian_left_strength -= 2; christian_left_dissent += 2; workers_ap += 2;
+
+Cutting resources to the <span style="color: #63C3D0;">**Freiheitsbund**</span> causes a drop in the membership.
