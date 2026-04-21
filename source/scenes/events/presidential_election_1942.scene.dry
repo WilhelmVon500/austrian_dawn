@@ -280,11 +280,11 @@ if (Q.ap_candidate == "Abstain") {
     Q.abstain_votes += Q.ap_seats;
 }
 
-if (Q.ap_candidate == "Dinghofer") {
-    Q.dinghofer_votes += Q.ap_seats;
+if (Q.dnlp_candidate == "Dinghofer") {
+    Q.dinghofer_votes += Q.dnlp_seats;
 }
-if (Q.ap_candidate == "Abstain") {
-    Q.abstain_votes += Q.ap_seats;
+if (Q.dnlp_candidate == "Abstain") {
+    Q.abstain_votes += Q.dnlp_seats;
 }
 
 Q.kelsen_percent = parseFloat((Q.kelsen_votes / 2).toFixed(1));
