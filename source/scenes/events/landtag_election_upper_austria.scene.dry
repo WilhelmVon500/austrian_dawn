@@ -37,9 +37,9 @@ for (var c of Q.classes) {
 if (Q.year == 1941) {
     Q.adjustmentFactors_ap_upper_austria = 0.8;
     Q.adjustmentFactors_oclk_upper_austria = 0.6;
-    Q.adjustmentFactors_dnlp_upper_austria = 1.1;
     Q.adjustmentFactors_ovp_upper_austria = 1.0;
     Q.adjustmentFactors_vf_upper_austria = 1.4;
+    Q.adjustmentFactors_dnlp_upper_austria = 1.1;
     Q.adjustmentFactors_other_upper_austria = 0.3;
 }
 
@@ -162,14 +162,6 @@ if (Q.other_seats_upper_austria) {
         "seats": Math.round(Q.other_seats_upper_austria),
     });
 }
-if (Q.dnlp_seats_upper_austria) {
-    data.push({
-        "id": "dnlp",
-        "legend": "DNLP",
-        "name": "DNLP",
-        "seats": Math.round(Q.dnlp_seats_upper_austria),
-    });
-}
 if (Q.ovp_seats_upper_austria) {
     data.push({
         "id": "ovp",
@@ -184,6 +176,14 @@ if (Q.vf_seats_upper_austria) {
         "legend": "VF",
         "name": "VF",
         "seats": Math.round(Q.vf_seats_upper_austria),
+    });
+}
+if (Q.dnlp_seats_upper_austria) {
+    data.push({
+        "id": "dnlp",
+        "legend": "DNLP",
+        "name": "DNLP",
+        "seats": Math.round(Q.dnlp_seats_upper_austria),
     });
 }
              
@@ -216,11 +216,11 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#FA5A42'> </div> !} AP: {!</td><td>!} [+ ap_election_votes_upper_austria +]% {!</td><td>!} [+ ap_seats_upper_austria +] ([+ ap_ul +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes_upper_austria +]% {!</td><td>!} [+ dnlp_seats_upper_austria +] ([+ dnlp_ul +]%) {!</td></tr>!}
-
 [? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} ÖVP: {!</td><td>!} [+ ovp_election_votes_upper_austria +]% {!</td><td>!} [+ ovp_seats_upper_austria +] ([+ ovp_ul +]%) {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#ED2939'> </div> !} VF: {!</td><td>!} [+ vf_election_votes_upper_austria +]% {!</td><td>!} [+ vf_seats_upper_austria +] ([+ vf_ul +]%) {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes_upper_austria +]% {!</td><td>!} [+ dnlp_seats_upper_austria +] ([+ dnlp_ul +]%) {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#909090'> </div> !} Other: {!</td><td>!} [+ other_election_votes_upper_austria +]% {!</td><td>!} [+ other_seats_upper_austria +] ([+ other_ul +]%) {!</td></tr>!}
 {!</table>!}
