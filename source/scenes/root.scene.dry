@@ -256,6 +256,10 @@ Q.defense_minister_party = 'I';
 Q.science = 0;
 Q.education_science = 0;
 
+// labor
+Q.working_hours = 48;
+Q.independent_unions_legal = 0;
+
 // Tax rates relative to 1941 baseline
 Q.lower_tax_rates = 0;
 Q.upper_tax_rates = 0;
