@@ -37,9 +37,9 @@ for (var c of Q.classes) {
 if (Q.year == 1941) {
     Q.adjustmentFactors_ap_vienna = 1.7;
     Q.adjustmentFactors_oclk_vienna = 1.1;
-    Q.adjustmentFactors_dnlp_vienna = 0.75;
     Q.adjustmentFactors_ovp_vienna = 1.0;
     Q.adjustmentFactors_vf_vienna = 1.05;
+    Q.adjustmentFactors_dnlp_vienna = 0.75;
     Q.adjustmentFactors_other_vienna = 0.5;
 }
 
@@ -162,14 +162,6 @@ if (Q.other_seats_vienna) {
         "seats": Math.round(Q.other_seats_vienna),
     });
 }
-if (Q.dnlp_seats_vienna) {
-    data.push({
-        "id": "dnlp",
-        "legend": "DNLP",
-        "name": "DNLP",
-        "seats": Math.round(Q.dnlp_seats_vienna),
-    });
-}
 if (Q.ovp_seats_vienna) {
     data.push({
         "id": "ovp",
@@ -184,6 +176,14 @@ if (Q.vf_seats_vienna) {
         "legend": "VF",
         "name": "VF",
         "seats": Math.round(Q.vf_seats_vienna),
+    });
+}
+if (Q.dnlp_seats_vienna) {
+    data.push({
+        "id": "dnlp",
+        "legend": "DNLP",
+        "name": "DNLP",
+        "seats": Math.round(Q.dnlp_seats_vienna),
     });
 }
              
@@ -216,11 +216,11 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#FA5A42'> </div> !} AP: {!</td><td>!} [+ ap_election_votes_vienna +]% {!</td><td>!} [+ ap_seats_vienna +] ([+ ap_wl +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes_vienna +]% {!</td><td>!} [+ dnlp_seats_vienna +] ([+ dnlp_wl +]%) {!</td></tr>!}
-
 [? if ovp_exist: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} ÖVP: {!</td><td>!} [+ ovp_election_votes_vienna +]% {!</td><td>!} [+ ovp_seats_vienna +] ([+ ovp_wl +]%) {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#ED2939'> </div> !} VF: {!</td><td>!} [+ vf_election_votes_vienna +]% {!</td><td>!} [+ vf_seats_vienna +] ([+ vf_wl +]%) {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#0E428E'> </div> !} DNLP: {!</td><td>!} [+ dnlp_election_votes_vienna +]% {!</td><td>!} [+ dnlp_seats_vienna +] ([+ dnlp_wl +]%) {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#909090'> </div> !} Other: {!</td><td>!} [+ other_election_votes_vienna +]% {!</td><td>!} [+ other_seats_vienna +] ([+ other_wl +]%) {!</td></tr>!}
 {!</table>!}
