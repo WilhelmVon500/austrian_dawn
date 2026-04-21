@@ -349,7 +349,7 @@ Q.timers = ['advisor_action', 'fundraising', 'ideology', 'freiheitsbund',
             'media', 'enemies', 'party_organizations', 'rally',
             'shuffle_leadership', 'streetfighting', 'party_disunity',
             // govt
-            'coalition_affairs',
+            'coalition_affairs', 'labor_rights_timer',
             // events
             ];
 Q.advisor_action_timer = 0;
@@ -378,6 +378,7 @@ Q.next_election_month = 11;
 Q.next_election_time = 23;
 // government affairs timers
 Q.coalition_affairs_timer = 0;
+Q.labor_rights_timer = 0;
 // event timers
 
 
