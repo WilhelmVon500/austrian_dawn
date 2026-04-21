@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 tags: govt_affairs, cabinet
 on-arrival: labor_policy_timer += 6; month_actions += 1
-view-if: oclk_in_government and social_minister_party = oclk_name and labor_rights_timer <= 0
+view-if: oclk_in_government and social_minister_party = oclk_name and labor_policy_timer <= 0
 card-image: img/portraits/DobretsbergerJosef.jpg
 
 = Labor Policy
