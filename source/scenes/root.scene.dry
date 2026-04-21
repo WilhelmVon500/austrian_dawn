@@ -113,13 +113,12 @@ Q.capital_strike_progress = 0;
 Q.budget = 4;
 
 // Proportion of different social groups
-Q.workers = 48; // industry and trade
-Q.old_middle = 13; // "old mittelstand"
-// 16.4 trade & commerce, 6.6 public and private services, 4.4 domestic help
-Q.new_middle = 14; // "new mittelstand"
-Q.rural = 25; // agriculture and forestry employment... but many of those are proletarians so...
+Q.workers = 42; // industry and trade
+Q.new_middle = 16; // "new mittelstand"
+Q.old_middle = 11; // "old mittelstand"
+Q.rural = 31;
 Q.unemployed = 11.9;
-Q.catholics = 30;
+Q.catholics = 0;
 
 Q.inflation = 4.9;
 Q.economic_growth = 3.1;
