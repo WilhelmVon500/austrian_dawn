@@ -119,7 +119,7 @@ Justice: [+ justice_minister +] ([?if justice_minister_party = "I":<span style="
 
 Finance: [+ finance_minister +] ([?if finance_minister_party = "I":<span style="color: #808080;">**I**</span>?][?if finance_minister_party = oclk_name: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>?][?if finance_minister_party = "VF": <span style="color: #ED2939;">**VF**</span>?])
 
-Trade and Communications: [+ economic_minister +] ([?if economic_minister_party = "I":<span style="color: #808080;">**I**</span>?][?if economic_minister_party = oclk_name: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>?][?if economic_minister_party = "VF": <span style="color: #ED2939;">**VF**</span>?])
+Commerce and Communications: [+ economic_minister +] ([?if economic_minister_party = "I":<span style="color: #808080;">**I**</span>?][?if economic_minister_party = oclk_name: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>?][?if economic_minister_party = "VF": <span style="color: #ED2939;">**VF**</span>?])
 
 Social Affairs: [+ social_minister +] ([?if social_minister_party = "I":<span style="color: #808080;">**I**</span>?][?if social_minister_party = oclk_name: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>?][?if social_minister_party = "VF": <span style="color: #ED2939;">**VF**</span>?])
 
