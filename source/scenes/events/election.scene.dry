@@ -290,6 +290,7 @@ Rudolf Hoyos-Sprinzenstein is elected to be the President of Bundestag.
 title: There are some potential coalition arrangements.
 
 - @vf_majority
+- @oclk_majority
 
 
 
@@ -297,6 +298,7 @@ title: There are some potential coalition arrangements.
 
 @vf_majority
 title: The <span style="color: #ED2939;">**VF**</span> forms a majority government!
+view-if: vf_seats >= 101
 on-arrival: in_vf_majority = 1;
 
 WIP
@@ -307,5 +309,23 @@ WIP
 title: Schuschnigg will be the Chancellor.
 face-image: img/portraits/SchuschniggKurt.jpg
 on-arrival: chancellor = "Schuschnigg"; chancellor_party = "VF"; vice_chancellor = 'Skubl' if not president = "Skubl"; vice_chancellor = 'Zernatto' if president = "Skubl"; vice_chancellor_party = 'VF'; foreign_minister = 'Berger-Waldenegg'; foreign_minister_party = 'VF'; interior_minister = 'Skubl'; interior_minister_party = 'VF'; justice_minister = 'Schuschnigg'; justice_minister_party = 'VF'; finance_minister = 'Draxler'; finance_minister_party = 'VF'; economic_minister = 'Raab'; economic_minister_party = 'VF'; social_minister = 'Neustädter-Stürmer'; social_minister_party = 'VF'; agriculture_minister = 'Mandorfer'; agriculture_minister_party = 'VF'; defense_minister = 'Zehner'; defense_minister_party = 'I';
+
+WIP
+
+
+
+@oclk_majority
+title: We can form a majority government!
+view-if: oclk_seats >= 101
+on-arrival: in_oclk_majority = 1; vice_chancellor = 'Vacant'; vice_chancellor_party = 'I'; foreign_minister = 'Schüller'; foreign_minister_party = oclk_name; interior_minister = 'Klang'; interior_minister_party = oclk_name; justice_minister = 'Adamovich'; justice_minister_party = oclk_name; finance_minister = 'Stolper'; finance_minister_party = oclk_name; economic_minister = 'Hayek'; economic_minister_party = oclk_name; social_minister = 'Dobretsberger'; social_minister_party = oclk_name; agriculture_minister = 'Reither'; agriculture_minister_party = oclk_name; defense_minister = 'TBD'; defense_minister_party = oclk_name;
+
+WIP
+
+- @reither
+
+@reither
+title: Josef Reither will be the Chancellor.
+face-image: img/portraits/ReitherJosef.jpg
+on-arrival: chancellor = "Reither"; chancellor_party = oclk_name;
 
 WIP
