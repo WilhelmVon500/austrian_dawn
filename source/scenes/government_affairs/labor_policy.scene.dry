@@ -9,6 +9,7 @@ card-image: img/portraits/DobretsbergerJosef.jpg
 = Labor Policy
 
 - @working_hours_45: Shorten work hours from 48 to 45 hours.
+- @working_hours_40: Shorten work hours to 40 hours.
 - @safety: Develop and enforce safety regulations.
 - @unions: Fully legalize independent trade unions.
 - @root: Do not enact any policies.
@@ -16,9 +17,15 @@ card-image: img/portraits/DobretsbergerJosef.jpg
 
 @working_hours_45
 view-if: working_hours = 48
-on-arrival: working_hours = 45; christian_left_strength += 5; christian_left_dissent -= 5; classical_liberal_dissent += 5; ap_relation += 4; workers_oclk += 5*(1-dissent); new_middle_oclk += 5*(1-dissent);
+on-arrival: working_hours = 45; christian_left_strength += 5; christian_left_dissent -= 5; classical_liberal_dissent += 5; ap_relation += 4; workers_oclk += 2*(1-dissent); new_middle_oclk += 5*(1-dissent);
 
-We have shortened the work week by 3 hours. This is extremely popular among our left and labor wing, and improves our relations with the <span style="color: #FA5A42;">**AP**</span>.
+We have shortened the work week by 3 hours. This is popular among our left and labor wing, and improves our relations with the <span style="color: #FA5A42;">**AP**</span>.
+
+@working_hours_40
+view-if: working_hours = 45
+on-arrival: working_hours = 40; christian_left_strength += 5; christian_left_dissent -= 5; classical_liberal_dissent += 5; ap_relation += 7; workers_oclk += 5*(1-dissent); new_middle_oclk += 7*(1-dissent);
+
+We have shortened the work week to 40 hours! This is an extremely popular decision that helps us to gain more support among both blue-collar and white-collar workers and improve relations with the <span style="color: #FA5A42;">**AP**</span>.
 
 
 @safety
