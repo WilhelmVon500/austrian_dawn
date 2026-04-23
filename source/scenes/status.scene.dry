@@ -33,6 +33,8 @@ President: [+ president +] ([?if president_party = "VF": <span style="color: #ED
 
 Chancellor: [+ chancellor +] ([?if chancellor_party = "I":<span style="color: #808080;">**I**</span>?][?if chancellor_party = oclk_name: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>?][?if chancellor_party = "VF": <span style="color: #ED2939;">**VF**</span>?])
 
+Vice-Chancellor: [+ vice_chancellor +] ([?if vice_chancellor_party = "I":<span style="color: #808080;">**I**</span>?][?if vice_chancellor_party = oclk_name: <span style="color: #EEEE22;">**[+ oclk_name +]**</span>?][?if vice_chancellor_party = "VF": <span style="color: #ED2939;">**VF**</span>?])
+
 [? if oclk_in_government = 1 : Budget: [+ budget +] ?]
 
 = Bundestag
