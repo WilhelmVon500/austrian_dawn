@@ -1,0 +1,68 @@
+title: Questions of Ideology
+new-page: true
+is-card: true
+tags: party_affairs
+view-if: ideology_timer = 0
+on-arrival: month_actions += 1; old_ideology = ideology; ideology_timer = 18
+card-image: img/ideology.jpg
+
+= Questions of Ideology
+
+The <span style="color: #EEEE22;">**[+ oclk_name +]**</span> is torn between different ideological currents. What should be our primary ideological guidance for now?
+
+[? if ideology != 0 : We have previously chosen a [+ ideology +] ideology. Changing it will likely have drawbacks. ?]
+
+- @moderate_right: Cooperation with moderates to our right is the best way to reform Austria.
+- @classical_liberal: The classical liberalism remains the best way to resolve our problems.
+- @social_liberal: We should focus our efforts on democratization.
+- @christian_left: We should work with the Christian trade unions to improve the lives of Austrians.
+- @easy_discard
+
+@class_struggle
+on-arrival: {!
+if (Q.ideology && Q.ideology != "moderate right") {
+    Q.changed = 1;
+}
+!}
+go-to: changed if changed = 1
+on-departure: ideology = "moderate right"; moderate_right_strength += 10; moderate_right_dissent -= 5;
+
+WIP.
+
+@centrist
+on-arrival: {!
+if (Q.ideology && Q.ideology != "classical liberal") {
+    Q.changed = 1;
+}
+!}
+go-to: changed if changed = 1
+on-departure: ideology = "classical liberal"; classical_liberal_strength += 10; classical_liberal_dissent -= 5;
+
+WIP.
+
+@labor
+on-arrival: {!
+if (Q.ideology && Q.ideology != "social liberal") {
+    Q.changed = 1;
+}
+!}
+go-to: changed if changed = 1
+on-departure: ideology = "social liberal"; social_liberal_strength += 10; social_liberal_dissent -= 5;
+
+WIP.
+
+@reform
+on-arrival: {!
+if (Q.ideology && Q.ideology != "christian left") {
+    Q.changed = 1;
+}
+!}
+go-to: changed if changed = 1
+on-departure: ideology = "christian left"; christian_left_strength += 10; christian_left_dissent -= 5;
+
+WIP.
+
+@changed
+on-arrival: moderate_right_dissent += 5; classical_liberal_dissent += 5; social_liberal_dissent += 5; christian_left_dissent += 5
+
+We have changed ideologies. Many in the party feel unmoored.
