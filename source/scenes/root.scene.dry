@@ -252,11 +252,10 @@ Q.defense_minister_party = 'I';
 // Events: what has occurred?
 
 // have we reformed these institutions to be more democratic?
+Q.judicial_reform = 0;
+
 Q.science = 0;
 Q.education_science = 0;
-
-// judiciary
-Q.judiciary_reform = 0;
 
 // labor
 Q.working_hours = 48;
