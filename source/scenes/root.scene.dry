@@ -255,6 +255,9 @@ Q.defense_minister_party = 'I';
 Q.science = 0;
 Q.education_science = 0;
 
+// judiciary
+Q.judiciary_reform = 0;
+
 // labor
 Q.working_hours = 48;
 Q.independent_unions_legal = 0;
